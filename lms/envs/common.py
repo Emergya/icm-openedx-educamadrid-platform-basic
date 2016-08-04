@@ -1761,6 +1761,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'djcelery',
+    'django_auth_ldap',
 
     # Common views
     'openedx.core.djangoapps.common_views',
@@ -2680,3 +2681,81 @@ CCX_MAX_STUDENTS_ALLOWED = 200
 # financial assistance form
 FINANCIAL_ASSISTANCE_MIN_LENGTH = 800
 FINANCIAL_ASSISTANCE_MAX_LENGTH = 2500
+
+########################################################################
+# LDAP Authentication
+########################################################################
+
+import ldap
+from django_auth_ldap.config import LDAPSearchUnion, LDAPSearch, GroupsByBranchType
+
+# AUTH_LDAP_GLOBAL_OPTIONS = {
+#     ldap.OPT_X_TLS_REQUIRE_CERT: False,
+#     ldap.OPT_REFERRALS: False,
+# }
+
+# Baseline configuration.
+# Here put the LDAP URL of your server
+AUTH_LDAP_SERVER_URI = "ldap://dev-icm-openedx-educamadrid.emergya.com"
+# Let the bind DN and bind password blankuc for anonymous binding
+AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
+AUTH_LDAP_BIND_PASSWORD = ""
+AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(objectClass=organizationalUnit)")
+
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {
+        "is_staff": "",
+        "is_active": "",
+        "is_superuser": ""
+}
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+    ldap.OPT_X_TLS_REQUIRE_CERT: False,
+    ldap.OPT_REFERRALS: False,
+}
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "cn",
+    "last_name": "cn",
+    "email": "mail"
+}
+
+
+AUTH_LDAP_MIRROR_GROUPS = False
+# This is the default, but I like to be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Use LDAP group membership to calculate group permissions.
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+# # Cache group memberships for an hour to minimize LDAP traffic
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 1
+
+# Keep ModelBackend around for per-user permissions and maybe a local
+# superuser.
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+from django_auth_ldap.config import LDAPSearch, PosixGroupType
+
+#
+# !important# Keep ModelBackend around for per-user permissions and
+# maybe a local superuser.
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+import logging
+
+logger = logging.getLogger('django_auth_ldap')
+logger.addHandler(logging.StreamHandler())
+logger.setLevel(logging.DEBUG)
