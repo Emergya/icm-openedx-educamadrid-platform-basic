@@ -246,3 +246,57 @@ class AccountCreationForm(forms.Form):
             for key, value in self.cleaned_data.items()
             if key in self.extended_profile_fields and value is not None
         }
+
+
+class LdapAccountCreationForm(AccountCreationForm):
+    """
+    Form to create a LDAP account
+    """
+    username = forms.SlugField(
+        min_length=2,
+        max_length=30,
+        required=False
+    )
+    email = forms.EmailField(
+        max_length=100,  # Limit per RFCs is 254, but User's email field in django 1.4 only takes 75
+        error_messages={
+            "required": _EMAIL_INVALID_MSG,
+            "invalid": _EMAIL_INVALID_MSG,
+            "max_length": _("Email cannot be more than %(limit_value)s characters long"),
+        }
+    )
+    password = forms.CharField(
+        min_length=2,
+        error_messages={
+            "required": _PASSWORD_INVALID_MSG,
+            "min_length": _PASSWORD_INVALID_MSG,
+        }
+    )
+    name = forms.CharField(
+        min_length=2,
+        required=False
+    )
+
+    def __init__(
+            self,
+            data=None,
+            extra_fields=None,
+            extended_profile_fields=None,
+            enforce_username_neq_password=False,
+            enforce_password_policy=False,
+            tos_required=True
+    ):
+        super(AccountCreationForm, self).__init__(data)
+
+        extra_fields = extra_fields or {}
+        self.extended_profile_fields = extended_profile_fields or {}
+        self.enforce_username_neq_password = enforce_username_neq_password
+        self.enforce_password_policy = enforce_password_policy
+        if tos_required:
+            self.fields["terms_of_service"] = TrueField(
+                error_messages={"required": _("You must accept the terms of service.")}
+            )
+
+        for field in self.extended_profile_fields:
+            if field not in self.fields:
+                self.fields[field] = forms.CharField(required=False)
