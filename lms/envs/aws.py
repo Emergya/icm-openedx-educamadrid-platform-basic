@@ -748,7 +748,8 @@ from django_auth_ldap.config import PosixGroupType
 
 # Baseline configuration.
 # Here put the LDAP URL of your server
-AUTH_LDAP_SERVER_URI = "ldap://dev-icm-openedx-educamadrid.emergya.com"
+AUTH_LDAP_SERVER_URI = "ldap://localhost"
+#AUTH_LDAP_SERVER_URI = "ldap://dev-icm-openedx-educamadrid.emergya.com"
 # Let the bind DN and bind password blankuc for anonymous binding
 AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
 AUTH_LDAP_BIND_PASSWORD = ""
