@@ -21,6 +21,7 @@ from django.contrib.auth.views import password_reset_confirm
 from django.contrib import messages
 from django.core.context_processors import csrf
 from django.core import mail
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse, NoReverseMatch
 from django.core.validators import validate_email, ValidationError
 from django.db import IntegrityError, transaction
@@ -54,7 +55,7 @@ from student.models import (
     CourseEnrollmentAllowed, UserStanding, LoginFailures,
     create_comments_service_user, PasswordHistory, UserSignupSource,
     DashboardConfiguration, LinkedInAddToProfileConfiguration, ManualEnrollmentAudit, ALLOWEDTOENROLL_TO_ENROLLED)
-from student.forms import AccountCreationForm, PasswordResetFormNoActive
+from student.forms import AccountCreationForm, PasswordResetFormNoActive, LdapAccountCreationForm
 
 from lms.djangoapps.verify_student.models import SoftwareSecurePhotoVerification
 from certificates.models import CertificateStatuses, certificate_status_for_student
@@ -420,9 +421,12 @@ def signin_user(request):
 @ensure_csrf_cookie
 def register_user(request, extra_context=None):
     """Deprecated. To be replaced by :class:`student_account.views.login_and_registration_form`."""
+    import ipdb; ipdb.set_trace()
     # Determine the URL to redirect to following login:
     redirect_to = get_next_url_for_login_page(request)
-    if request.user.is_authenticated():
+    profile = UserProfile.objects.get(user=request.user)
+
+    if request.user.is_authenticated() and profile.age is not None and profile.gender is not None:
         return redirect(redirect_to)
 
     external_auth_response = external_auth_register(request)
@@ -431,8 +435,8 @@ def register_user(request, extra_context=None):
 
     context = {
         'login_redirect_url': redirect_to,  # This gets added to the query string of the "Sign In" button in the header
-        'email': '',
-        'name': '',
+        'email': request.user.email,
+        'name': request.user.first_name + ' ' + ' ' + request.user.last_name,
         'running_pipeline': None,
         'pipeline_urls': auth_pipeline_urls(pipeline.AUTH_ENTRY_REGISTER, redirect_url=redirect_to),
         'platform_name': microsite.get_value(
@@ -440,7 +444,7 @@ def register_user(request, extra_context=None):
             settings.PLATFORM_NAME
         ),
         'selected_provider': '',
-        'username': '',
+        'username': request.user.username,
     }
 
     if extra_context is not None:
@@ -460,7 +464,7 @@ def register_user(request, extra_context=None):
             overrides['selected_provider'] = current_provider.name
             context.update(overrides)
 
-    return render_to_response('register.html', context)
+    return render_to_response('register_ldap.html', context)
 
 
 def complete_course_mode_info(course_id, enrollment, modes=None):
@@ -1048,7 +1052,6 @@ def change_enrollment(request, check_access=True):
 @ensure_csrf_cookie
 def login_user(request, error=""):  # pylint: disable=too-many-statements,unused-argument
     """AJAX request to log in the user."""
-
     backend_name = None
     email = None
     password = None
@@ -1103,16 +1106,19 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
                 "success": False,
                 "value": _('There was an error receiving your login information. Please email us.'),  # TODO: User error message
             })  # TODO: this should be status code 400  # pylint: disable=fixme
-
         email = request.POST['email']
         password = request.POST['password']
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
-            if settings.FEATURES['SQUELCH_PII_IN_LOGS']:
-                AUDIT_LOG.warning(u"Login failed - Unknown user email")
-            else:
-                AUDIT_LOG.warning(u"Login failed - Unknown user email: {0}".format(email))
+            try:
+                params = {'email':email, 'password': password}
+                # user = create_account_with_params(request, params)
+            except:
+                if settings.FEATURES['SQUELCH_PII_IN_LOGS']:
+                    AUDIT_LOG.warning(u"Login failed - Unknown user email")
+                else:
+                    AUDIT_LOG.warning(u"Login failed - Unknown user email: {0}".format(email))
 
     # check if the user has a linked shibboleth account, if so, redirect the user to shib-login
     # This behavior is pretty much like what gmail does for shibboleth.  Try entering some @stanford.edu
@@ -1154,7 +1160,7 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
 
     if not third_party_auth_successful:
         try:
-            user = authenticate(username=username, password=password, request=request)
+            user = authenticate(username=email, password=password)
         # this occurs when there are too many attempts from the same IP address
         except RateLimitException:
             return JsonResponse({
@@ -1212,7 +1218,12 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
         try:
             # We do not log here, because we have a handler registered
             # to perform logging on successful logins.
+            redirect_url = None  # The AJAX method calling should know the default destination upon success
             login(request, user)
+            profile, created = UserProfile.objects.get_or_create(user=user)
+            import ipdb; ipdb.set_trace()
+            if created:
+                redirect_url = 'register'
             if request.POST.get('remember') == 'true':
                 request.session.set_expiry(604800)
                 log.debug("Setting user session to never expire")
@@ -1224,7 +1235,6 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
             log.exception(exc)
             raise
 
-        redirect_url = None  # The AJAX method calling should know the default destination upon success
         if third_party_auth_successful:
             redirect_url = pipeline.get_complete_url(backend_name)
 
@@ -1562,13 +1572,14 @@ def create_account_with_params(request, params):
         )
     )
 
-    form = AccountCreationForm(
+    # If we want activate the normal register method we must changed this form for AccountCreationForm.
+    form = LdapAccountCreationForm(
         data=params,
-        extra_fields=extra_fields,
+        extra_fields={},
         extended_profile_fields=extended_profile_fields,
         enforce_username_neq_password=True,
         enforce_password_policy=enforce_password_policy,
-        tos_required=tos_required,
+        tos_required=False,
     )
 
     # Perform operations within a transaction that are critical to account creation
@@ -1680,6 +1691,8 @@ def create_account_with_params(request, params):
     # the other for *new* systems. we need to be careful about
     # changing settings on a running system to make sure no users are
     # left in an inconsistent state (or doing a migration if they are).
+    new_user = authenticate(username=user.email, password=params['password'])
+
     send_email = (
         not settings.FEATURES.get('SKIP_EMAIL_VALIDATION', None) and
         not settings.FEATURES.get('AUTOMATIC_AUTH_FOR_TESTING') and
@@ -1721,7 +1734,6 @@ def create_account_with_params(request, params):
     # Immediately after a user creates an account, we log them in. They are only
     # logged in until they close the browser. They can't log in again until they click
     # the activation link from the email.
-    new_user = authenticate(username=user.username, password=params['password'])
     login(request, new_user)
     request.session.set_expiry(0)
 

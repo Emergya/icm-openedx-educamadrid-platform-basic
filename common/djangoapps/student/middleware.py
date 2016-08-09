@@ -2,10 +2,13 @@
 Middleware that checks user standing for the purpose of keeping users with
 disabled accounts from accessing the site.
 """
-from django.http import HttpResponseForbidden
-from django.utils.translation import ugettext as _
 from django.conf import settings
-from student.models import UserStanding
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseForbidden
+from django.shortcuts import redirect
+from django.utils.translation import ugettext as _
+
+from student.models import UserStanding, UserProfile
 
 
 class UserStandingMiddleware(object):
@@ -34,3 +37,26 @@ class UserStandingMiddleware(object):
                     ),
                 )
                 return HttpResponseForbidden(msg)
+
+
+class MandatoryFieldsMiddleware(object):
+    """
+    Middleware: If a user hasn't got the mandatory fields (in this case: comuni), it will be redirected to the user form.
+    """
+
+    def process_view(self, request, view_func, view_args, view_kwargs):  # pylint: disable=unused-argument
+        user = request.user
+
+        # Only obey to the user if it exists
+        try:
+            profile = UserProfile.objects.get(user_id=user.id)
+            form_to_update_profile = reverse('student.docencia_view.update')
+            notRedirectFor = (form_to_update_profile, reverse('student.views.logout_user'), reverse('student.views.create_account'),)
+
+            # It's not the form (avoid inifinite redirect) and hasn't got comuni or instructor
+            if not any([(request.path == url) for url in notRedirectFor]) and (profile.comuni == '' or profile.esdoce == ''):
+                return redirect(form_to_update_profile)
+        except UserProfile.DoesNotExist:
+            pass
+
+        return None

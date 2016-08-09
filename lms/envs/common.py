@@ -2703,15 +2703,6 @@ AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
 AUTH_LDAP_BIND_PASSWORD = ""
 AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
                                     ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
-logger.warn('PASANDO POR LDAP')
 
 AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",

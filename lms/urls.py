@@ -99,8 +99,8 @@ urlpatterns = (
     url(r'^api/commerce/', include('commerce.api.urls', namespace='commerce_api')),
     url(r'^api/credit/', include('openedx.core.djangoapps.credit.urls', app_name="credit", namespace='credit')),
 )
-
-if settings.FEATURES["ENABLE_COMBINED_LOGIN_REGISTRATION"]:
+#TODO ESTO ES UNA PRUEBA, DEBEMOS DESACTIVAR ESTA VARIABLE Y PONER EL IF A TRUE
+if settings.FEATURES["ENABLE_COMBINED_LOGIN_REGISTRATION"] is False:
     # Backwards compatibility with old URL structure, but serve the new views
     urlpatterns += (
         url(r'^login$', 'student_account.views.login_and_registration_form',
