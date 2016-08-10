@@ -55,7 +55,7 @@ from student.models import (
     CourseEnrollmentAllowed, UserStanding, LoginFailures,
     create_comments_service_user, PasswordHistory, UserSignupSource,
     DashboardConfiguration, LinkedInAddToProfileConfiguration, ManualEnrollmentAudit, ALLOWEDTOENROLL_TO_ENROLLED)
-from student.forms import AccountCreationForm, PasswordResetFormNoActive, LdapAccountCreationForm
+from student.forms import AccountCreationForm, PasswordResetFormNoActive, LdapAccountCreationForm, CreateProfileFromLDAPForm
 
 from lms.djangoapps.verify_student.models import SoftwareSecurePhotoVerification
 from certificates.models import CertificateStatuses, certificate_status_for_student
@@ -464,7 +464,7 @@ def register_user(request, extra_context=None):
             overrides['selected_provider'] = current_provider.name
             context.update(overrides)
 
-    return render_to_response('register_ldap.html', context)
+    return render_to_response('register_ldap.html', context)  if 'ENABLE_LDAP_AUTH' in settings else render_to_response('register.html', context)
 
 
 def complete_course_mode_info(course_id, enrollment, modes=None):
@@ -1765,7 +1765,7 @@ def create_account(request, post_override=None):
     Used by form in signup_modal.html, which is included into navigation.html
     """
     warnings.warn("Please use RegistrationView instead.", DeprecationWarning)
-
+    import ipdb;ipdb.set_trace()
     try:
         user = create_account_with_params(request, post_override or request.POST)
     except AccountValidationError as exc:
@@ -2352,3 +2352,76 @@ def _get_course_programs(user, user_enrolled_courses):  # pylint: disable=invali
                 log.warning('Program structure is invalid, skipping display: %r', program)
 
     return programs_data
+
+@csrf_exempt
+def fill_fields_new_ldap_login(request):
+    try:
+        fill_user_profile(request.user, request.POST)
+    except AccountValidationError as exc:
+        return JsonResponse({'success': False, 'value': exc.message, 'field': exc.field}, status=400)
+    except ValidationError as exc:
+        field, error_list = next(exc.message_dict.iteritems())
+        return JsonResponse(
+            {
+                "success": False,
+                "field": field,
+                "value": error_list[0],
+            },
+            status=400
+        )
+
+    redirect_url = None  # The AJAX method calling should know the default destination upon success
+
+    response = JsonResponse({
+        'success': True,
+        'redirect_url': redirect_url,
+    })
+    return response
+
+
+
+def fill_user_profile(user, fields):
+
+    params = dict(fields.items())
+
+    extended_profile_fields = microsite.get_value('extended_profile_fields', [])
+
+    do_external_auth = False
+
+    enforce_password_policy = (
+        settings.FEATURES.get("ENFORCE_PASSWORD_POLICY", False) and
+        not do_external_auth
+    )
+
+    extra_fields = microsite.get_value(
+        'REGISTRATION_EXTRA_FIELDS',
+        getattr(settings, 'REGISTRATION_EXTRA_FIELDS', {})
+    )
+
+    form = CreateProfileFromLDAPForm(
+        data=params,
+        extra_fields=extra_fields,
+        extended_profile_fields=extended_profile_fields,
+        enforce_username_neq_password=True,
+        enforce_password_policy=enforce_password_policy,
+        tos_required=True,
+    )
+
+    # validate with form
+    if not form.is_valid():
+        raise ValidationError(form.errors)
+
+    profile_fields = [
+        "level_of_education", "gender", "mailing_address", "city", "country", "goals",
+        "year_of_birth"
+    ]
+
+    profile = user.profile
+    for key in profile_fields:
+        setattr(user.profile, key, form.cleaned_data.get(key))
+
+    try:
+        profile.save()
+    except Exception:  # pylint: disable=broad-except
+        log.exception("UserProfile creation failed for user {id}.".format(id=user.id))
+        raise
