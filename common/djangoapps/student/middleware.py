@@ -41,20 +41,21 @@ class UserStandingMiddleware(object):
 
 class MandatoryFieldsMiddleware(object):
     """
-    Middleware: If a user hasn't got the mandatory fields (in this case: comuni), it will be redirected to the user form.
+    Middleware: If a user hasn't got the mandatory fields (in this case: gender), it will be redirected to the user form.
     """
 
     def process_view(self, request, view_func, view_args, view_kwargs):  # pylint: disable=unused-argument
         user = request.user
-
         # Only obey to the user if it exists
         try:
             profile = UserProfile.objects.get(user_id=user.id)
-            form_to_update_profile = reverse('student.docencia_view.update')
-            notRedirectFor = (form_to_update_profile, reverse('student.views.logout_user'), reverse('student.views.create_account'),)
+            form_to_update_profile = reverse('student.views.register_user')
+            not_redirect = (form_to_update_profile, reverse('student.views.logout_user'),
+                            reverse('student.views.signin_user'),
+                            reverse('student.views.fill_fields_new_ldap_login'))
 
-            # It's not the form (avoid inifinite redirect) and hasn't got comuni or instructor
-            if not any([(request.path == url) for url in notRedirectFor]) and (profile.comuni == '' or profile.esdoce == ''):
+            # It's not the form (avoid inifinite redirect) and hasn't got gender or age
+            if not any([(request.path == url) for url in not_redirect]) and (profile.gender is None or profile.age is None):
                 return redirect(form_to_update_profile)
         except UserProfile.DoesNotExist:
             pass
