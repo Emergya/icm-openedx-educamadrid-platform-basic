@@ -421,7 +421,6 @@ def signin_user(request):
 @ensure_csrf_cookie
 def register_user(request, extra_context=None):
     """Deprecated. To be replaced by :class:`student_account.views.login_and_registration_form`."""
-    import ipdb; ipdb.set_trace()
     # Determine the URL to redirect to following login:
     redirect_to = get_next_url_for_login_page(request)
     profile = UserProfile.objects.get(user=request.user)
@@ -1221,9 +1220,11 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
             redirect_url = None  # The AJAX method calling should know the default destination upon success
             login(request, user)
             profile, created = UserProfile.objects.get_or_create(user=user)
-            import ipdb; ipdb.set_trace()
             if created:
                 redirect_url = 'register'
+                profile.email = user.email
+                profile.name = user.first_name + ' ' + ' ' + user.last_name
+                profile.save()
             if request.POST.get('remember') == 'true':
                 request.session.set_expiry(604800)
                 log.debug("Setting user session to never expire")
@@ -1765,7 +1766,6 @@ def create_account(request, post_override=None):
     Used by form in signup_modal.html, which is included into navigation.html
     """
     warnings.warn("Please use RegistrationView instead.", DeprecationWarning)
-    import ipdb;ipdb.set_trace()
     try:
         user = create_account_with_params(request, post_override or request.POST)
     except AccountValidationError as exc:
