@@ -423,8 +423,11 @@ def register_user(request, extra_context=None):
     """Deprecated. To be replaced by :class:`student_account.views.login_and_registration_form`."""
     # Determine the URL to redirect to following login:
     redirect_to = get_next_url_for_login_page(request)
-    profile = UserProfile.objects.get(user=request.user)
-
+    try:
+        profile = UserProfile.objects.get(user=request.user.id)
+    except ObjectDoesNotExist:
+        redirect_to = reverse('signin_user')
+        return redirect(redirect_to)
     if request.user.is_authenticated() and profile.age is not None and profile.gender is not None:
         return redirect(redirect_to)
 
@@ -1248,17 +1251,12 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
         # detect that the user is logged in.
         return set_logged_in_cookies(request, response, user)
 
-    if settings.FEATURES['SQUELCH_PII_IN_LOGS']:
-        AUDIT_LOG.warning(u"Login failed - Account not active for user.id: {0}, resending activation".format(user.id))
-    else:
-        AUDIT_LOG.warning(u"Login failed - Account not active for user {0}, resending activation".format(username))
-
-    reactivation_email_for_user(user)
-    not_activated_msg = _("This account has not been activated. We have sent another activation message. Please check your email for the activation instructions.")
-    return JsonResponse({
-        "success": False,
-        "value": not_activated_msg,
-    })  # TODO: this should be status code 400  # pylint: disable=fixme
+    if user is not None and user.is_active is False:
+        not_activated_msg = _("This account is disabled, to get more information contact the administrator.")
+        return JsonResponse({
+            "success": False,
+            "value": not_activated_msg,
+        })  # TODO: this should be status code 400  # pylint: disable=fixme
 
 
 @csrf_exempt

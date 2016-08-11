@@ -269,7 +269,8 @@ AUTH_LDAP_USER_ATTR_MAP = {
     "first_name": "cn",
     "last_name": "cn",
     "email": "mail",
-    "username": "uid"
+    "username": "uid",
+    "is_active": "accountStatus"
 }
 
 
