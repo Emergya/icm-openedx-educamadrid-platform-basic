@@ -428,7 +428,7 @@ def register_user(request, extra_context=None):
     except ObjectDoesNotExist:
         redirect_to = reverse('signin_user')
         return redirect(redirect_to)
-    if request.user.is_authenticated() and profile.age is not None and profile.gender is not None:
+    if request.user.is_authenticated() and profile.year_of_birth is not None and profile.gender is not None:
         return redirect(redirect_to)
 
     external_auth_response = external_auth_register(request)

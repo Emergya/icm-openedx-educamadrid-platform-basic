@@ -55,7 +55,7 @@ class MandatoryFieldsMiddleware(object):
                             reverse('student.views.fill_fields_new_ldap_login'))
 
             # It's not the form (avoid inifinite redirect) and hasn't got gender or age
-            if not any([(request.path == url) for url in not_redirect]) and (profile.gender is None or profile.age is None):
+            if not any([(request.path == url) for url in not_redirect]) and (profile.gender is None or profile.year_of_birth is None):
                 return redirect(form_to_update_profile)
         except UserProfile.DoesNotExist:
             pass

@@ -32,7 +32,7 @@ Longer TODO:
 import sys
 import os
 import imp
-
+import ldap
 from path import Path as path
 from warnings import simplefilter
 from django.utils.translation import ugettext_lazy as _
@@ -43,6 +43,8 @@ from xmodule.modulestore.modulestore_settings import update_module_store_setting
 from xmodule.modulestore.edit_info import EditInfoMixin
 from xmodule.mixin import LicenseMixin
 from lms.djangoapps.lms_xblock.mixin import LmsBlockMixin
+
+from django_auth_ldap.config import LDAPSearch, GroupsByBranchType
 
 ################################### FEATURES ###################################
 # The display name of the platform to be used in templates/emails/etc.
@@ -2608,6 +2610,7 @@ PREVIEW_DOMAIN = 'preview'
 # Sets the maximum number of courses listed on the homepage
 # If set to None, all courses will be listed on the homepage
 HOMEPAGE_COURSE_MAX = None
+MIDDLEWARE_CLASSES += ('student.middleware.MandatoryFieldsMiddleware',)
 
 ################################ Settings for Credit Courses ################################
 # Initial delay used for retrying tasks.
@@ -2689,13 +2692,10 @@ FINANCIAL_ASSISTANCE_MAX_LENGTH = 2500
 # LDAP Authentication
 ########################################################################
 
-import ldap
-from django_auth_ldap.config import LDAPSearch, GroupsByBranchType
-
-# AUTH_LDAP_GLOBAL_OPTIONS = {
+AUTH_LDAP_GLOBAL_OPTIONS = {
 #     ldap.OPT_X_TLS_REQUIRE_CERT: False,
 #     ldap.OPT_REFERRALS: False,
-# }
+}
 
 # Baseline configuration.
 # Here put the LDAP URL of your server
@@ -2723,7 +2723,8 @@ AUTH_LDAP_USER_ATTR_MAP = {
     "first_name": "cn",
     "last_name": "cn",
     "email": "mail",
-    "username": "uid"
+    "username": "uid",
+    "is_active": "accountStatus"
 }
 
 
