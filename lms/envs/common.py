@@ -2708,7 +2708,7 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
 
 AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
-                                    ldap.SCOPE_SUBTREE, "(objectClass=emTeacher)")
+                                    ldap.SCOPE_SUBTREE, "(objectClass=top)")
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {
         "is_active": "",
@@ -2738,3 +2738,10 @@ AUTH_LDAP_FIND_GROUP_PERMS = True
 # # Cache group memberships for an hour to minimize LDAP traffic
 AUTH_LDAP_CACHE_GROUPS = True
 AUTH_LDAP_GROUP_CACHE_TIMEOUT = 1
+
+if DEBUG:
+    import logging
+
+    logger = logging.getLogger('django_auth_ldap')
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)

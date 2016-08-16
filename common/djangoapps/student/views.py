@@ -1221,13 +1221,13 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
             # We do not log here, because we have a handler registered
             # to perform logging on successful logins.
             redirect_url = None  # The AJAX method calling should know the default destination upon success
-            login(request, user)
             profile, created = UserProfile.objects.get_or_create(user=user)
             if created:
                 redirect_url = 'register'
                 profile.email = user.email
                 profile.name = user.first_name + ' ' + ' ' + user.last_name
                 profile.save()
+            login(request, user)
             if request.POST.get('remember') == 'true':
                 request.session.set_expiry(604800)
                 log.debug("Setting user session to never expire")
