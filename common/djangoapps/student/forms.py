@@ -133,17 +133,15 @@ class AccountCreationForm(forms.Form):
             "max_length": _("Email cannot be more than %(limit_value)s characters long"),
         }
     )
- 
-    # LDAP customization	
-    if 'ENABLE_LDAP_AUTH' not in settings:
-        password = forms.CharField(
-            min_length=2,
-            error_messages={
-    	        "required": _PASSWORD_INVALID_MSG,
-                "min_length": _PASSWORD_INVALID_MSG,
-    	    }
-        )
-
+    
+    password = forms.CharField(
+        min_length=2,
+        error_messages={
+            "required": _PASSWORD_INVALID_MSG,
+            "min_length": _PASSWORD_INVALID_MSG,
+        }
+    )
+    
     name = forms.CharField(
         min_length=2,
         error_messages={
@@ -212,22 +210,22 @@ class AccountCreationForm(forms.Form):
                 self.fields[field] = forms.CharField(required=False)
 
     def clean_password(self):
-         """Enforce password policies (if applicable)"""
-         password = self.cleaned_data["password"]
-         if (
-                 self.enforce_username_neq_password and
-                 "username" in self.cleaned_data and
-                 self.cleaned_data["username"] == password
-         ):
-             raise ValidationError(_("Username and password fields cannot match"))
-         if self.enforce_password_policy:
-             try:
-                 validate_password_length(password)
-                 validate_password_complexity(password)
-                 validate_password_dictionary(password)
-             except ValidationError, err:
-                 raise ValidationError(_("Password: ") + "; ".join(err.messages))
-         return password
+        """Enforce password policies (if applicable)"""
+        password = self.cleaned_data["password"]
+        if (
+                self.enforce_username_neq_password and
+                "username" in self.cleaned_data and
+                self.cleaned_data["username"] == password
+        ):
+            raise ValidationError(_("Username and password fields cannot match"))
+        if self.enforce_password_policy:
+            try:
+                validate_password_length(password)
+                validate_password_complexity(password)
+                validate_password_dictionary(password)
+            except ValidationError, err:
+                raise ValidationError(_("Password: ") + "; ".join(err.messages))
+        return password
 
     def clean_year_of_birth(self):
         """
@@ -269,16 +267,6 @@ class LdapAccountCreationForm(AccountCreationForm):
             "max_length": _("Email cannot be more than %(limit_value)s characters long"),
         }
     )
-    
-    # LDAP customization        
-    if 'ENABLE_LDAP_AUTH' not in settings:
-        password = forms.CharField(
-        min_length=2,
-        error_messages={
-            "required": _PASSWORD_INVALID_MSG,
-            "min_length": _PASSWORD_INVALID_MSG,
-        }
-    )
 
     name = forms.CharField(
         min_length=2,
@@ -311,7 +299,6 @@ class LdapAccountCreationForm(AccountCreationForm):
 
 
 class CreateProfileFromLDAPForm(forms.Form):
-
 
     def __init__(
             self,
