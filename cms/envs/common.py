@@ -90,7 +90,7 @@ FEATURES = {
 
     # If set to True, new Studio users won't be able to author courses unless
     # edX has explicitly added them to the course creator group.
-    'ENABLE_CREATOR_GROUP': False,
+    'ENABLE_CREATOR_GROUP': True,
 
     # whether to use password policy enforcement or not
     'ENFORCE_PASSWORD_POLICY': False,
@@ -1158,10 +1158,7 @@ AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=o
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
                                     ldap.SCOPE_SUBTREE, "(objectClass=top)")
 
-AUTH_LDAP_USER_FLAGS_BY_GROUP = {
-        "is_staff": u"",
-        "is_superuser": u"",
-}
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {}
 
 AUTH_LDAP_GLOBAL_OPTIONS = {
     ldap.OPT_X_TLS_REQUIRE_CERT: False,

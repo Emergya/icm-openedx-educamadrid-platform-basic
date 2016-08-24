@@ -2710,9 +2710,7 @@ AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=o
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
                                     ldap.SCOPE_SUBTREE, "(objectClass=top)")
 
-AUTH_LDAP_USER_FLAGS_BY_GROUP = {
-        "is_active": "",
-}
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {}
 
 AUTH_LDAP_GLOBAL_OPTIONS = {
     ldap.OPT_X_TLS_REQUIRE_CERT: False,

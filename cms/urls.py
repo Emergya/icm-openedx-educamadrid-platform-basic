@@ -72,7 +72,7 @@ urlpatterns += patterns(
 
     url(r'^$', 'howitworks', name='homepage'),
     url(r'^howitworks$', 'howitworks'),
-    url(r'^signup$', 'signup', name='signup'),
+    url(r'^signup$', 'signup' if 'ENABLE_LDAP_AUTH' not in settings else 'login_page', name='signup'),
     url(r'^signin$', 'login_page', name='login'),
     url(r'^request_course_creator$', 'request_course_creator'),
 
