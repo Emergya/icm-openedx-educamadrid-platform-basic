@@ -541,7 +541,7 @@ msgstr "Debe especificar su sexo"
 
 #: common/djangoapps/student/forms.py
 msgid "Your year of birth is required"
-msgstr "Debe especificar su dirección de nacimiento"
+msgstr "Debe especificar su año de nacimiento"
 
 #: common/djangoapps/student/forms.py
 msgid "Your mailing address is required"
