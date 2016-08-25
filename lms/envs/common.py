@@ -2699,7 +2699,7 @@ AUTH_LDAP_GLOBAL_OPTIONS = {
 
 # Baseline configuration.
 # Here put the LDAP URL of your server
-AUTH_LDAP_SERVER_URI = "ldap://localhost"
+AUTH_LDAP_SERVER_URI = "ldap://172.17.0.2"
 # Let the bind DN and bind password blankuc for anonymous binding
 AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
 AUTH_LDAP_BIND_PASSWORD = ""
@@ -2708,7 +2708,7 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
 
 AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
-                                    ldap.SCOPE_SUBTREE, "(objectClass=top)")
+                                    ldap.SCOPE_SUBTREE, "(objectClass=emTeacher)")
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {}
 
@@ -2719,7 +2719,7 @@ AUTH_LDAP_GLOBAL_OPTIONS = {
 
 AUTH_LDAP_USER_ATTR_MAP = {
     "first_name": "cn",
-    "last_name": "cn",
+    "last_name": "sn",
     "email": "mail",
     "username": "uid",
     "is_active": "accountStatus"
