@@ -2,6 +2,7 @@
 Middleware that checks user standing for the purpose of keeping users with
 disabled accounts from accessing the site.
 """
+from edxmako.shortcuts import marketing_link
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseForbidden
@@ -52,7 +53,10 @@ class MandatoryFieldsMiddleware(object):
             form_to_update_profile = reverse('student.views.register_user')
             not_redirect = (form_to_update_profile, reverse('student.views.logout_user'),
                             reverse('student.views.signin_user'),
-                            reverse('student.views.fill_fields_new_ldap_login'))
+                            reverse('student.views.fill_fields_new_ldap_login'),
+                            marketing_link('HONOR'),
+                            marketing_link('HONOR') + '#honor',
+                            marketing_link('TOS'))
 
             # It's not the form (avoid inifinite redirect) and hasn't got gender or age
             if not any([(request.path == url) for url in not_redirect]) and (profile.gender is None or profile.year_of_birth is None):
