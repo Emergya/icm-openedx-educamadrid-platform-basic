@@ -1152,11 +1152,11 @@ AUTH_LDAP_SERVER_URI = "ldap://172.17.0.2"
 AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
 AUTH_LDAP_BIND_PASSWORD = ""
 AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
-                                    ldap.SCOPE_SUBTREE, "(mail=%(user)s)")
+                                    ldap.SCOPE_SUBTREE, "(&(mail=%(user)s)(objectClass=emTeacher))")
 
 AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
-                                    ldap.SCOPE_SUBTREE, "((&(mail=%(user)s)(objectClass=emTeacher)))")
+                                    ldap.SCOPE_SUBTREE, "(objectClass=emTeacher)")
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {}
 
