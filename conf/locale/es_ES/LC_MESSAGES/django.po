@@ -20037,3 +20037,9 @@ msgstr ""
 "Tu contraseña está asociada a tu cuenta de LDAP. Si tienes algún problema, "
 "por favor contacte con el administrador del LDAP"
 
+#: common/djangoapps/student/views.py:1256
+msgid ""
+"This account is disabled, to get more information contact the administrator."
+msgstr ""
+"Esta cuenta está desactivada. Para obtener más información, por favor contacte con el administrador."
+
