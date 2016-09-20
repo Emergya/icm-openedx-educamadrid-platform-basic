@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2016-09-20 10:51+0000\n"
-"PO-Revision-Date: 2016-09-20 10:52:21.716776\n"
+"POT-Creation-Date: 2016-09-20 11:40+0000\n"
+"PO-Revision-Date: 2016-09-20 11:40:58.405265\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -653,14 +653,14 @@ msgid "About"
 msgstr ""
 
 #: lms/templates/forgot_password_modal.html:7
-#: lms/templates/forgot_password_modal.html:19
 msgid "Password Reset"
 msgstr ""
 
-#: lms/templates/forgot_password_modal.html:23
+#: lms/templates/forgot_password_modal.html:19
 msgid ""
-"Your password is associated with your LDAP account. If you've any problem, "
-"please contact with the LDAP administrator."
+"Your password is the one you use for all services EducaMadrid. If you have "
+"any problems, please contact the TIC Coordinator at your school or check out"
+" the FAQ of this site."
 msgstr ""
 
 #: lms/templates/help_modal.html:20 lms/templates/help_modal.html:33
@@ -957,7 +957,7 @@ msgid "Required Information"
 msgstr ""
 
 #: lms/templates/login.html:184
-msgid "This is the e-mail address you used to register with {platform}"
+msgid "This is your EducaMadrid e-mail address"
 msgstr ""
 
 #: lms/templates/login.html:197
@@ -1425,7 +1425,7 @@ msgid "Create My Account"
 msgstr ""
 
 #: lms/templates/register_ldap.html:107
-msgid "Fill out your account details"
+msgid "Fill out your account details."
 msgstr ""
 
 #: lms/templates/register_ldap.html:165
@@ -1434,7 +1434,7 @@ msgstr ""
 
 #: lms/templates/register_ldap.html:167
 msgid ""
-"The e-mail, the name and the public identifier of user can not be modifier"
+"The e-mail, the name and the public identifier of user can not be modifier."
 msgstr ""
 
 #: lms/templates/register_ldap.html:190
