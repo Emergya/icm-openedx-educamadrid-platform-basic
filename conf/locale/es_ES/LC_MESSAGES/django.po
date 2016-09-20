@@ -20043,3 +20043,32 @@ msgid ""
 msgstr ""
 "Esta cuenta está desactivada. Para obtener más información, por favor contacte con el administrador."
 
+#: lms/templates/register_ldap.html:107
+msgid "Fill out your account details."
+msgstr "Completa los datos de tu cuenta."
+
+#: lms/templates/register_ldap.html:165
+msgid "Please complete the fields without information."
+msgstr "Por favor completa los campos sin información."
+
+#: lms/templates/register_ldap.html:167
+msgid ""
+"The e-mail, the name and the public identifier of user can not be modifier."
+msgstr "El correo electrónico, tu nombre e identificador público de usuario no pueden ser modificados."
+
+#: lms/templates/register_ldap.html:190
+msgid "Will be shown in any discussions or forums you participate in."
+msgstr "Se mostrará en cualquier discusión o foro en los que participes."
+
+#: lms/templates/register-sidebar.html:18
+msgid ""
+"Registering with {platform_name} gives you access to all of our current and "
+"future courses. Not ready to take a course just yet? Registering puts you on"
+" our mailing list - we will update you as courses are added."
+msgstr ""
+"Registrarte en {platform_name} te da acceso a todos nuestros cursos actuales y futuros. "
+"¿No estás listo para seguir un curso en este momento? Registrarte te incorpora en nuestra lista de correos y se te enviarán actualizaciones a medida que se añadan nuevos cursos."
+
+#: /edx/app/edxapp/themes/icm-openedx-educamadrid-theme/templates/theme-footer.html:50
+msgid "License Creative Commons. This work is under a license of Attribution-ShareAlike 4.0 International"
+msgstr "Licencia Creative Commons. Esta obra está bajo una licencia de Reconocimiento-CompartirIgual 4.0 Internacional"

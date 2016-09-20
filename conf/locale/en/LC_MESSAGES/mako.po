@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2016-08-19 12:57+0000\n"
-"PO-Revision-Date: 2016-08-19 12:57:47.208412\n"
+"POT-Creation-Date: 2016-09-20 10:51+0000\n"
+"PO-Revision-Date: 2016-09-20 10:52:21.716776\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -119,11 +119,11 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: cms/templates/login.html:28 cms/templates/register.html:32
+#: cms/templates/login.html:27 cms/templates/register.html:32
 #: lms/templates/help_modal.html:94 lms/templates/login.html:182
 #: lms/templates/provider_login.html:45 lms/templates/provider_login.html:46
 #: lms/templates/register-shib.html:132 lms/templates/register.html:178
-#: lms/templates/register.html:222 lms/templates/register_ldap.html:178
+#: lms/templates/register.html:222 lms/templates/register_ldap.html:179
 #: lms/templates/register_ldap.html:208 lms/templates/signup_modal.html:38
 #: lms/templates/signup_modal.html:57
 msgid "E-mail"
@@ -132,15 +132,15 @@ msgstr ""
 #. Translators: This is the placeholder text for a field that requests an
 #. email
 #. address.
-#: cms/templates/login.html:29 cms/templates/manage_users.html:55
+#: cms/templates/login.html:28 cms/templates/manage_users.html:55
 #: cms/templates/manage_users_lib.html:55 cms/templates/register.html:34
 #: lms/templates/login.html:183 lms/templates/register-shib.html:133
 #: lms/templates/register.html:179 lms/templates/register.html:223
-#: lms/templates/register_ldap.html:179 lms/templates/register_ldap.html:209
+#: lms/templates/register_ldap.html:180 lms/templates/register_ldap.html:209
 msgid "example: username@domain.com"
 msgstr ""
 
-#: cms/templates/login.html:33 cms/templates/register.html:51
+#: cms/templates/login.html:32 cms/templates/register.html:51
 #: lms/templates/login.html:187 lms/templates/provider_login.html:47
 #: lms/templates/provider_login.html:48 lms/templates/register.html:196
 #: lms/templates/register.html:203 lms/templates/signup_modal.html:41
@@ -148,13 +148,13 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: cms/templates/login.html:35 lms/templates/login.html:190
+#: cms/templates/login.html:34 lms/templates/login.html:190
 msgid "Forgot password?"
 msgstr ""
 
 #: cms/templates/register.html:38 lms/templates/register-shib.html:142
 #: lms/templates/register.html:183 lms/templates/register.html:237
-#: lms/templates/register_ldap.html:183 lms/templates/register_ldap.html:223
+#: lms/templates/register_ldap.html:184 lms/templates/register_ldap.html:223
 #: lms/templates/signup_modal.html:47 lms/templates/sysadmin_dashboard.html:78
 #: lms/templates/verify_student/face_upload.html:311
 msgid "Full Name"
@@ -163,7 +163,7 @@ msgstr ""
 #. Translators: This is the placeholder text for a field that requests the
 #. user's full name.
 #: cms/templates/register.html:40 lms/templates/register.html:184
-#: lms/templates/register_ldap.html:184
+#: lms/templates/register_ldap.html:185
 #: lms/templates/verify_student/face_upload.html:312
 msgid "example: Jane Doe"
 msgstr ""
@@ -886,7 +886,7 @@ msgid ""
 "rel=\"external\" href=\"http://openid.net/\">OpenID account</a>."
 msgstr ""
 
-#: lms/templates/login-sidebar.html:22 lms/templates/register-sidebar.html:33
+#: lms/templates/login-sidebar.html:22
 msgid "Need Help?"
 msgstr ""
 
@@ -947,7 +947,7 @@ msgid ""
 msgstr ""
 
 #: lms/templates/login.html:178 lms/templates/register-shib.html:115
-#: lms/templates/register.html:172 lms/templates/register_ldap.html:172
+#: lms/templates/register.html:172 lms/templates/register_ldap.html:173
 #: lms/templates/instructor/instructor_dashboard_2/add_coupon_modal.html:29
 #: lms/templates/instructor/instructor_dashboard_2/edit_coupon_modal.html:29
 #: lms/templates/instructor/instructor_dashboard_2/generate_registarion_codes_modal.html:30
@@ -1260,8 +1260,7 @@ msgid "Enter a public username:"
 msgstr ""
 
 #: lms/templates/register-shib.html:126 lms/templates/register.html:190
-#: lms/templates/register.html:231 lms/templates/register_ldap.html:190
-#: lms/templates/register_ldap.html:217
+#: lms/templates/register.html:231 lms/templates/register_ldap.html:217
 msgid "Will be shown in any discussions or forums you participate in"
 msgstr ""
 
@@ -1295,15 +1294,11 @@ msgstr ""
 #: lms/templates/register-sidebar.html:18
 msgid ""
 "Registering with {platform_name} gives you access to all of our current and "
-"future free courses. Not ready to take a course just yet? Registering puts "
-"you on our mailing list - we will update you as courses are added."
+"future courses. Not ready to take a course just yet? Registering puts you on"
+" our mailing list - we will update you as courses are added."
 msgstr ""
 
-#: lms/templates/register-sidebar.html:23
-msgid "Next Steps"
-msgstr ""
-
-#: lms/templates/register-sidebar.html:25
+#: lms/templates/register-sidebar.html:24
 msgid ""
 "You will receive an activation email.  You must click on the activation link"
 " to complete the process.  Don't see the email?  Check your spam folder and "
@@ -1311,26 +1306,12 @@ msgid ""
 "able to receive email from your courses."
 msgstr ""
 
-#: lms/templates/register-sidebar.html:27
+#: lms/templates/register-sidebar.html:26
 msgid ""
 "As part of joining {platform_name}, you will receive an activation email.  "
 "You must click on the activation link to complete the process.  Don't see "
 "the email?  Check your spam folder and mark {platform_name} emails as 'not "
 "spam'.  At {platform_name}, we communicate mostly through email."
-msgstr ""
-
-#: lms/templates/register-sidebar.html:34
-msgid "Need help in registering with {platform_name}?"
-msgstr ""
-
-#: lms/templates/register-sidebar.html:36
-msgid "View our FAQs for answers to commonly asked questions."
-msgstr ""
-
-#: lms/templates/register-sidebar.html:38
-msgid ""
-"Once registered, most questions can be answered in the course specific "
-"discussion forums or through the FAQs."
 msgstr ""
 
 #: lms/templates/register.html:18 lms/templates/register_ldap.html:18
@@ -1345,7 +1326,7 @@ msgstr ""
 msgid "Welcome!"
 msgstr ""
 
-#: lms/templates/register.html:107 lms/templates/register_ldap.html:107
+#: lms/templates/register.html:107
 msgid "Register below to create your {platform_name} account"
 msgstr ""
 
@@ -1371,17 +1352,17 @@ msgid ""
 "{platform_name}."
 msgstr ""
 
-#: lms/templates/register.html:165 lms/templates/register_ldap.html:165
+#: lms/templates/register.html:165
 msgid "Please complete the following fields to register for an account. "
 msgstr ""
 
 #: lms/templates/register.html:185 lms/templates/register.html:239
-#: lms/templates/register_ldap.html:185 lms/templates/register_ldap.html:225
+#: lms/templates/register_ldap.html:225
 msgid "Your legal name, used for any certificates you earn."
 msgstr ""
 
 #: lms/templates/register.html:190 lms/templates/register.html:231
-#: lms/templates/register_ldap.html:190 lms/templates/register_ldap.html:217
+#: lms/templates/register_ldap.html:217
 msgid "cannot be changed later"
 msgstr ""
 
@@ -1441,6 +1422,23 @@ msgstr ""
 #: lms/templates/register.html:370 lms/templates/register_ldap.html:356
 #: lms/templates/signup_modal.html:146
 msgid "Create My Account"
+msgstr ""
+
+#: lms/templates/register_ldap.html:107
+msgid "Fill out your account details"
+msgstr ""
+
+#: lms/templates/register_ldap.html:165
+msgid "Please complete the fields without information."
+msgstr ""
+
+#: lms/templates/register_ldap.html:167
+msgid ""
+"The e-mail, the name and the public identifier of user can not be modifier"
+msgstr ""
+
+#: lms/templates/register_ldap.html:190
+msgid "Will be shown in any discussions or forums you participate in."
 msgstr ""
 
 #: lms/templates/resubscribe.html:13

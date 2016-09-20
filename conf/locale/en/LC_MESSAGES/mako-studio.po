@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2016-08-19 12:57+0000\n"
-"PO-Revision-Date: 2016-08-19 12:57:47.380544\n"
+"POT-Creation-Date: 2016-09-20 10:51+0000\n"
+"PO-Revision-Date: 2016-09-20 10:52:21.886833\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -1994,19 +1994,15 @@ msgstr ""
 msgid "Learn more about content libraries"
 msgstr ""
 
-#: cms/templates/login.html:7 cms/templates/widgets/header.html:229
+#: cms/templates/login.html:7 cms/templates/widgets/header.html:226
 msgid "Sign In"
 msgstr ""
 
-#: cms/templates/login.html:15 cms/templates/login.html:41
+#: cms/templates/login.html:15 cms/templates/login.html:40
 msgid "Sign In to {studio_name}"
 msgstr ""
 
-#: cms/templates/login.html:16
-msgid "Don't have a {studio_name} Account? Sign up!"
-msgstr ""
-
-#: cms/templates/login.html:23
+#: cms/templates/login.html:22
 msgid "Required Information to Sign In to {studio_name}"
 msgstr ""
 
@@ -2149,7 +2145,7 @@ msgstr ""
 msgid "Program Administration"
 msgstr ""
 
-#: cms/templates/register.html:8 cms/templates/widgets/header.html:226
+#: cms/templates/register.html:8
 msgid "Sign Up"
 msgstr ""
 
