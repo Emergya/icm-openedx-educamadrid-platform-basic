@@ -294,6 +294,14 @@ import calendar
             </div>
             % endif
           </li>
+          % if settings.REGISTRATION_EXTRA_FIELDS['educational_centre_code'] != 'hidden':
+          <li class="field-group field-educational_centre_code">
+            <div class="field ${settings.REGISTRATION_EXTRA_FIELDS['educational_centre_code']} select" id="field-educational_centre_code">
+              <label for="educational_centre_code">${_("Current educational center code")}</label>
+              <input class="" id="educational_centre_code" name="educational_centre_code" value=""  ${'required aria-required="true"' if settings.REGISTRATION_EXTRA_FIELDS['year_of_educational_centre_codebirth'] == 'required' else ''}/>
+            </div>
+          </li>
+          % endif
         </ol>
       </div>
 
