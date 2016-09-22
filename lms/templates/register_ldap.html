@@ -297,7 +297,7 @@ import calendar
           % if settings.REGISTRATION_EXTRA_FIELDS['educational_centre_code'] != 'hidden':
           <li class="field ${settings.REGISTRATION_EXTRA_FIELDS['educational_centre_code']} text" id="field-educational_centre_code">
             <label for="educational_centre_code">${_("Current educational center code")}</label>
-            <input id="educational_centre_code" type="text" name="educational_centre_code" value="" ${'required aria-required="true"' if settings.REGISTRATION_EXTRA_FIELDS['educational_centre_code'] == 'required' else ''} />
+            <input id="educational_centre_code" type="text" name="educational_centre_code" value="" maxlength="8" ${'required aria-required="true"' if settings.REGISTRATION_EXTRA_FIELDS['educational_centre_code'] == 'required' else ''} />
           </li>
           % endif
           % if settings.REGISTRATION_EXTRA_FIELDS['educational_centre_name'] != 'hidden':

@@ -1,6 +1,7 @@
 """
 Utility functions for validating forms
 """
+import re
 from django import forms
 from django.forms import widgets
 from django.core.exceptions import ValidationError
@@ -12,7 +13,6 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import int_to_base36
 from django.utils.translation import ugettext_lazy as _
 from django.template import loader
-from django.core.validators import RegexValidator
 
 from django.conf import settings
 from microsite_configuration import microsite
@@ -316,7 +316,6 @@ class CreateProfileFromLDAPForm(forms.Form):
         self.extended_profile_fields = extended_profile_fields or {}
         self.enforce_username_neq_password = enforce_username_neq_password
         self.enforce_password_policy = enforce_password_policy
-        self.fields['educational_centre_code'].validators.append(RegexValidator(r'^\d{0,8}$'))
         if tos_required:
             self.fields["terms_of_service"] = TrueField(
                 error_messages={"required": _("You must accept the terms of service.")}
@@ -366,6 +365,13 @@ class CreateProfileFromLDAPForm(forms.Form):
         for field in self.extended_profile_fields:
             if field not in self.fields:
                 self.fields[field] = forms.CharField(required=False)
+    
+    def clean(self):
+        super(CreateProfileFromLDAPForm, self).clean()
+        pattern = re.compile("^\d{0,8}$")
+        educational_centre_code = self.cleaned_data.get('educational_centre_code', None)
+        if educational_centre_code and not pattern.match(educational_centre_code):
+            self.add_error(None, _('Your educational center only can contains numbers'))
 
     def clean_year_of_birth(self):
         """
