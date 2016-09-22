@@ -37,6 +37,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_noop
 from django.core.cache import cache
 from django_countries.fields import CountryField
+from django.core.validators import RegexValidator
 import dogstats_wrapper as dog_stats_api
 from eventtracking import tracker
 from opaque_keys.edx.keys import CourseKey
@@ -277,6 +278,44 @@ class UserProfile(models.Model):
     allow_certificate = models.BooleanField(default=1)
     bio = models.CharField(blank=True, null=True, max_length=3000, db_index=False)
     profile_image_uploaded_at = models.DateTimeField(null=True)
+
+    # Custom fields
+    TEACHING_PROFESSION_KINDS = (
+        ('', _('Select a choice')),
+        ('lecturer_arts_design', _('Lecturers of Visual arts and Design')),
+        ('lecturer_secondary_education', _('Lecturers of Secondary Education')),
+        ('lecturer_languages_schools', _('Lecturers of Official Language Schools')),
+        ('lecturer_music_arts', _('Lecturers of Music and Performing arts')),
+        ('education_inspector', _('Education Inspectors')),
+        ('teacher', _('Teachers')),
+        ('teacher_workshop_arts_design', _('Teachers of Visual arts and Design Workshop')),
+        ('teacher_arts_degisn', _('Teachers of Visual arts and Design')),
+        ('teacher_secondary_education', _('Teachers of Secondary Education')),
+        ('teacher_languages_schools', _('Teachers of Official Language Schools')),
+        ('teacher_music_arts', _('Teachers of Music and Performing arts')),
+        ('teacher_religion', _('Teachers of Religion')),
+        ('teacher_professional_training', _('Teachers of Technical Professional Training')),
+        ('others', _('Others')),
+    )
+
+    SPECIALTY_KINDS = (
+        ('', _('Select a choice')),
+        ('acordeon', _('Acordeon')),
+        ('acrobacia', _('Acrobacia')),
+        ('actividades', _('Actividades (C.E.I.S)')),
+        ('administracion_empresa', _('Administracion de Empresas')),
+        ('adorno_figura', _('Adorno y Figura')),
+        ('aleman', _('Aleman')),
+        ('alfareria', _('Alfareria')),
+        ('alfombras', _('Alfombras')),
+        ('analisis_forma_color', _(u'Análisis de forma y color.')),
+        ('analisis_quimico_ceramica', _(u'Análisis químicos de cerámica.')),
+    )
+    educational_centre_code = models.CharField(max_length=8, validators=[RegexValidator(r'^\d{0,8}$')])
+    educational_centre_name = models.CharField(max_length=256)
+    teaching_profession = models.CharField(max_length=256, choices=TEACHING_PROFESSION_KINDS)
+    specialty = models.CharField(max_length=256, choices=SPECIALTY_KINDS)
+    educational_role = models.CharField(max_length=256, null=True, blank=True)
 
     @property
     def has_profile_image(self):
