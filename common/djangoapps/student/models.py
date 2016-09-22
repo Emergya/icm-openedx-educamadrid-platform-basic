@@ -282,7 +282,6 @@ class UserProfile(models.Model):
 
     # Custom fields
     TEACHING_PROFESSION_KINDS = (
-        ('', _('Select a choice')),
         ('lecturer_arts_design', _('Lecturers of Visual arts and Design')),
         ('lecturer_secondary_education', _('Lecturers of Secondary Education')),
         ('lecturer_languages_schools', _('Lecturers of Official Language Schools')),
@@ -300,7 +299,6 @@ class UserProfile(models.Model):
     )
 
     SPECIALTY_KINDS = (
-        ('', _('Select a choice')),
         ('acordeon', _('Acordeon')),
         ('acrobacia', _('Acrobacia')),
         ('actividades', _('Actividades (C.E.I.S)')),
