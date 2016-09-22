@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Models for User Information (students, staff, etc)
 
@@ -311,10 +312,10 @@ class UserProfile(models.Model):
         ('analisis_forma_color', _(u'Análisis de forma y color.')),
         ('analisis_quimico_ceramica', _(u'Análisis químicos de cerámica.')),
     )
-    educational_centre_code = models.CharField(max_length=8, validators=[RegexValidator(r'^\d{0,8}$')])
-    educational_centre_name = models.CharField(max_length=256)
-    teaching_profession = models.CharField(max_length=256, choices=TEACHING_PROFESSION_KINDS)
-    specialty = models.CharField(max_length=256, choices=SPECIALTY_KINDS)
+    educational_centre_code = models.CharField(max_length=8, validators=[RegexValidator(r'^\d{0,8}$')], default="00000000")
+    educational_centre_name = models.CharField(max_length=256, default=_("Empty"))
+    teaching_profession = models.CharField(max_length=256, choices=TEACHING_PROFESSION_KINDS, default=_("None"))
+    specialty = models.CharField(max_length=256, choices=SPECIALTY_KINDS, default=_("None"))
     educational_role = models.CharField(max_length=256, null=True, blank=True)
 
     @property
