@@ -12,6 +12,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import int_to_base36
 from django.utils.translation import ugettext_lazy as _
 from django.template import loader
+from django.core.validators import RegexValidator
 
 from django.conf import settings
 from microsite_configuration import microsite
@@ -315,6 +316,7 @@ class CreateProfileFromLDAPForm(forms.Form):
         self.extended_profile_fields = extended_profile_fields or {}
         self.enforce_username_neq_password = enforce_username_neq_password
         self.enforce_password_policy = enforce_password_policy
+        self.fields['educational_centre_code'].validators.append(RegexValidator(r'^\d{0,8}$'))
         if tos_required:
             self.fields["terms_of_service"] = TrueField(
                 error_messages={"required": _("You must accept the terms of service.")}
