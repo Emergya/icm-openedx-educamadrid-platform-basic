@@ -20085,3 +20085,17 @@ msgstr "Tu contraseña es la que utilizas para todos los servicios de EducaMadri
 #: lms/templates/login.html:184
 msgid "This is your EducaMadrid e-mail address"
 msgstr "Esta es tu dirección de correo electrónico de EducaMadrid"
+
+#: themes/icm-openedx-educamadrid-theme/templates/login.html:25
+msgid "Social learning in network"
+msgstr "Aprendizaje social en red"
+
+#: themes/icm-openedx-educamadrid-theme/templates/login.html:26
+msgid "COURSES AVAILABLES"
+msgstr "CURSOS DISPONIBLES"
+
+#: themes/icm-openedx-educamadrid-theme/templates/login.html:63
+msgid "A new way of learning open to the future"
+msgstr "Una nueva forma de aprendizaje abierta al futuro"
+
+
