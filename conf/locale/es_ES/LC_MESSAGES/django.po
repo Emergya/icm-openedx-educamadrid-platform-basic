@@ -20098,4 +20098,78 @@ msgstr "CURSOS DISPONIBLES"
 msgid "A new way of learning open to the future"
 msgstr "Una nueva forma de aprendizaje abierta al futuro"
 
+#: lms/templates/register_ldap.html:299
+msgid "Current educational center code"
+msgstr "Código de tu centro educativo actual"
 
+#: lms/templates/register_ldap.html:305
+msgid "Current educational center name"
+msgstr "Nombre del centro"
+
+#: lms/templates/register_ldap.html:312
+msgid "Teaching profession"
+msgstr "Cuerpo docente"
+
+#: lms/templates/register_ldap.html:325
+msgid "Specialty"
+msgstr "Especialidad"
+
+#: lms/templates/register_ldap.html:337
+msgid "Educational role"
+msgstr "Función educativa"
+
+#: common/djangoapps/student/models.py:285
+msgid "Lecturers of Visual arts and Design"
+msgstr "Catedráticos de Artes Plásticas y Diseño"
+
+#: common/djangoapps/student/models.py:286
+msgid "Lecturers of Secondary Education"
+msgstr "Catedráticos de Enseñanza Secundaria"
+
+#: common/djangoapps/student/models.py:287
+msgid "Lecturers of Official Language Schools"
+msgstr "Catedráticos de Escuelas Oficiales de Idiomas"
+
+#: common/djangoapps/student/models.py:288
+msgid "Lecturers of Music and Performing arts"
+msgstr "Catedráticos de Música y Artes Escénicas"
+
+#: common/djangoapps/student/models.py:289
+msgid "Education Inspectors"
+msgstr "Inspectores de Educación"
+
+#: common/djangoapps/student/models.py:290
+msgid "Teachers"
+msgstr "Maestros"
+
+#: common/djangoapps/student/models.py:291
+msgid "Teachers of Visual arts and Design Workshop"
+msgstr "Maestros de Taller de Artes Plásticas y Diseño"
+
+#: common/djangoapps/student/models.py:292
+msgid "Teachers of Visual arts and Design"
+msgstr "Profesores de Artes Plásticas y Diseño"
+
+#: common/djangoapps/student/models.py:293
+msgid "Teachers of Secondary Education"
+msgstr "Profesores de Enseñanza Secundaria"
+
+#: common/djangoapps/student/models.py:294
+msgid "Teachers of Official Language Schools"
+msgstr "Profesores de Escuelas Oficiales de Idiomas"
+
+#: common/djangoapps/student/models.py:295
+msgid "Teachers of Music and Performing arts"
+msgstr "Profesores de Música y Artes Escénicas"
+
+#: common/djangoapps/student/models.py:296
+msgid "Teachers of Religion"
+msgstr "Profesores de Religión"
+
+#: common/djangoapps/student/models.py:297
+msgid "Teachers of Technical Professional Training"
+msgstr "Profesores Técnicos de Formación Profesional"
+
+#: common/djangoapps/student/models.py:298
+msgid "Others"
+msgstr "Otro"

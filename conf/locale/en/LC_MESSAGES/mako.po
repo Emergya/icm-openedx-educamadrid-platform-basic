@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2016-09-20 11:40+0000\n"
-"PO-Revision-Date: 2016-09-20 11:40:58.405265\n"
+"POT-Creation-Date: 2016-09-26 09:27+0000\n"
+"PO-Revision-Date: 2016-09-26 09:28:22.619981\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -1137,7 +1137,7 @@ msgid "Sign in"
 msgstr ""
 
 #: lms/templates/navigation-edx.html:123 lms/templates/navigation-edx.html:127
-#: lms/templates/register.html:370 lms/templates/register_ldap.html:356
+#: lms/templates/register.html:370 lms/templates/register_ldap.html:400
 #: themes/edx.org/lms/templates/header.html:123
 #: themes/edx.org/lms/templates/header.html:127
 msgid "Register"
@@ -1265,17 +1265,17 @@ msgid "Will be shown in any discussions or forums you participate in"
 msgstr ""
 
 #: lms/templates/register-shib.html:153 lms/templates/register.html:333
-#: lms/templates/register_ldap.html:319
+#: lms/templates/register_ldap.html:363
 msgid "Account Acknowledgements"
 msgstr ""
 
 #: lms/templates/register-shib.html:162 lms/templates/register.html:341
-#: lms/templates/register_ldap.html:327 lms/templates/signup_modal.html:130
+#: lms/templates/register_ldap.html:371 lms/templates/signup_modal.html:130
 msgid "I agree to the {link_start}Terms of Service{link_end}"
 msgstr ""
 
 #: lms/templates/register-shib.html:178 lms/templates/register.html:359
-#: lms/templates/register_ldap.html:345 lms/templates/signup_modal.html:138
+#: lms/templates/register_ldap.html:389 lms/templates/signup_modal.html:138
 msgid "I agree to the {link_start}Honor Code{link_end}"
 msgstr ""
 
@@ -1411,15 +1411,15 @@ msgstr ""
 msgid "Year of Birth"
 msgstr ""
 
-#: lms/templates/register.html:318 lms/templates/register_ldap.html:304
+#: lms/templates/register.html:318 lms/templates/register_ldap.html:348
 msgid "Mailing Address"
 msgstr ""
 
-#: lms/templates/register.html:325 lms/templates/register_ldap.html:311
+#: lms/templates/register.html:325 lms/templates/register_ldap.html:355
 msgid "Please share with us your reasons for registering with {platform_name}"
 msgstr ""
 
-#: lms/templates/register.html:370 lms/templates/register_ldap.html:356
+#: lms/templates/register.html:370 lms/templates/register_ldap.html:400
 #: lms/templates/signup_modal.html:146
 msgid "Create My Account"
 msgstr ""
@@ -1439,6 +1439,26 @@ msgstr ""
 
 #: lms/templates/register_ldap.html:190
 msgid "Will be shown in any discussions or forums you participate in."
+msgstr ""
+
+#: lms/templates/register_ldap.html:299
+msgid "Current educational center code"
+msgstr ""
+
+#: lms/templates/register_ldap.html:305
+msgid "Current educational center name"
+msgstr ""
+
+#: lms/templates/register_ldap.html:312
+msgid "Teaching profession"
+msgstr ""
+
+#: lms/templates/register_ldap.html:325
+msgid "Specialty"
+msgstr ""
+
+#: lms/templates/register_ldap.html:337
+msgid "Educational role"
 msgstr ""
 
 #: lms/templates/resubscribe.html:13
