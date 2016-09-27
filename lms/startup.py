@@ -42,7 +42,7 @@ def run():
     # We currently use 2 template rendering engines, mako and django_templates,
     # and one of them (django templates), requires the directories be added
     # before the django.setup().
-    microsite.enable_microsites_pre_startup(log)
+    # microsite.enable_microsites_pre_startup(log)
 
     django.setup()
 
