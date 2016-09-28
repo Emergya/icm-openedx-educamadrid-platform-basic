@@ -206,7 +206,7 @@ def update_account_settings(requesting_user, update, username=None):
     if "teaching_profession" in update:
         try:
             teaching_profession_options = dict(UserProfile.TEACHING_PROFESSION_KINDS)
-            if update["teaching_profession"] in teaching_profession_options:
+            if not update["teaching_profession"] in teaching_profession_options:
                 field_errors["teaching_profession"] = {
                     "developer_message": u"The option is not a valid option.",
                     "user_message": _(u"This option is not a valid option.")
@@ -221,7 +221,7 @@ def update_account_settings(requesting_user, update, username=None):
     if "specialty" in update:
         try:
             specialty_options = dict(UserProfile.SPECIALTY_KINDS)
-            if update["specialty"] in specialty_options:
+            if not update["specialty"] in specialty_options:
                 field_errors["specialty"] = {
                     "developer_message": u"The option is not a valid option.",
                     "user_message": _(u"This option is not a valid option.")
