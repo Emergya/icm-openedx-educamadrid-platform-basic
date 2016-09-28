@@ -75,7 +75,42 @@
                                 options: fieldsData['country']['options'],
                                 persistChanges: true
                             })
+                        },
+                        {
+                            view: new FieldViews.TextFieldView({
+                                model: userAccountModel,
+                                title: gettext('Current educational center code'),
+                                valueAttribute: 'educational_centre_code',
+                                persistChanges: true
+                            })
+                        },
+                        {
+                            view: new FieldViews.TextFieldView({
+                                model: userAccountModel,
+                                title: gettext('Current educational center name'),
+                                valueAttribute: 'educational_centre_name',
+                                persistChanges: true
+                            })
+                        },
+                        {
+                            view: new FieldViews.DropdownFieldView({
+                                model: userAccountModel,
+                                title: gettext('Teaching profession'),
+                                valueAttribute: 'teaching_profession',
+                                options: fieldsData['teaching_profession']['options'],
+                                persistChanges: true
+                            })
+                        },
+                        {
+                            view: new FieldViews.TextFieldView({
+                                model: userAccountModel,
+                                title: gettext('Educational role'),
+                                valueAttribute: 'educational_role',
+                                persistChanges: true
+                            })
                         }
+
+
                     ]
                 },
                 {

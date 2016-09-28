@@ -193,6 +193,22 @@ def update_account_settings(requesting_user, update, username=None):
             update_user_preferences(
                 requesting_user, {'account_privacy': update["account_privacy"]}, existing_user
             )
+        
+        if 'educational_centre_code' in update:
+            existing_user_profile.educational_centre_code = update["educational_centre_code"]
+            existing_user_profile.save()
+
+        if 'educational_centre_name' in update:
+            existing_user_profile.educational_centre_name = update["educational_centre_name"]
+            existing_user_profile.save()
+        
+        if 'teaching_profession' in update:
+            existing_user_profile.teaching_profession = update["teaching_profession"]
+            existing_user_profile.save()        
+
+	if 'educational_role' in update:
+            existing_user_profile.educational_role = update["educational_role"]
+            existing_user_profile.save()
 
         if "language_proficiencies" in update:
             new_language_proficiencies = update["language_proficiencies"]

@@ -96,6 +96,11 @@ class UserReadOnlySerializer(serializers.Serializer):
             "mailing_address": profile.mailing_address,
             "requires_parental_consent": profile.requires_parental_consent(),
             "account_privacy": self._get_profile_visibility(profile, user),
+	    "educational_centre_code": profile.educational_centre_code,
+	    "educational_centre_name": profile.educational_centre_name,
+	    "teaching_profession": profile.teaching_profession,
+ 	    "specialty": profile.specialty,
+	    "educational_role": profile.educational_role,
         }
 
         return self._filter_fields(

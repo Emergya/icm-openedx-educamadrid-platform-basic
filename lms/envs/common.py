@@ -2561,6 +2561,11 @@ ACCOUNT_VISIBILITY_CONFIGURATION = {
         "mailing_address",
         "requires_parental_consent",
         "account_privacy",
+        "educational_centre_code",
+	"educational_centre_name",
+	"teaching_profession",
+	"specialty",
+	"educational_role", 
     ]
 }
 
