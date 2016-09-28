@@ -4,6 +4,7 @@ Programmatic integration point for User API Accounts sub-application
 from django.utils.translation import ugettext as _
 from django.db import transaction, IntegrityError
 import datetime
+import re
 from pytz import UTC
 from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
@@ -172,6 +173,22 @@ def update_account_settings(requesting_user, update, username=None):
                 "user_message": err.message
             }
 
+    if "educational_centre_code" in update:
+        try:
+            pattern = re.compile("^\d{0,8}$")
+            educational_centre_code = update["educational_centre_code"]
+            if not pattern.match(educational_centre_code):
+                field_errors["educational_centre_code"] = {
+                    "developer_message": u"The value does not pass the regex (only number and max length 8).",
+                    "user_message": _(u"Error in 'Current educational center code', the value must be only numbers and max length of 8")
+                }
+
+        except ValueError:
+            field_errors["educational_centre_code"] = {
+                "developer_message": u"The value does not pass the regex (only number and max length 8).",
+                "user_message": _(u"Error in 'Current educational center code', the value must be only numbers and max length of 8")
+            }
+
     # If we have encountered any validation errors, return them to the user.
     if field_errors:
         raise AccountValidationError(field_errors)
@@ -193,7 +210,7 @@ def update_account_settings(requesting_user, update, username=None):
             update_user_preferences(
                 requesting_user, {'account_privacy': update["account_privacy"]}, existing_user
             )
-        
+
         if 'educational_centre_code' in update:
             existing_user_profile.educational_centre_code = update["educational_centre_code"]
             existing_user_profile.save()
@@ -201,18 +218,18 @@ def update_account_settings(requesting_user, update, username=None):
         if 'educational_centre_name' in update:
             existing_user_profile.educational_centre_name = update["educational_centre_name"]
             existing_user_profile.save()
-        
+
         if 'teaching_profession' in update:
             existing_user_profile.teaching_profession = update["teaching_profession"]
             existing_user_profile.save()
 
-	if 'specialty' in update:
-            existing_user_profile.specialty = update["specialty"]
-            existing_user_profile.save()        
+        if 'specialty' in update:
+                existing_user_profile.specialty = update["specialty"]
+                existing_user_profile.save()
 
-	if 'educational_role' in update:
-            existing_user_profile.educational_role = update["educational_role"]
-            existing_user_profile.save()
+        if 'educational_role' in update:
+                existing_user_profile.educational_role = update["educational_role"]
+                existing_user_profile.save()
 
         if "language_proficiencies" in update:
             new_language_proficiencies = update["language_proficiencies"]
