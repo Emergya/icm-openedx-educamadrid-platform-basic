@@ -59,9 +59,7 @@ class MandatoryFieldsMiddleware(object):
                             marketing_link('TOS'))
 
             # It's not the form (avoid inifinite redirect) and hasn't got gender or age
-            if not any([(request.path == url) for url in not_redirect]) and (profile.educational_centre_code is None or profile.year_of_birth is None /
-                                                                             profile.educational_centre_name is None or profile.teaching_profession is None /
-                                                                             profile.specialty is None):
+            if not any([(request.path == url) for url in not_redirect]) and (profile.educational_centre_code is None or profile.year_of_birth is None or profile.educational_centre_name is None or profile.teaching_profession is None or profile.specialty is None):
                 return redirect(form_to_update_profile)
         except UserProfile.DoesNotExist:
             pass
