@@ -385,9 +385,9 @@ def account_settings_context(request):
             }, 'preferred_language': {
                 'options': settings.ALL_LANGUAGES,
             }, 'teaching_profession': {
-    	       'options': UserProfile.TEACHING_PROFESSION_KINDS,
+    	       'options': [(choice[0], _(choice[1])) for choice in UserProfile.TEACHING_PROFESSION_KINDS],  # pylint: disable=translation-of-non-string
             }, 'specialty': {
-                'options': UserProfile.SPECIALTY_KINDS,
+                'options': [(choice[0], _(choice[1])) for choice in UserProfile.SPECIALTY_KINDS],  # pylint: disable=translation-of-non-string
             }
 
         },
