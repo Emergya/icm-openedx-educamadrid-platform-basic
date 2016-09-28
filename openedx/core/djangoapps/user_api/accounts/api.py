@@ -177,7 +177,7 @@ def update_account_settings(requesting_user, update, username=None):
         try:
             pattern = re.compile("^\d{0,8}$")
             educational_centre_code = update["educational_centre_code"]
-            if not pattern.match(educational_centre_code):
+            if not pattern.match(educational_centre_code) or len(update["educational_centre_code"]) < 1:
                 field_errors["educational_centre_code"] = {
                     "developer_message": u"The value does not pass the regex (only number and max length 8).",
                     "user_message": _(u"Error in 'Current educational center code', the value must be only numbers and max length of 8")
@@ -187,6 +187,50 @@ def update_account_settings(requesting_user, update, username=None):
             field_errors["educational_centre_code"] = {
                 "developer_message": u"The value does not pass the regex (only number and max length 8).",
                 "user_message": _(u"Error in 'Current educational center code', the value must be only numbers and max length of 8")
+            }
+
+    if "educational_centre_name" in update:
+        try:
+            if len(update["educational_centre_name"]) < 1:
+                field_errors["educational_centre_name"] = {
+                    "developer_message": u"The value is empty.",
+                    "user_message": _(u"This value is required.")
+                }
+
+        except ValueError:
+            field_errors["educational_centre_name"] = {
+                "developer_message": u"The value is empty.",
+                "user_message": _(u"This value is required.")
+            }
+
+    if "teaching_profession" in update:
+        try:
+            teaching_profession_options = dict(UserProfile.TEACHING_PROFESSION_KINDS)
+            if update["teaching_profession"] in teaching_profession_options:
+                field_errors["teaching_profession"] = {
+                    "developer_message": u"The option is not a valid option.",
+                    "user_message": _(u"This option is not a valid option.")
+                }
+
+        except ValueError:
+            field_errors["teaching_profession"] = {
+                "developer_message": u"The option is not a valid option.",
+                "user_message": _(u"This option is not a valid option.")
+            }
+
+    if "specialty" in update:
+        try:
+            specialty_options = dict(UserProfile.SPECIALTY_KINDS)
+            if update["specialty"] in specialty_options:
+                field_errors["specialty"] = {
+                    "developer_message": u"The option is not a valid option.",
+                    "user_message": _(u"This option is not a valid option.")
+                }
+
+        except ValueError:
+            field_errors["specialty"] = {
+                "developer_message": u"The option is not a valid option.",
+                "user_message": _(u"This option is not a valid option.")
             }
 
     # If we have encountered any validation errors, return them to the user.
