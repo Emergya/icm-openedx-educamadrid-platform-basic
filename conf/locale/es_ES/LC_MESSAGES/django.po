@@ -20173,3 +20173,24 @@ msgstr "Profesores Técnicos de Formación Profesional"
 #: common/djangoapps/student/models.py:298
 msgid "Others"
 msgstr "Otro"
+
+#: openedx/core/djangoapps/user_api/accounts/api.py:183
+#: openedx/core/djangoapps/user_api/accounts/api.py:189
+msgid ""
+"Error in 'Current educational center code', the value must be only numbers "
+"and max length of 8"
+msgstr "Error en 'Código de tu centro educativo actual', este valor sólo contiene números"
+" y una longitud máxima de 8 caracteres."
+
+#: openedx/core/djangoapps/user_api/accounts/api.py:197
+#: openedx/core/djangoapps/user_api/accounts/api.py:203
+msgid "This value is required."
+msgstr "Este valor es requerido."
+
+#: openedx/core/djangoapps/user_api/accounts/api.py:212
+#: openedx/core/djangoapps/user_api/accounts/api.py:218
+#: openedx/core/djangoapps/user_api/accounts/api.py:227
+#: openedx/core/djangoapps/user_api/accounts/api.py:233
+msgid "This option is not a valid option."
+msgstr "Esta opción no es una opción válida."
+

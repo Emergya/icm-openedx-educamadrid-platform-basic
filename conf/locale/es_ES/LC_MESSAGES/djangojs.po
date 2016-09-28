@@ -8946,3 +8946,20 @@ msgstr "Sigue entradas y ediciones que te gusten"
 #: lms/djangoapps/course_wiki/views.py:90
 msgid "This is the wiki for **{organization}**'s _{course_name}_."
 msgstr "Esta es la wiki de **{organization}** _{course_name}_."
+
+#: lms/static/js/student_account/views/account_settings_factory.js:82
+msgid "Current educational center code"
+msgstr "Código de tu centro educativo actual"
+
+#: lms/static/js/student_account/views/account_settings_factory.js:90
+msgid "Current educational center name"
+msgstr "Nombre del centro"
+
+#: lms/static/js/student_account/views/account_settings_factory.js:98
+msgid "Teaching profession"
+msgstr "Cuerpo docente"
+
+#: lms/static/js/student_account/views/account_settings_factory.js:107
+msgid "Specialty"
+msgstr "Especialidad"
+

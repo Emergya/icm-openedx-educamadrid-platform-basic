@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2016-09-26 09:28+0000\n"
-"PO-Revision-Date: 2016-09-26 09:28:22.437418\n"
+"POT-Creation-Date: 2016-09-28 08:30+0000\n"
+"PO-Revision-Date: 2016-09-28 08:30:21.131725\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr ""
 #. browser when a user needs to edit HTML
 #: cms/static/coffee/src/views/tabs.js:147
 #: cms/static/js/views/course_info_update.js:152
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:769
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:768
 #: common/static/coffee/src/discussion/utils.js:149
 msgid "OK"
 msgstr ""
@@ -55,7 +55,7 @@ msgstr ""
 #: cms/static/js/views/modals/course_outline_modals.js:149
 #: cms/static/js/views/show_textbook.js:51
 #: cms/static/js/views/validation.js:120
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:204
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:203
 #: common/static/common/js/components/utils/view_utils.js:60
 msgid "Cancel"
 msgstr ""
@@ -79,14 +79,14 @@ msgstr ""
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: cms/static/js/views/assets.js:95
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:724
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:723
 msgid "Name"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: cms/static/js/views/manage_users_and_roles.js:10
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:764
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:763
 msgid "Ok"
 msgstr ""
 
@@ -104,14 +104,14 @@ msgstr ""
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: cms/static/js/views/modals/base_modal.js:116
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:924
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:923
 msgid "Save"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: cms/static/js/views/modals/edit_xblock.js:116
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:254
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:253
 msgid "Close"
 msgstr ""
 
@@ -133,27 +133,27 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:223
+#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:220
 msgid "Show Annotations"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:225
+#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:222
 msgid "Hide Annotations"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:240
+#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:237
 msgid "Expand Instructions"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:242
+#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:239
 msgid "Collapse Instructions"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:330
+#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:327
 msgid "Commentary"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:341
+#: common/lib/xmodule/xmodule/js/src/annotatable/display.js:338
 msgid "Reply to Annotation"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 #. total number of points (examples: 0/1, 1/1, 2/3, 5/10). The total number of
 #. points will always be at least 1. We pluralize based on the total number of
 #. points (example: 0/1 point; 1/2 points);
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:167
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:141
 msgid "(%(earned)s/%(possible)s point)"
 msgid_plural "(%(earned)s/%(possible)s points)"
 msgstr[0] ""
@@ -169,45 +169,45 @@ msgstr[1] ""
 
 #. Translators: %(num_points)s is the number of points possible (examples: 1,
 #. 3, 10). There will always be at least 1 point possible.;
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:177
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:151
 msgid "(%(num_points)s point possible)"
 msgid_plural "(%(num_points)s points possible)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:235
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:209
 msgid "The grading process is still running. Refresh the page to see updates."
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:497
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:512
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:467
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:482
 msgid "Answer:"
 msgstr ""
 
 #. Translators: the word Answer here refers to the answer to a problem the
 #. student must solve.;
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:538
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:508
 msgid "Hide Answer"
 msgstr ""
 
 #. Translators: the word Answer here refers to the answer to a problem the
 #. student must solve.;
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:550
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:520
 msgid "Show Answer"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:551
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:521
 msgid "Answer hidden"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/capa/display.js:766
+#: common/lib/xmodule/xmodule/js/src/capa/display.js:672
 msgid "Status: unsubmitted"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: common/lib/xmodule/xmodule/js/src/html/edit.js:85
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:779
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:778
 msgid "Paragraph"
 msgstr ""
 
@@ -218,793 +218,792 @@ msgstr ""
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: common/lib/xmodule/xmodule/js/src/html/edit.js:87
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:529
-msgid "Heading 3"
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:518
+msgid "Heading 1"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: common/lib/xmodule/xmodule/js/src/html/edit.js:88
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:534
-msgid "Heading 4"
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:523
+msgid "Heading 2"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
 #: common/lib/xmodule/xmodule/js/src/html/edit.js:89
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:539
-msgid "Heading 5"
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:528
+msgid "Heading 3"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:90
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:544
-msgid "Heading 6"
-msgstr ""
-
-#. Translators: this is a message from the raw HTML editor displayed in the
-#. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:109
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:108
 msgid "Add to Dictionary"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:114
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:113
 msgid "Advanced"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:119
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:118
 msgid "Align center"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:124
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:123
 msgid "Align left"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:129
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:128
 msgid "Align right"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:134
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:133
 msgid "Alignment"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:139
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:138
 msgid "Alternative source"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:144
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:143
 msgid "Anchor"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:149
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:148
 msgid "Anchors"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:154
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:153
 msgid "Author"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:159
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:158
 msgid "Background color"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:164
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:163
 #: lms/static/js/Markdown.Editor.js:1835
 msgid "Blockquote"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:169
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:168
 msgid "Blocks"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:174
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:173
 msgid "Body"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:179
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:178
 msgid "Bold"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:184
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:183
 msgid "Border color"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:189
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:188
 msgid "Border"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:194
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:193
 msgid "Bottom"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:199
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:198
 msgid "Bullet list"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:209
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:208
 msgid "Caption"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:214
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:213
 msgid "Cell padding"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:219
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:218
 msgid "Cell properties"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:224
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:223
 msgid "Cell spacing"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:229
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:228
 msgid "Cell type"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:234
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:233
 msgid "Cell"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:239
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:238
 msgid "Center"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:244
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:243
 msgid "Circle"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:249
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:248
 msgid "Clear formatting"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:259
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:258
 msgid "Code block"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:264
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:263
 msgid "Code"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:269
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:268
 msgid "Color"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:274
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:273
 msgid "Cols"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:279
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:278
 msgid "Column group"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:284
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:283
 msgid "Column"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:289
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:288
 msgid "Constrain proportions"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:294
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:293
 msgid "Copy row"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:299
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:298
 msgid "Copy"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:304
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:303
 msgid "Could not find the specified string."
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:309
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:308
 msgid "Custom color"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:314
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:313
 msgid "Custom..."
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:319
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:318
 msgid "Cut row"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:324
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:323
 msgid "Cut"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:329
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:328
 msgid "Decrease indent"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:334
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:333
 msgid "Default"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:339
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:338
 msgid "Delete column"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:344
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:343
 msgid "Delete row"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:349
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:348
 msgid "Delete table"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:354
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:353
 msgid "Description"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:359
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:358
 msgid "Dimensions"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:364
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:363
 msgid "Disc"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:369
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:368
 msgid "Div"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:374
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:373
 msgid "Document properties"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:379
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:378
 msgid "Edit HTML"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:384
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:383
 #: common/static/js/vendor/ova/catch/js/catch.js:249
 msgid "Edit"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:389
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:388
 msgid "Embed"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:394
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:393
 msgid "Emoticons"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:399
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:398
 msgid "Encoding"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:404
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:403
 msgid "File"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:409
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:408
 msgid "Find and replace"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:414
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:413
 msgid "Find next"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:419
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:418
 msgid "Find previous"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:424
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:423
 msgid "Find"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:429
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:428
 msgid "Finish"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:434
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:433
 msgid "Font Family"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:439
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:438
 msgid "Font Sizes"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:444
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:443
 msgid "Footer"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:449
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:448
 msgid "Format"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:454
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:453
 msgid "Formats"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:459
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:458
 msgid "Fullscreen"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:464
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:463
 msgid "General"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:469
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:468
 msgid "H Align"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:474
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:473
 msgid "Header 1"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:479
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:478
 msgid "Header 2"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:484
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:483
 msgid "Header 3"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:489
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:488
 msgid "Header 4"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:494
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:493
 msgid "Header 5"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:499
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:498
 msgid "Header 6"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:504
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:503
 msgid "Header cell"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:509
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:508
 #: common/lib/xmodule/xmodule/js/src/problem/edit.js:21
 msgid "Header"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:514
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:513
 msgid "Headers"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:519
-msgid "Heading 1"
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:533
+msgid "Heading 4"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:524
-msgid "Heading 2"
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:538
+msgid "Heading 5"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:549
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:543
+msgid "Heading 6"
+msgstr ""
+
+#. Translators: this is a message from the raw HTML editor displayed in the
+#. browser when a user needs to edit HTML
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:548
 msgid "Headings"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:554
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:553
 msgid "Height"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:559
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:558
 msgid "Horizontal line"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:564
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:563
 msgid "Horizontal space"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:569
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:568
 msgid "HTML source code"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:574
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:573
 msgid "Ignore all"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:579
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:578
 msgid "Ignore"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:584
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:583
 msgid "Image description"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:589
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:588
 msgid "Increase indent"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:594
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:593
 msgid "Inline"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:599
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:598
 msgid "Insert column after"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:604
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:603
 msgid "Insert column before"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:609
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:608
 msgid "Insert date/time"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:614
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:613
 msgid "Insert image"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:619
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:618
 msgid "Insert link"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:624
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:623
 msgid "Insert row after"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:629
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:628
 msgid "Insert row before"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:634
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:633
 msgid "Insert table"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:639
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:638
 msgid "Insert template"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:644
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:643
 msgid "Insert video"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:649
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:648
 msgid "Insert"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:654
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:653
 msgid "Insert/edit image"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:659
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:658
 msgid "Insert/edit link"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:664
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:663
 msgid "Insert/edit video"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:669
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:668
 msgid "Italic"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:674
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:673
 msgid "Justify"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:679
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:678
 msgid "Keywords"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:684
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:683
 msgid "Left to right"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:689
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:688
 msgid "Left"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:694
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:693
 msgid "Lower Alpha"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:699
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:698
 msgid "Lower Greek"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:704
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:703
 msgid "Lower Roman"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:709
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:708
 msgid "Match case"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:714
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:713
 msgid "Merge cells"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:719
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:718
 msgid "Middle"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:729
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:728
 msgid "New document"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:734
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:733
 msgid "New window"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:739
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:738
 msgid "Next"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:744
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:743
 msgid "No color"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:749
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:748
 msgid "Nonbreaking space"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:754
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:753
 msgid "None"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:759
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:758
 msgid "Numbered list"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:774
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:773
 msgid "Page break"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:784
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:783
 msgid "Paste as text"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:789
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:788
 msgid ""
 "Paste is now in plain text mode. Contents will now be pasted as plain text "
 "until you toggle this option off."
@@ -1012,100 +1011,100 @@ msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:794
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:793
 msgid "Paste row after"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:799
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:798
 msgid "Paste row before"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:804
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:803
 msgid "Paste your embed code below:"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:809
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:808
 msgid "Paste"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:814
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:813
 msgid "Poster"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:819
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:818
 msgid "Pre"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:824
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:823
 msgid "Prev"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:829
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:828
 #: lms/static/coffee/src/customwmd.js:157
 msgid "Preview"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:834
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:833
 msgid "Print"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:839
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:838
 msgid "Redo"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:844
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:843
 msgid "Remove link"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:849
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:854
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:848
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:853
 msgid "Replace all"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:859
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:858
 msgid "Replace with"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:864
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:869
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:863
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:868
 msgid "Replace"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:874
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:873
 msgid "Restore last draft"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:879
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:878
 msgid ""
 "Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press "
 "ALT-0 for help"
@@ -1113,181 +1112,181 @@ msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:884
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:883
 msgid "Right to left"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:889
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:888
 msgid "Right"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:894
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:893
 msgid "Robots"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:899
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:898
 msgid "Row group"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:904
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:903
 msgid "Row properties"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:909
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:908
 msgid "Row type"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:914
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:913
 msgid "Row"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:919
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:918
 msgid "Rows"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:929
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:928
 msgid "Scope"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:934
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:933
 msgid "Select all"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:939
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:938
 msgid "Show blocks"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:944
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:943
 msgid "Show invisible characters"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:949
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:948
 msgid "Source code"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:954
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:953
 msgid "Source"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:959
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:958
 msgid "Special character"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:964
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:963
 msgid "Spellcheck"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:969
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:968
 msgid "Split cell"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:974
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:973
 msgid "Square"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:979
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:978
 msgid "Start search"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:984
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:983
 msgid "Strikethrough"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:989
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:988
 msgid "Style"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:994
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:993
 msgid "Subscript"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:999
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:998
 msgid "Superscript"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1004
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1003
 msgid "Table properties"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1009
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1008
 msgid "Table"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1014
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1013
 msgid "Target"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1019
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1018
 msgid "Templates"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1024
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1023
 msgid "Text color"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1029
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1028
 msgid "Text to display"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1034
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1033
 msgid ""
 "The URL you entered seems to be an email address. Do you want to add the "
 "required mailto: prefix?"
@@ -1295,7 +1294,7 @@ msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1039
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1038
 msgid ""
 "The URL you entered seems to be an external link. Do you want to add the "
 "required http:// prefix?"
@@ -1303,103 +1302,103 @@ msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1044
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1043
 msgid "Title"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1049
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1048
 msgid "Tools"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1054
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1053
 msgid "Top"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1059
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1058
 msgid "Underline"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1064
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1063
 msgid "Undo"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1069
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1068
 msgid "Upper Alpha"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1074
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1073
 msgid "Upper Roman"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1079
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1078
 msgid "Url"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1084
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1083
 msgid "V Align"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1089
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1088
 msgid "Vertical space"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1094
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1093
 msgid "View"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1099
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1098
 msgid "Visual aids"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1104
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1103
 msgid "Whole words"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1109
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1108
 msgid "Width"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1114
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1113
 msgid "Words: {0}"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1119
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1118
 msgid "You have unsaved changes are you sure you want to navigate away?"
 msgstr ""
 
 #. Translators: this is a message from the raw HTML editor displayed in the
 #. browser when a user needs to edit HTML
-#: common/lib/xmodule/xmodule/js/src/html/edit.js:1124
+#: common/lib/xmodule/xmodule/js/src/html/edit.js:1123
 msgid ""
 "Your browser doesn't support direct access to the clipboard. Please use the "
 "Ctrl+X/C/V keyboard shortcuts instead."
@@ -1453,29 +1452,21 @@ msgid ""
 "Proceed to the Advanced Editor and convert this problem to XML?"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/problem/edit.js:584
-msgid "Explanation"
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/sequence/display.js:254
+#: common/lib/xmodule/xmodule/js/src/sequence/display.js:174
 msgid ""
 "Sequence error! Cannot navigate to %(tab_name)s in the current "
 "SequenceModule. Please contact the course staff."
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/sequence/display.js:325
-msgid "Bookmarked"
-msgstr ""
-
 #: common/lib/xmodule/xmodule/js/src/video/00_i18n.js:14
-#: common/lib/xmodule/xmodule/js/src/video/09_play_pause_control.js:29
-#: common/lib/xmodule/xmodule/js/src/video/09_play_pause_control.js:87
-#: common/lib/xmodule/xmodule/js/src/video/09_play_skip_control.js:29
+#: common/lib/xmodule/xmodule/js/src/video/09_play_pause_control.js:32
+#: common/lib/xmodule/xmodule/js/src/video/09_play_pause_control.js:99
+#: common/lib/xmodule/xmodule/js/src/video/09_play_skip_control.js:32
 msgid "Play"
 msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/00_i18n.js:15
-#: common/lib/xmodule/xmodule/js/src/video/09_play_pause_control.js:77
+#: common/lib/xmodule/xmodule/js/src/video/09_play_pause_control.js:86
 msgid "Pause"
 msgstr ""
 
@@ -1488,23 +1479,24 @@ msgid "Unmute"
 msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/00_i18n.js:18
-#: common/lib/xmodule/xmodule/js/src/video/04_video_full_screen.js:160
+#: common/lib/xmodule/xmodule/js/src/video/04_video_full_screen.js:161
 msgid "Exit full browser"
 msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/00_i18n.js:19
-#: common/lib/xmodule/xmodule/js/src/video/04_video_full_screen.js:6
-#: common/lib/xmodule/xmodule/js/src/video/04_video_full_screen.js:138
+#: common/lib/xmodule/xmodule/js/src/video/04_video_full_screen.js:9
+#: common/lib/xmodule/xmodule/js/src/video/04_video_full_screen.js:144
 msgid "Fill browser"
 msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/00_i18n.js:20
-#: common/lib/xmodule/xmodule/js/src/video/08_video_speed_control.js:45
+#: common/lib/xmodule/xmodule/js/src/video/08_video_speed_control.js:40
+#: common/lib/xmodule/xmodule/js/src/video/08_video_speed_control.js:44
 msgid "Speed"
 msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/00_i18n.js:21
-#: common/lib/xmodule/xmodule/js/src/video/07_video_volume_control.js:69
+#: common/lib/xmodule/xmodule/js/src/video/07_video_volume_control.js:49
 msgid "Volume"
 msgstr ""
 
@@ -1556,73 +1548,60 @@ msgstr ""
 msgid "Try using a different browser, such as Google Chrome."
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:24
+#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:16
 msgid "High Definition"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:25
-#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:157
+#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:21
+#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:155
 msgid "off"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:151
+#: common/lib/xmodule/xmodule/js/src/video/05_video_quality_control.js:149
 msgid "on"
 msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:16
-#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:93
-#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:291
+#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:86
+#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:287
 msgid "Video position"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:287
+#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:283
 msgid "Video ended"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:306
+#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:302
 msgid "%(value)s hour"
 msgid_plural "%(value)s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:309
+#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:305
 msgid "%(value)s minute"
 msgid_plural "%(value)s minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:312
+#: common/lib/xmodule/xmodule/js/src/video/06_video_progress_slider.js:308
 msgid "%(value)s second"
 msgid_plural "%(value)s seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: common/lib/xmodule/xmodule/js/src/video/07_video_volume_control.js:67
+#: common/lib/xmodule/xmodule/js/src/video/07_video_volume_control.js:43
 msgid ""
-"Click on this button to mute or unmute this video or press UP or DOWN "
-"buttons to increase or decrease volume level."
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/07_video_volume_control.js:68
-msgid "Adjust video volume"
+"Volume: Click on this button to mute or unmute this video or press UP or "
 msgstr ""
 
 #: common/lib/xmodule/xmodule/js/src/video/08_video_speed_control.js:35
 msgid ""
-"Press UP to enter the speed menu then use the UP and DOWN arrow keys to "
-"navigate the different speeds, then press ENTER to change to the selected "
-"speed."
+"Speed: Press UP to enter the speed menu then use the UP and DOWN arrow keys "
+"to navigate the different speeds, then press ENTER to change to the selected"
+" speed."
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/08_video_speed_control.js:39
-msgid "Adjust video speed"
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/08_video_speed_control.js:263
-msgid "Video speed: "
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_play_skip_control.js:78
+#: common/lib/xmodule/xmodule/js/src/video/09_play_skip_control.js:85
 msgid "Skip"
 msgstr ""
 
@@ -1630,60 +1609,40 @@ msgstr ""
 msgid "Play video"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/09_skip_control.js:32
+#: common/lib/xmodule/xmodule/js/src/video/09_skip_control.js:35
 msgid "Do not show again"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:102
+#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:48
+msgid "Turn off transcript"
+msgstr ""
+
+#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:55
+msgid ""
+"Language: Press the UP arrow key to enter the language menu, then use UP and"
+" DOWN arrow keys to navigate language options. Press ENTER to change to the "
+"selected language."
+msgstr ""
+
+#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:60
 msgid "Open language menu"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:551
-msgid "Transcript will be displayed when you start playing the video."
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:797
+#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:71
 msgid ""
-"Activating a link in this group will skip to the corresponding point in the "
-"video."
+"Activating an item in this group will spool the video to the corresponding "
+"time point. To skip transcript, go to previous item."
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:800
-msgid "Video transcript"
+#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:496
+msgid "Caption will be displayed when "
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:803
-msgid "Start of transcript. Skip to the end."
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:807
-msgid "End of transcript. Skip to the start."
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:811
-msgid ""
-"Press the UP arrow key to enter the language menu then use UP and DOWN arrow"
-" keys to navigate language options. Press ENTER to change to the selected "
-"language."
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:1188
-msgid "Hide closed captions"
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:1195
-msgid "(Caption will be displayed when you start playing the video.)"
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:1210
-msgid "Turn on closed captioning"
-msgstr ""
-
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:1258
+#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:1039
 msgid "Turn on transcripts"
 msgstr ""
 
-#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:1270
+#: common/lib/xmodule/xmodule/js/src/video/09_video_caption.js:1052
 msgid "Turn off transcripts"
 msgstr ""
 
@@ -3676,31 +3635,51 @@ msgid "Country or Region"
 msgstr ""
 
 #: lms/static/js/student_account/views/account_settings_factory.js:82
+msgid "Current educational center code"
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js:90
+msgid "Current educational center name"
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js:98
+msgid "Teaching profession"
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js:107
+msgid "Specialty"
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js:116
+msgid "Educational role"
+msgstr ""
+
+#: lms/static/js/student_account/views/account_settings_factory.js:126
 msgid "Additional Information (optional)"
 msgstr ""
 
-#: lms/static/js/student_account/views/account_settings_factory.js:87
+#: lms/static/js/student_account/views/account_settings_factory.js:131
 msgid "Education Completed"
 msgstr ""
 
-#: lms/static/js/student_account/views/account_settings_factory.js:96
+#: lms/static/js/student_account/views/account_settings_factory.js:140
 msgid "Gender"
 msgstr ""
 
-#: lms/static/js/student_account/views/account_settings_factory.js:105
+#: lms/static/js/student_account/views/account_settings_factory.js:149
 msgid "Year of Birth"
 msgstr ""
 
-#: lms/static/js/student_account/views/account_settings_factory.js:114
+#: lms/static/js/student_account/views/account_settings_factory.js:158
 #: lms/static/js/student_profile/views/learner_profile_factory.js:96
 msgid "Preferred Language"
 msgstr ""
 
-#: lms/static/js/student_account/views/account_settings_factory.js:126
+#: lms/static/js/student_account/views/account_settings_factory.js:170
 msgid "Connected Accounts"
 msgstr ""
 
-#: lms/static/js/student_account/views/account_settings_factory.js:132
+#: lms/static/js/student_account/views/account_settings_factory.js:176
 msgid "Connect your {accountName} account"
 msgstr ""
 

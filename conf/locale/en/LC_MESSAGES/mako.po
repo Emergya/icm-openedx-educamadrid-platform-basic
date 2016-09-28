@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2016-09-26 09:27+0000\n"
-"PO-Revision-Date: 2016-09-26 09:28:22.619981\n"
+"POT-Creation-Date: 2016-09-28 08:29+0000\n"
+"PO-Revision-Date: 2016-09-28 08:30:21.259383\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -1296,22 +1296,6 @@ msgid ""
 "Registering with {platform_name} gives you access to all of our current and "
 "future courses. Not ready to take a course just yet? Registering puts you on"
 " our mailing list - we will update you as courses are added."
-msgstr ""
-
-#: lms/templates/register-sidebar.html:24
-msgid ""
-"You will receive an activation email.  You must click on the activation link"
-" to complete the process.  Don't see the email?  Check your spam folder and "
-"mark emails from class.stanford.edu as 'not spam', since you'll want to be "
-"able to receive email from your courses."
-msgstr ""
-
-#: lms/templates/register-sidebar.html:26
-msgid ""
-"As part of joining {platform_name}, you will receive an activation email.  "
-"You must click on the activation link to complete the process.  Don't see "
-"the email?  Check your spam folder and mark {platform_name} emails as 'not "
-"spam'.  At {platform_name}, we communicate mostly through email."
 msgstr ""
 
 #: lms/templates/register.html:18 lms/templates/register_ldap.html:18
