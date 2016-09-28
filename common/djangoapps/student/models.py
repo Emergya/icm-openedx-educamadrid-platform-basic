@@ -282,20 +282,20 @@ class UserProfile(models.Model):
 
     # Custom fields
     TEACHING_PROFESSION_KINDS = (
-        ('lecturer_arts_design', _('Lecturers of Visual arts and Design')),
-        ('lecturer_secondary_education', _('Lecturers of Secondary Education')),
-        ('lecturer_languages_schools', _('Lecturers of Official Language Schools')),
-        ('lecturer_music_arts', _('Lecturers of Music and Performing arts')),
-        ('education_inspector', _('Education Inspectors')),
-        ('teacher', _('Teachers')),
-        ('teacher_workshop_arts_design', _('Teachers of Visual arts and Design Workshop')),
-        ('teacher_arts_degisn', _('Teachers of Visual arts and Design')),
-        ('teacher_secondary_education', _('Teachers of Secondary Education')),
-        ('teacher_languages_schools', _('Teachers of Official Language Schools')),
-        ('teacher_music_arts', _('Teachers of Music and Performing arts')),
-        ('teacher_religion', _('Teachers of Religion')),
-        ('teacher_professional_training', _('Teachers of Technical Professional Training')),
-        ('others', _('Others')),
+        ('lecturer_arts_design', ugettext_noop('Lecturers of Visual arts and Design')),
+        ('lecturer_secondary_education', ugettext_noop('Lecturers of Secondary Education')),
+        ('lecturer_languages_schools', ugettext_noop('Lecturers of Official Language Schools')),
+        ('lecturer_music_arts', ugettext_noop('Lecturers of Music and Performing arts')),
+        ('education_inspector', ugettext_noop('Education Inspectors')),
+        ('teacher', ugettext_noop('Teachers')),
+        ('teacher_workshop_arts_design', ugettext_noop('Teachers of Visual arts and Design Workshop')),
+        ('teacher_arts_degisn', ugettext_noop('Teachers of Visual arts and Design')),
+        ('teacher_secondary_education', ugettext_noop('Teachers of Secondary Education')),
+        ('teacher_languages_schools', ugettext_noop('Teachers of Official Language Schools')),
+        ('teacher_music_arts', ugettext_noop('Teachers of Music and Performing arts')),
+        ('teacher_religion', ugettext_noop('Teachers of Religion')),
+        ('teacher_professional_training', ugettext_noop('Teachers of Technical Professional Training')),
+        ('others', ugettext_noop('Others')),
     )
 
     SPECIALTY_KINDS = (
