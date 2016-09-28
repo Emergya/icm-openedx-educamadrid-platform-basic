@@ -102,6 +102,15 @@
                             })
                         },
                         {
+                            view: new FieldViews.DropdownFieldView({
+                                model: userAccountModel,
+                                title: gettext('Specialty'),
+                                valueAttribute: 'specialty',
+                                options: fieldsData['specialty']['options'],
+                                persistChanges: true
+                            })
+                        },
+                        {
                             view: new FieldViews.TextFieldView({
                                 model: userAccountModel,
                                 title: gettext('Educational role'),

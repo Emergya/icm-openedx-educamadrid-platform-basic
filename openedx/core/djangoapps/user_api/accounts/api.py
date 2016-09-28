@@ -204,6 +204,10 @@ def update_account_settings(requesting_user, update, username=None):
         
         if 'teaching_profession' in update:
             existing_user_profile.teaching_profession = update["teaching_profession"]
+            existing_user_profile.save()
+
+	if 'specialty' in update:
+            existing_user_profile.specialty = update["specialty"]
             existing_user_profile.save()        
 
 	if 'educational_role' in update:

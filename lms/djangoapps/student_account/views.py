@@ -384,10 +384,12 @@ def account_settings_context(request):
                 'options': year_of_birth_options,
             }, 'preferred_language': {
                 'options': settings.ALL_LANGUAGES,
-            },
-            'teaching_profession': {
+            },'teaching_profession': {
 		'options': UserProfile.TEACHING_PROFESSION_KINDS,
-	    }
+	    },'specialty': {
+                'options': UserProfile.SPECIALTY_KINDS,
+            }
+
         },
         'platform_name': settings.PLATFORM_NAME,
         'user_accounts_api_url': reverse("accounts_api", kwargs={'username': user.username}),
