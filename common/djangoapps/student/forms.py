@@ -328,7 +328,6 @@ class CreateProfileFromLDAPForm(forms.Form):
             "year_of_birth": _("Your year of birth is required"),
             "mailing_address": _("Your mailing address is required"),
             "goals": _("A description of your goals is required"),
-            "educational_centre_code": _("A city is required"),
             "city": _("A city is required"),
             "educational_centre_code": _("Your educational center code is required and only numbers"),
             "educational_centre_name": _("Your educational center name is required"),
@@ -345,7 +344,7 @@ class CreateProfileFromLDAPForm(forms.Form):
                                 "required": _("To enroll, you must follow the honor code.")
                             }
                         )
-                else:
+                elif field_name != 'educational_role':
                     required = field_value == "required"
                     min_length = 1 if field_name in ("gender", "level_of_education", "educational_centre_code",
                                                      "educational_centre_name", "teaching_profession", "specialty") else 2
@@ -365,7 +364,7 @@ class CreateProfileFromLDAPForm(forms.Form):
         for field in self.extended_profile_fields:
             if field not in self.fields:
                 self.fields[field] = forms.CharField(required=False)
-    
+
     def clean(self):
         super(CreateProfileFromLDAPForm, self).clean()
         pattern = re.compile("^\d{0,8}$")

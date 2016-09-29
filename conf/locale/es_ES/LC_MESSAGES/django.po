@@ -20194,3 +20194,22 @@ msgstr "Este valor es requerido."
 msgid "This option is not a valid option."
 msgstr "Esta opción no es una opción válida."
 
+#: common/djangoapps/student/forms.py:331
+msgid "Your educational center code is required and only numbers"
+msgstr "El código de su centro es requerido y sólo debe contener números."
+
+#: common/djangoapps/student/forms.py:332
+msgid "Your educational center name is required"
+msgstr "El nombre de su centro es requerido."
+
+#: common/djangoapps/student/forms.py:333
+msgid "Your technical profession is required"
+msgstr "El campo cuerpo docente es requerido."
+
+#: common/djangoapps/student/forms.py:334
+msgid "Your specialty is required"
+msgstr "El campo especialidad es requerido."
+
+#: common/djangoapps/student/forms.py:372
+msgid "Your educational center only can contains numbers"
+msgstr "El código de centro sólo puede contener números."
