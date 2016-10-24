@@ -271,7 +271,7 @@ LOGIN_URL = EDX_ROOT_URL + '/signin'
 AUTHENTICATION_BACKENDS = (
     'ratelimitbackend.backends.RateLimitModelBackend',
     'django.contrib.auth.backends.ModelBackend',
-    'django_auth_ldap.backend.LDAPBackend',
+#    'django_auth_ldap.backend.LDAPBackend',
 )
 
 LMS_BASE = None

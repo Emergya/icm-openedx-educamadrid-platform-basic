@@ -548,7 +548,7 @@ DEFAULT_TEMPLATE_ENGINE = TEMPLATES[0]
 
 AUTHENTICATION_BACKENDS = (
     'ratelimitbackend.backends.RateLimitModelBackend',
-    'django_auth_ldap.backend.LDAPBackend',
+#    'django_auth_ldap.backend.LDAPBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 STUDENT_FILEUPLOAD_MAX_SIZE = 4 * 1000 * 1000  # 4 MB
