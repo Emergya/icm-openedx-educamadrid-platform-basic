@@ -1,4 +1,5 @@
 <%!
+from django.conf import settings
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 %>
@@ -10,7 +11,7 @@ from django.core.urlresolvers import reverse
   <h3 class="sr">${_("Registration Help")}</h3>
 </header>
 
-% if 'ENABLE_LDAP_AUTH' not in settings and has_extauth_info is UNDEFINED:
+% if 'ENABLE_LDAP_AUTH' not in settings.FEATURES and has_extauth_info is UNDEFINED:
 
 <div class="cta cta-login">
   <h3 class="title">${_("Already registered?")}</h3>
@@ -32,7 +33,7 @@ from django.core.urlresolvers import reverse
   </div>
 % endif
 
-% if 'ENABLE_LDAP_AUTH' not in settings and settings.MKTG_URL_LINK_MAP.get('FAQ'):
+% if 'ENABLE_LDAP_AUTH' not in settings.FEATURES and settings.MKTG_URL_LINK_MAP.get('FAQ'):
 <div class="cta cta-nextsteps">
     % if stanford_theme_enabled():
     <p>${_("You will receive an activation email.  You must click on the activation link to complete the process.  Don't see the email?  Check your spam folder and mark emails from class.stanford.edu as 'not spam', since you'll want to be able to receive email from your courses.")}</p>

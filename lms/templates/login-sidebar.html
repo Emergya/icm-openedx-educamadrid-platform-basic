@@ -16,7 +16,7 @@ from django.core.urlresolvers import reverse
 % endif
 
 <div class="cta cta-help">
-  % if 'ENABLE_LDAP_AUTH' not in settings:
+  % if 'ENABLE_LDAP_AUTH' not in settings.FEATURES:
    <h3>${_("Not Enrolled?")}</h3>
    <p><a href="${reverse('register_user')}">${_("Sign up for {platform_name} today!").format(platform_name=platform_name)}</a></p>
   % endif

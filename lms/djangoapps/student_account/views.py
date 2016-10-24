@@ -397,7 +397,7 @@ def account_settings_context(request):
         'disable_courseware_js': True,
     }
 
-    if 'ENABLE_LDAP_AUTH' not in settings:
+    if 'ENABLE_LDAP_AUTH' not in settings.FEATURES:
         context['password'] = {
             'url': reverse('password_reset'),
         }

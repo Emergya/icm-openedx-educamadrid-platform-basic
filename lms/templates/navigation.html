@@ -2,6 +2,7 @@
 <%namespace name='static' file='static_content.html'/>
 <%namespace file='main.html' import="login_query, stanford_theme_enabled"/>
 <%!
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
@@ -131,7 +132,7 @@ site_status_msg = get_site_status_msg(course_id)
           %endif
 
       % endif
-      % if 'ENABLE_LDAP_AUTH' not in settings:
+      % if 'ENABLE_LDAP_AUTH' not in settings.FEATURES:
           % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
               <li class="nav-global-04">
                 <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register")}</a>

@@ -466,7 +466,7 @@ def register_user(request, extra_context=None):
             overrides['selected_provider'] = current_provider.name
             context.update(overrides)
 
-    return render_to_response('register_ldap.html', context)  if 'ENABLE_LDAP_AUTH' in settings else render_to_response('register.html', context)
+    return render_to_response('register_ldap.html', context)  if 'ENABLE_LDAP_AUTH' in settings.FEATURES else render_to_response('register.html', context)
 
 
 def complete_course_mode_info(course_id, enrollment, modes=None):
