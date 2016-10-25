@@ -422,7 +422,6 @@ def signin_user(request):
 def register_user(request, extra_context=None):
     """Deprecated. To be replaced by :class:`student_account.views.login_and_registration_form`."""
     # Determine the URL to redirect to following login:
-    import ipdb; ipdb.set_trace()
     redirect_to = get_next_url_for_login_page(request)
     try:
         profile = UserProfile.objects.get(user=request.user.id)
@@ -469,7 +468,7 @@ def register_user(request, extra_context=None):
             overrides['selected_provider'] = current_provider.name
             context.update(overrides)
 
-    return render_to_response('register_ldap.html', context)  if 'ENABLE_LDAP_AUTH' in settings.FEATURES else render_to_response('register.html', context)
+    return render_to_response('register_ldap.html', context)  if 'ENABLE_LDAP_AUTH' in settings.FEATURES else render_to_response('register_no_ldap.html', context)
 
 
 def complete_course_mode_info(course_id, enrollment, modes=None):
@@ -1165,7 +1164,10 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
 
     if not third_party_auth_successful:
         try:
-            user = authenticate(username=email, password=password)
+            if 'ENABLE_LDAP_AUTH' in settings.FEATURES:
+                user = authenticate(username=email, password=password)
+            else:
+                user = authenticate(username=username, password=password, request=request)
         # this occurs when there are too many attempts from the same IP address
         except RateLimitException:
             return JsonResponse({
@@ -1575,14 +1577,25 @@ def create_account_with_params(request, params):
     )
 
     # If we want activate the normal register method we must changed this form for AccountCreationForm.
-    form = LdapAccountCreationForm(
-        data=params,
-        extra_fields={},
-        extended_profile_fields=extended_profile_fields,
-        enforce_username_neq_password=True,
-        enforce_password_policy=enforce_password_policy,
-        tos_required=False,
-    )
+    if 'ENABLE_LDAP_AUTH' in settings.FEATURES:    
+        form = LdapAccountCreationForm(
+            data=params,
+            extra_fields={},
+            extended_profile_fields=extended_profile_fields,
+            enforce_username_neq_password=True,
+            enforce_password_policy=enforce_password_policy,
+            tos_required=False,
+        )
+    else:
+        form = AccountCreationForm(
+            data=params,
+            extra_fields=extra_fields, 
+            extended_profile_fields=extended_profile_fields,
+            enforce_username_neq_password=True,
+            enforce_password_policy=enforce_password_policy,
+            tos_required=tos_required,
+        )
+
 
     # Perform operations within a transaction that are critical to account creation
     with transaction.atomic():
