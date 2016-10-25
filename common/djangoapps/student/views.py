@@ -422,12 +422,15 @@ def signin_user(request):
 def register_user(request, extra_context=None):
     """Deprecated. To be replaced by :class:`student_account.views.login_and_registration_form`."""
     # Determine the URL to redirect to following login:
+    import ipdb; ipdb.set_trace()
     redirect_to = get_next_url_for_login_page(request)
     try:
         profile = UserProfile.objects.get(user=request.user.id)
     except ObjectDoesNotExist:
-        redirect_to = reverse('signin_user')
-        return redirect(redirect_to)
+        if 'ENABLE_LDAP_AUTH' in settings.FEATURES:
+            redirect_to = reverse('signin_user')
+            return redirect(redirect_to)
+
     if request.user.is_authenticated() and profile.year_of_birth is not None and profile.gender is not None:
         return redirect(redirect_to)
 
@@ -437,8 +440,8 @@ def register_user(request, extra_context=None):
 
     context = {
         'login_redirect_url': redirect_to,  # This gets added to the query string of the "Sign In" button in the header
-        'email': request.user.email,
-        'name': request.user.first_name + ' ' + ' ' + request.user.last_name,
+        'email':  request.user.email if  hasattr(request.user, 'email') else '',
+        'name': request.user.first_name + ' ' + ' ' + request.user.last_name  if  hasattr(request.user, 'firstname') and hasattr(request.user, 'lastname') else '',
         'running_pipeline': None,
         'pipeline_urls': auth_pipeline_urls(pipeline.AUTH_ENTRY_REGISTER, redirect_url=redirect_to),
         'platform_name': microsite.get_value(
@@ -446,7 +449,7 @@ def register_user(request, extra_context=None):
             settings.PLATFORM_NAME
         ),
         'selected_provider': '',
-        'username': request.user.username,
+        'username': request.user.username if hasattr(request.user, 'username') else '',
     }
 
     if extra_context is not None:
