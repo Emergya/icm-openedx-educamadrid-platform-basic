@@ -422,7 +422,6 @@ def signin_user(request):
 def register_user(request, extra_context=None):
     """Deprecated. To be replaced by :class:`student_account.views.login_and_registration_form`."""
     # Determine the URL to redirect to following login:
-    import ipdb; ipdb.set_trace()
     redirect_to = get_next_url_for_login_page(request)
     try:
         profile = UserProfile.objects.get(user=request.user.id)
@@ -1165,7 +1164,10 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
 
     if not third_party_auth_successful:
         try:
-            user = authenticate(username=email, password=password)
+            if 'ENABLE_LDAP_AUTH' in settings.FEATURES:
+                user = authenticate(username=email, password=password)
+            else:
+                user = authenticate(username=username, password=password, request=request)
         # this occurs when there are too many attempts from the same IP address
         except RateLimitException:
             return JsonResponse({
@@ -1223,14 +1225,19 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
         try:
             # We do not log here, because we have a handler registered
             # to perform logging on successful logins.
-            redirect_url = None  # The AJAX method calling should know the default destination upon success
-            profile, created = UserProfile.objects.get_or_create(user=user)
-            if created:
-                redirect_url = 'register'
-                profile.email = user.email
-                profile.name = user.first_name + ' ' + ' ' + user.last_name
-                profile.save()
-            login(request, user)
+
+            if 'ENABLE_LDAP_AUTH' in settings.FEATURES:
+                redirect_url = None  # The AJAX method calling should know the default destination upon success
+                profile, created = UserProfile.objects.get_or_create(user=user)
+                if created:
+                    redirect_url = 'register'
+                    profile.email = user.email
+                    profile.name = user.first_name + ' ' + ' ' + user.last_name
+                    profile.save()
+                login(request, user)
+            else:
+                login(request, user)
+
             if request.POST.get('remember') == 'true':
                 request.session.set_expiry(604800)
                 log.debug("Setting user session to never expire")
@@ -1241,6 +1248,9 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
             log.critical("Login failed - Could not create session. Is memcached running?")
             log.exception(exc)
             raise
+
+        # The AJAX method calling should know the default destination upon success
+        redirect_url = None if 'ENABLE_LDAP_AUTH' in settings.FEATURES else redirect_url
 
         if third_party_auth_successful:
             redirect_url = pipeline.get_complete_url(backend_name)
@@ -1575,7 +1585,8 @@ def create_account_with_params(request, params):
     )
 
     # If we want activate the normal register method we must changed this form for AccountCreationForm.
-    form = LdapAccountCreationForm(
+    # TODO Add If ENABLE...
+    form = AccountCreationForm(
         data=params,
         extra_fields={},
         extended_profile_fields=extended_profile_fields,
@@ -1693,7 +1704,10 @@ def create_account_with_params(request, params):
     # the other for *new* systems. we need to be careful about
     # changing settings on a running system to make sure no users are
     # left in an inconsistent state (or doing a migration if they are).
-    new_user = authenticate(username=user.email, password=params['password'])
+    if 'ENABLE_LDAP_AUTH' in settings.FEATURES: 
+        new_user = authenticate(username=user.email, password=params['password'])
+    else:
+        new_user = authenticate(username=user.username, password=params['password'])
 
     send_email = (
         not settings.FEATURES.get('SKIP_EMAIL_VALIDATION', None) and

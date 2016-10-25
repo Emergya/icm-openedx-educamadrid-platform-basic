@@ -2615,7 +2615,7 @@ PREVIEW_DOMAIN = 'preview'
 # Sets the maximum number of courses listed on the homepage
 # If set to None, all courses will be listed on the homepage
 HOMEPAGE_COURSE_MAX = None
-MIDDLEWARE_CLASSES += ('student.middleware.MandatoryFieldsMiddleware',)
+# MIDDLEWARE_CLASSES += ('student.middleware.MandatoryFieldsMiddleware',)
 
 ################################ Settings for Credit Courses ################################
 # Initial delay used for retrying tasks.
