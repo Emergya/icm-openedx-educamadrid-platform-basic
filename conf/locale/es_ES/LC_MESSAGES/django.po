@@ -20083,8 +20083,8 @@ msgstr "Tu contraseña es la que utilizas para todos los servicios de EducaMadri
 "las Preguntas Frecuentes de este sitio."
 
 #: lms/templates/login.html:184
-msgid "This is your EducaMadrid e-mail address"
-msgstr "Esta es tu dirección de correo electrónico de EducaMadrid"
+msgid "This is your e-mail address"
+msgstr "Esta es tu dirección de correo electrónico"
 
 #: themes/icm-openedx-educamadrid-theme/templates/login.html:25
 msgid "Social learning in network"
