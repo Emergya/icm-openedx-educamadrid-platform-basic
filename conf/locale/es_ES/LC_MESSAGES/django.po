@@ -11305,7 +11305,7 @@ msgstr ""
 
 #: lms/templates/courseware/course_about.html
 msgid "Enroll in {course_name}"
-msgstr "Incribirse en {course_name}"
+msgstr "Inscribirse en {course_name}"
 
 #: lms/templates/courseware/course_about.html
 msgid "View About Page in studio"
