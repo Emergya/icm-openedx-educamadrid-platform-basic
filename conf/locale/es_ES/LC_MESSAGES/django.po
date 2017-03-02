@@ -11367,6 +11367,11 @@ msgstr ""
 "Acabo de inscribirme en el {number} {title} a través de {platform} {url}"
 
 #: lms/templates/courseware/course_about_sidebar_header.html
+msgid "I just enrolled in {number} {title} through {account}: {url}"
+msgstr ""
+"Acabo de inscribirme en el {number} {title} a través de {account}: {url}"
+
+#: lms/templates/courseware/course_about_sidebar_header.html
 #: themes/stanford-style/lms/templates/courseware/course_about_sidebar_header.html
 msgid "Tweet that you've enrolled in this course"
 msgstr "Tuitea que te has inscrito en este curso"

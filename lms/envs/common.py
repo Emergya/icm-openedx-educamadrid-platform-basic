@@ -54,7 +54,7 @@ CC_MERCHANT_NAME = PLATFORM_NAME
 COPYRIGHT_YEAR = "2015"
 
 PLATFORM_FACEBOOK_ACCOUNT = "http://www.facebook.com/YourPlatformFacebookAccount"
-PLATFORM_TWITTER_ACCOUNT = "@YourPlatformTwitterAccount"
+PLATFORM_TWITTER_ACCOUNT = "@educamadrid"
 
 ENABLE_JASMINE = False
 
