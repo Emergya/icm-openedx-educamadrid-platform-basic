@@ -20220,3 +20220,14 @@ msgstr "El campo especialidad es requerido."
 #: common/djangoapps/student/forms.py:372
 msgid "Your educational center only can contains numbers"
 msgstr "El código de centro sólo puede contener números."
+
+#: common/lib/xmodule/xmodule/modulestore/inheritance.py
+msgid ""
+"Enter a URL of the this course page Facebook between double quotation marks or without them, "
+"this URL will be in the shared box of the course about page, if you not enter some URL or a not "
+"valid facebook URL, the page of Facebook for this course will be the standard page Facebook of the platform."
+msgstr ""
+"Introduzca una URL válida de la página de Facebook personalizada para este curso, entre dobles comillas o sin ellas, "
+"esta URL será la que se acople al enlace de la página de información de Facebook del curso en cuestión, si no se introduce "
+"ninguna URL o la URL introducida no es una URL válida de Facebook, el enlace de Facebook del curso será el de la plataforma "
+"por defecto."

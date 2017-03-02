@@ -260,12 +260,16 @@ import urllib
                     )
                 ).replace(u" ", u"%20")
               %>
-              <a href="${tweet_action}" class="share">
+              <a href="${tweet_action}" target="_blank" class="share">
                 <i class="icon fa fa-twitter"></i><span class="sr">${_("Tweet that you've enrolled in this course")}</span>
               </a>
-              <a href="${facebook_link}" class="share">
-                <i class="icon fa fa-thumbs-up"></i><span class="sr">${_("Post a Facebook message to say you've enrolled in this course")}</span>
-              </a>
+              % if course.facebook_course_page is not None and '.facebook.com/' in course.facebook_course_page:
+                <a href="${course.facebook_course_page}" target="_blank" class="share">
+              % else:
+                <a href="${facebook_link}" target="_blank" class="share">
+              % endif
+                  <i class="icon fa fa-thumbs-up"></i><span class="sr">${_("Post a Facebook message to say you've enrolled in this course")}</span>
+                </a>
               <a href="${email_subject}" class="share">
                 <i class="icon fa fa-envelope"></i><span class="sr">${_("Email someone to say you've enrolled in this course")}</span>
               </a>
