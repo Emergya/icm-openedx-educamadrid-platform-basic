@@ -210,6 +210,14 @@ class InheritanceMixin(XBlockMixin):
         default=False
     )
 
+    facebook_course_page = String(
+        display_name=_("Facebook course page"),
+        help=_("Enter a URL of the this course page Facebook between double quotation marks or without them, this URL will be in the "
+               "shared box of the course about page, if you not enter some URL or a not valid facebook URL, the page of Facebook "
+               "for this course will be the standard page Facebook of the platform."),
+        scope=Scope.settings
+    )
+
 
 def compute_inherited_metadata(descriptor):
     """Given a descriptor, traverse all of its descendants and do metadata
