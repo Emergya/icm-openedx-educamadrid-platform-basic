@@ -380,7 +380,9 @@ def account_settings_context(request):
                 'options': released_languages(),
             }, 'level_of_education': {
                 'options': [(choice[0], _(choice[1])) for choice in UserProfile.LEVEL_OF_EDUCATION_CHOICES],  # pylint: disable=translation-of-non-string
-            }, 'year_of_birth': {
+            }, 'password': {
+               'url': reverse('password_reset'),
+	    }, 'year_of_birth': {
                 'options': year_of_birth_options,
             }, 'preferred_language': {
                 'options': settings.ALL_LANGUAGES,
@@ -397,10 +399,9 @@ def account_settings_context(request):
         'disable_courseware_js': True,
     }
 
-    if 'ENABLE_LDAP_AUTH' not in settings.FEATURES:
-        context['password'] = {
-            'url': reverse('password_reset'),
-        }
+    context['password'] = {
+        'url': reverse('password_reset'),
+    }
 
     if third_party_auth.is_enabled():
         # If the account on the third party provider is already connected with another edX account,
