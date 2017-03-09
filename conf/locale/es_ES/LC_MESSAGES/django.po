@@ -20046,9 +20046,15 @@ msgstr ""
 
 #: common/djangoapps/student/views.py:1256
 msgid ""
-"This account is disabled, to get more information contact the administrator."
+"You may not have activated your account yet. When you signed up you received "
+"an email asking you to click on a link to activate it. Maybe you deleted it or "
+"went to the spam folder of your email. Try to retrieve it. If you do not get it, "
+"you should re-enroll."
 msgstr ""
-"Esta cuenta está desactivada. Para obtener más información, por favor contacte con el administrador."
+"Es posible que aún no hayas activado tu cuenta. Al darte de alta recibiste un correo "
+"en el que se pedía que hicieras clic en un enlace para activarla. Tal vez lo borraste "
+"o se fue a la carpeta de spam de tu correo. Intenta recuperarlo. Si no lo consigues, "
+"deberías volver a inscribirte."
 
 #: lms/templates/register_ldap.html:107
 msgid "Fill out your account details."
