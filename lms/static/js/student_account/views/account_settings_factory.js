@@ -51,10 +51,10 @@
                                 helpMessage: interpolate_text(
                                     gettext('The email address you use to sign in. Communications from {platform_name} and your courses are sent to this address.'), {platform_name: platformName}
                                 ),
-                                persistChanges: true
+			    persistChanges: true
                             })
                         },
-                        {
+			{
                             view: new AccountSettingsFieldViews.PasswordFieldView({
                                 model: userAccountModel,
                                 title: gettext('Password'),
@@ -64,8 +64,8 @@
                                 linkTitle: gettext('Reset Password'),
                                 linkHref: fieldsData.password.url,
                                 helpMessage: gettext('When you click "Reset Password", a message will be sent to your email address. Click the link in the message to reset your password.')
-                            })
-                        },
+                              })
+                          },
                         {
                             view: new AccountSettingsFieldViews.LanguagePreferenceFieldView({
                                 model: userPreferencesModel,
@@ -90,6 +90,7 @@
                                 persistChanges: true
                             })
                         }
+
                     ]
                 },
                 {

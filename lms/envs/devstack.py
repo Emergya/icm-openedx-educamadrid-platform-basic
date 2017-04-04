@@ -217,7 +217,6 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = ()
 CORS_ORIGIN_ALLOW_ALL = True
 
-
 #####################################################################
 # See if the developer has any local overrides.
 if os.path.isfile(join(dirname(abspath(__file__)), 'private.py')):
@@ -228,3 +227,84 @@ if os.path.isfile(join(dirname(abspath(__file__)), 'private.py')):
 MODULESTORE = convert_module_store_setting_if_needed(MODULESTORE)
 
 SECRET_KEY = '85920908f28904ed733fe576320db18cabd7b6cd'
+
+########################################################################
+# LDAP Authentication
+########################################################################
+
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupsByBranchType
+
+# AUTH_LDAP_GLOBAL_OPTIONS = {
+#     ldap.OPT_X_TLS_REQUIRE_CERT: False,
+#     ldap.OPT_REFERRALS: False,
+# }
+
+# Baseline configuration.
+# Here put the LDAP URL of your server
+AUTH_LDAP_SERVER_URI = "ldap://localhost"
+# Let the bind DN and bind password blankuc for anonymous binding
+AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
+AUTH_LDAP_BIND_PASSWORD = ""
+AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(mail=%(user)s)")
+
+AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(objectClass=emTeacher)")
+
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {
+        "is_staff": "",
+        "is_active": "",
+        "is_superuser": ""
+}
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+    ldap.OPT_X_TLS_REQUIRE_CERT: False,
+    ldap.OPT_REFERRALS: False,
+}
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "cn",
+    "last_name": "cn",
+    "email": "mail",
+    "username": "uid",
+    "is_active": "accountStatus"
+}
+
+
+AUTH_LDAP_MIRROR_GROUPS = False
+# This is the default, but I like to be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Use LDAP group membership to calculate group permissions.
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+# # Cache group memberships for an hour to minimize LDAP traffic
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 1
+
+# Keep ModelBackend around for per-user permissions and maybe a local
+# superuser.
+import django
+django.setup()
+
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+import logging
+
+logger = logging.getLogger('django_auth_ldap')
+logger.addHandler(logging.StreamHandler())
+logger.setLevel(logging.DEBUG)
+logfile = "/tmp/django-ldap-debug.log"
+my_logger = logging.getLogger('django_auth_ldap')
+my_logger.setLevel(logging.DEBUG)
+
+handler = logging.handlers.RotatingFileHandler(
+   logfile, maxBytes=1024 * 500, backupCount=5)
+
+my_logger.addHandler(handler)

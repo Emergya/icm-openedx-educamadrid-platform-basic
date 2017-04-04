@@ -32,7 +32,7 @@ Longer TODO:
 import sys
 import os
 import imp
-
+import ldap
 from path import Path as path
 from warnings import simplefilter
 from django.utils.translation import ugettext_lazy as _
@@ -44,6 +44,8 @@ from xmodule.modulestore.edit_info import EditInfoMixin
 from xmodule.mixin import LicenseMixin
 from lms.djangoapps.lms_xblock.mixin import LmsBlockMixin
 
+from django_auth_ldap.config import LDAPSearch, GroupsByBranchType
+
 ################################### FEATURES ###################################
 # The display name of the platform to be used in templates/emails/etc.
 PLATFORM_NAME = "Your Platform Name Here"
@@ -51,8 +53,8 @@ CC_MERCHANT_NAME = PLATFORM_NAME
 # Shows up in the platform footer, eg "(c) COPYRIGHT_YEAR"
 COPYRIGHT_YEAR = "2015"
 
-PLATFORM_FACEBOOK_ACCOUNT = "http://www.facebook.com/YourPlatformFacebookAccount"
-PLATFORM_TWITTER_ACCOUNT = "@YourPlatformTwitterAccount"
+PLATFORM_FACEBOOK_ACCOUNT = ""
+PLATFORM_TWITTER_ACCOUNT = "@educamadrid"
 
 ENABLE_JASMINE = False
 
@@ -543,8 +545,11 @@ DEFAULT_TEMPLATE_ENGINE = TEMPLATES[0]
 ###############################################################################################
 
 # use the ratelimit backend to prevent brute force attacks
+
 AUTHENTICATION_BACKENDS = (
     'ratelimitbackend.backends.RateLimitModelBackend',
+#    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 STUDENT_FILEUPLOAD_MAX_SIZE = 4 * 1000 * 1000  # 4 MB
 MAX_FILEUPLOADS_PER_INPUT = 20
@@ -850,8 +855,8 @@ MEDIA_ROOT = '/edx/var/edxapp/media/'
 MEDIA_URL = '/media/'
 
 # Locale/Internationalization
-TIME_ZONE = 'America/New_York'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-LANGUAGE_CODE = 'en'  # http://www.i18nguy.com/unicode/language-identifiers.html
+TIME_ZONE = 'Europe/Madrid'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+LANGUAGE_CODE = 'es-es'  # http://www.i18nguy.com/unicode/language-identifiers.html
 # these languages display right to left
 LANGUAGES_BIDI = ("he", "ar", "fa", "ur", "fa-ir", "rtl")
 
@@ -1761,6 +1766,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'djcelery',
+    'django_auth_ldap',
 
     # Common views
     'openedx.core.djangoapps.common_views',
@@ -2114,14 +2120,14 @@ FEATURES['ENABLE_CREDIT_ELIGIBILITY'] = ENABLE_CREDIT_ELIGIBILITY
 
 ######################## CAS authentication ###########################
 
-if FEATURES.get('AUTH_USE_CAS'):
-    CAS_SERVER_URL = 'https://provide_your_cas_url_here'
-    AUTHENTICATION_BACKENDS = (
-        'django.contrib.auth.backends.ModelBackend',
-        'django_cas.backends.CASBackend',
-    )
-    INSTALLED_APPS += ('django_cas',)
-    MIDDLEWARE_CLASSES += ('django_cas.middleware.CASMiddleware',)
+# if FEATURES.get('AUTH_USE_CAS'):
+#     CAS_SERVER_URL = 'https://provide_your_cas_url_here'
+#     AUTHENTICATION_BACKENDS = (
+#         'django.contrib.auth.backends.ModelBackend',
+#         'django_cas.backends.CASBackend',
+#     )
+#     INSTALLED_APPS += ('django_cas',)
+#     MIDDLEWARE_CLASSES += ('django_cas.middleware.CASMiddleware',)
 
 ############# Cross-domain requests #################
 
@@ -2146,8 +2152,8 @@ REGISTRATION_EXTRA_FIELDS = {
     'level_of_education': 'optional',
     'gender': 'optional',
     'year_of_birth': 'optional',
-    'mailing_address': 'optional',
-    'goals': 'optional',
+    'mailing_address': 'hidden',
+    'goals': 'hidden',
     'honor_code': 'required',
     'terms_of_service': 'hidden',
     'city': 'hidden',
@@ -2555,6 +2561,11 @@ ACCOUNT_VISIBILITY_CONFIGURATION = {
         "mailing_address",
         "requires_parental_consent",
         "account_privacy",
+        "educational_centre_code",
+	"educational_centre_name",
+	"teaching_profession",
+	"specialty",
+	"educational_role", 
     ]
 }
 
@@ -2604,6 +2615,7 @@ PREVIEW_DOMAIN = 'preview'
 # Sets the maximum number of courses listed on the homepage
 # If set to None, all courses will be listed on the homepage
 HOMEPAGE_COURSE_MAX = None
+# MIDDLEWARE_CLASSES += ('student.middleware.MandatoryFieldsMiddleware',)
 
 ################################ Settings for Credit Courses ################################
 # Initial delay used for retrying tasks.
@@ -2680,3 +2692,59 @@ CCX_MAX_STUDENTS_ALLOWED = 200
 # financial assistance form
 FINANCIAL_ASSISTANCE_MIN_LENGTH = 800
 FINANCIAL_ASSISTANCE_MAX_LENGTH = 2500
+
+########################################################################
+# LDAP Authentication
+########################################################################
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+#     ldap.OPT_X_TLS_REQUIRE_CERT: False,
+#     ldap.OPT_REFERRALS: False,
+}
+
+# Baseline configuration.
+# Here put the LDAP URL of your server
+AUTH_LDAP_SERVER_URI = "ldap://172.17.0.2"
+# Let the bind DN and bind password blankuc for anonymous binding
+AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
+AUTH_LDAP_BIND_PASSWORD = ""
+AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(&(mail=%(user)s)(objectClass=emTeacher))")
+
+AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(objectClass=emTeacher)")
+
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {}
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+    ldap.OPT_X_TLS_REQUIRE_CERT: False,
+    ldap.OPT_REFERRALS: False,
+}
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "cn",
+    "last_name": "sn",
+    "email": "mail",
+    "username": "uid",
+    "is_active": "accountStatus"
+}
+
+
+AUTH_LDAP_MIRROR_GROUPS = False
+# This is the default, but I like to be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Use LDAP group membership to calculate group permissions.
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+# # Cache group memberships for an hour to minimize LDAP traffic
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 1
+
+if DEBUG:
+    import logging
+
+    logger = logging.getLogger('django_auth_ldap')
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)

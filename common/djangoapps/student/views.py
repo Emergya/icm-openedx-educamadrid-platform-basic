@@ -21,6 +21,7 @@ from django.contrib.auth.views import password_reset_confirm
 from django.contrib import messages
 from django.core.context_processors import csrf
 from django.core import mail
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse, NoReverseMatch
 from django.core.validators import validate_email, ValidationError
 from django.db import IntegrityError, transaction
@@ -54,7 +55,7 @@ from student.models import (
     CourseEnrollmentAllowed, UserStanding, LoginFailures,
     create_comments_service_user, PasswordHistory, UserSignupSource,
     DashboardConfiguration, LinkedInAddToProfileConfiguration, ManualEnrollmentAudit, ALLOWEDTOENROLL_TO_ENROLLED)
-from student.forms import AccountCreationForm, PasswordResetFormNoActive
+from student.forms import AccountCreationForm, PasswordResetFormNoActive, LdapAccountCreationForm, CreateProfileFromLDAPForm
 
 from lms.djangoapps.verify_student.models import SoftwareSecurePhotoVerification
 from certificates.models import CertificateStatuses, certificate_status_for_student
@@ -422,7 +423,14 @@ def register_user(request, extra_context=None):
     """Deprecated. To be replaced by :class:`student_account.views.login_and_registration_form`."""
     # Determine the URL to redirect to following login:
     redirect_to = get_next_url_for_login_page(request)
-    if request.user.is_authenticated():
+    try:
+        profile = UserProfile.objects.get(user=request.user.id)
+    except ObjectDoesNotExist:
+        if 'ENABLE_LDAP_AUTH' in settings.FEATURES:
+            redirect_to = reverse('signin_user')
+            return redirect(redirect_to)
+
+    if request.user.is_authenticated() and profile.year_of_birth is not None and profile.gender is not None:
         return redirect(redirect_to)
 
     external_auth_response = external_auth_register(request)
@@ -431,8 +439,8 @@ def register_user(request, extra_context=None):
 
     context = {
         'login_redirect_url': redirect_to,  # This gets added to the query string of the "Sign In" button in the header
-        'email': '',
-        'name': '',
+        'email':  request.user.email if  hasattr(request.user, 'email') else '',
+        'name': request.user.first_name + ' ' + ' ' + request.user.last_name  if  hasattr(request.user, 'firstname') and hasattr(request.user, 'lastname') else '',
         'running_pipeline': None,
         'pipeline_urls': auth_pipeline_urls(pipeline.AUTH_ENTRY_REGISTER, redirect_url=redirect_to),
         'platform_name': microsite.get_value(
@@ -440,7 +448,7 @@ def register_user(request, extra_context=None):
             settings.PLATFORM_NAME
         ),
         'selected_provider': '',
-        'username': '',
+        'username': request.user.username if hasattr(request.user, 'username') else '',
     }
 
     if extra_context is not None:
@@ -460,7 +468,7 @@ def register_user(request, extra_context=None):
             overrides['selected_provider'] = current_provider.name
             context.update(overrides)
 
-    return render_to_response('register.html', context)
+    return render_to_response('register_ldap.html', context)  if 'ENABLE_LDAP_AUTH' in settings.FEATURES else render_to_response('register.html', context)
 
 
 def complete_course_mode_info(course_id, enrollment, modes=None):
@@ -1048,7 +1056,6 @@ def change_enrollment(request, check_access=True):
 @ensure_csrf_cookie
 def login_user(request, error=""):  # pylint: disable=too-many-statements,unused-argument
     """AJAX request to log in the user."""
-
     backend_name = None
     email = None
     password = None
@@ -1103,16 +1110,19 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
                 "success": False,
                 "value": _('There was an error receiving your login information. Please email us.'),  # TODO: User error message
             })  # TODO: this should be status code 400  # pylint: disable=fixme
-
         email = request.POST['email']
         password = request.POST['password']
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
-            if settings.FEATURES['SQUELCH_PII_IN_LOGS']:
-                AUDIT_LOG.warning(u"Login failed - Unknown user email")
-            else:
-                AUDIT_LOG.warning(u"Login failed - Unknown user email: {0}".format(email))
+            try:
+                params = {'email':email, 'password': password}
+                # user = create_account_with_params(request, params)
+            except:
+                if settings.FEATURES['SQUELCH_PII_IN_LOGS']:
+                    AUDIT_LOG.warning(u"Login failed - Unknown user email")
+                else:
+                    AUDIT_LOG.warning(u"Login failed - Unknown user email: {0}".format(email))
 
     # check if the user has a linked shibboleth account, if so, redirect the user to shib-login
     # This behavior is pretty much like what gmail does for shibboleth.  Try entering some @stanford.edu
@@ -1154,7 +1164,10 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
 
     if not third_party_auth_successful:
         try:
-            user = authenticate(username=username, password=password, request=request)
+            if 'ENABLE_LDAP_AUTH' in settings.FEATURES:
+                user = authenticate(username=email, password=password)
+            else:
+                user = authenticate(username=username, password=password, request=request)
         # this occurs when there are too many attempts from the same IP address
         except RateLimitException:
             return JsonResponse({
@@ -1212,7 +1225,19 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
         try:
             # We do not log here, because we have a handler registered
             # to perform logging on successful logins.
-            login(request, user)
+
+            if 'ENABLE_LDAP_AUTH' in settings.FEATURES:
+                redirect_url = None  # The AJAX method calling should know the default destination upon success
+                profile, created = UserProfile.objects.get_or_create(user=user)
+                if created:
+                    redirect_url = 'register'
+                    profile.email = user.email
+                    profile.name = user.first_name + ' ' + ' ' + user.last_name
+                    profile.save()
+                login(request, user)
+            else:
+                login(request, user)
+
             if request.POST.get('remember') == 'true':
                 request.session.set_expiry(604800)
                 log.debug("Setting user session to never expire")
@@ -1224,7 +1249,9 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
             log.exception(exc)
             raise
 
-        redirect_url = None  # The AJAX method calling should know the default destination upon success
+        # The AJAX method calling should know the default destination upon success
+        redirect_url = None if 'ENABLE_LDAP_AUTH' in settings.FEATURES else redirect_url
+
         if third_party_auth_successful:
             redirect_url = pipeline.get_complete_url(backend_name)
 
@@ -1237,17 +1264,15 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
         # detect that the user is logged in.
         return set_logged_in_cookies(request, response, user)
 
-    if settings.FEATURES['SQUELCH_PII_IN_LOGS']:
-        AUDIT_LOG.warning(u"Login failed - Account not active for user.id: {0}, resending activation".format(user.id))
-    else:
-        AUDIT_LOG.warning(u"Login failed - Account not active for user {0}, resending activation".format(username))
-
-    reactivation_email_for_user(user)
-    not_activated_msg = _("This account has not been activated. We have sent another activation message. Please check your email for the activation instructions.")
-    return JsonResponse({
-        "success": False,
-        "value": not_activated_msg,
-    })  # TODO: this should be status code 400  # pylint: disable=fixme
+    if user is not None and user.is_active is False:
+        not_activated_msg = _("You may not have activated your account yet. When you signed up you received " +
+                              "an email asking you to click on a link to activate it. Maybe you deleted it or " +
+                              "went to the spam folder of your email. Try to retrieve it. If you do not get it, " +
+                              "you should re-enroll.")
+        return JsonResponse({
+            "success": False,
+            "value": not_activated_msg,
+        })  # TODO: this should be status code 400  # pylint: disable=fixme
 
 
 @csrf_exempt
@@ -1562,13 +1587,15 @@ def create_account_with_params(request, params):
         )
     )
 
+    # If we want activate the normal register method we must changed this form for AccountCreationForm.
+    # TODO Add If ENABLE...
     form = AccountCreationForm(
         data=params,
-        extra_fields=extra_fields,
+        extra_fields={},
         extended_profile_fields=extended_profile_fields,
         enforce_username_neq_password=True,
         enforce_password_policy=enforce_password_policy,
-        tos_required=tos_required,
+        tos_required=False,
     )
 
     # Perform operations within a transaction that are critical to account creation
@@ -1680,6 +1707,11 @@ def create_account_with_params(request, params):
     # the other for *new* systems. we need to be careful about
     # changing settings on a running system to make sure no users are
     # left in an inconsistent state (or doing a migration if they are).
+    if 'ENABLE_LDAP_AUTH' in settings.FEATURES: 
+        new_user = authenticate(username=user.email, password=params['password'])
+    else:
+        new_user = authenticate(username=user.username, password=params['password'])
+
     send_email = (
         not settings.FEATURES.get('SKIP_EMAIL_VALIDATION', None) and
         not settings.FEATURES.get('AUTOMATIC_AUTH_FOR_TESTING') and
@@ -1721,7 +1753,6 @@ def create_account_with_params(request, params):
     # Immediately after a user creates an account, we log them in. They are only
     # logged in until they close the browser. They can't log in again until they click
     # the activation link from the email.
-    new_user = authenticate(username=user.username, password=params['password'])
     login(request, new_user)
     request.session.set_expiry(0)
 
@@ -1753,7 +1784,6 @@ def create_account(request, post_override=None):
     Used by form in signup_modal.html, which is included into navigation.html
     """
     warnings.warn("Please use RegistrationView instead.", DeprecationWarning)
-
     try:
         user = create_account_with_params(request, post_override or request.POST)
     except AccountValidationError as exc:
@@ -2340,3 +2370,77 @@ def _get_course_programs(user, user_enrolled_courses):  # pylint: disable=invali
                 log.warning('Program structure is invalid, skipping display: %r', program)
 
     return programs_data
+
+@csrf_exempt
+def fill_fields_new_ldap_login(request):
+    try:
+        fill_user_profile(request.user, request.POST)
+    except AccountValidationError as exc:
+        return JsonResponse({'success': False, 'value': exc.message, 'field': exc.field}, status=400)
+    except ValidationError as exc:
+        field, error_list = next(exc.message_dict.iteritems())
+        return JsonResponse(
+            {
+                "success": False,
+                "field": field,
+                "value": error_list[0],
+            },
+            status=400
+        )
+
+    redirect_url = None  # The AJAX method calling should know the default destination upon success
+
+    response = JsonResponse({
+        'success': True,
+        'redirect_url': redirect_url,
+    })
+    return response
+
+
+
+def fill_user_profile(user, fields):
+
+    params = dict(fields.items())
+
+    extended_profile_fields = microsite.get_value('extended_profile_fields', [])
+
+    do_external_auth = False
+
+    enforce_password_policy = (
+        settings.FEATURES.get("ENFORCE_PASSWORD_POLICY", False) and
+        not do_external_auth
+    )
+
+    extra_fields = microsite.get_value(
+        'REGISTRATION_EXTRA_FIELDS',
+        getattr(settings, 'REGISTRATION_EXTRA_FIELDS', {})
+    )
+
+    form = CreateProfileFromLDAPForm(
+        data=params,
+        extra_fields=extra_fields,
+        extended_profile_fields=extended_profile_fields,
+        enforce_username_neq_password=True,
+        enforce_password_policy=enforce_password_policy,
+        tos_required=True,
+    )
+
+    # validate with form
+    if not form.is_valid():
+        raise ValidationError(form.errors)
+
+    profile_fields = [
+        "level_of_education", "gender", "mailing_address", "city", "country", "goals",
+        "year_of_birth", "educational_centre_code", "educational_centre_name",
+        "teaching_profession", "specialty", "educational_role"
+    ]
+
+    profile = user.profile
+    for key in profile_fields:
+        setattr(user.profile, key, form.cleaned_data.get(key))
+
+    try:
+        profile.save()
+    except Exception:  # pylint: disable=broad-except
+        log.exception("UserProfile creation failed for user {id}.".format(id=user.id))
+        raise

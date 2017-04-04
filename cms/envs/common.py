@@ -25,6 +25,7 @@ Longer TODO:
 # pylint: disable=unused-import
 
 import imp
+import ldap
 import os
 import sys
 import lms.envs.common
@@ -53,6 +54,8 @@ from cms.lib.xblock.authoring_mixin import AuthoringMixin
 import dealer.git
 from xmodule.modulestore.edit_info import EditInfoMixin
 from xmodule.mixin import LicenseMixin
+
+from django_auth_ldap.config import LDAPSearch, GroupsByBranchType
 
 ############################ FEATURE CONFIGURATION #############################
 
@@ -87,7 +90,7 @@ FEATURES = {
 
     # If set to True, new Studio users won't be able to author courses unless
     # edX has explicitly added them to the course creator group.
-    'ENABLE_CREATOR_GROUP': False,
+    'ENABLE_CREATOR_GROUP': True,
 
     # whether to use password policy enforcement or not
     'ENFORCE_PASSWORD_POLICY': False,
@@ -267,6 +270,8 @@ LOGIN_URL = EDX_ROOT_URL + '/signin'
 # use the ratelimit backend to prevent brute force attacks
 AUTHENTICATION_BACKENDS = (
     'ratelimitbackend.backends.RateLimitModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+#    'django_auth_ldap.backend.LDAPBackend',
 )
 
 LMS_BASE = None
@@ -447,8 +452,8 @@ STATICFILES_DIRS = [
 ]
 
 # Locale/Internationalization
-TIME_ZONE = 'America/New_York'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-LANGUAGE_CODE = 'en'  # http://www.i18nguy.com/unicode/language-identifiers.html
+TIME_ZONE = 'Europe/Madrid'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+LANGUAGE_CODE = 'es-es'  # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGES_BIDI = lms.envs.common.LANGUAGES_BIDI
 
 LANGUAGES = lms.envs.common.LANGUAGES
@@ -1130,3 +1135,60 @@ PROCTORING_SETTINGS = {}
 
 # OpenID Connect issuer ID. Normally the URL of the authentication endpoint.
 OAUTH_OIDC_ISSUER = 'https://www.example.com/oauth2'
+
+########################################################################
+# LDAP Authentication
+########################################################################
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+#     ldap.OPT_X_TLS_REQUIRE_CERT: False,
+#     ldap.OPT_REFERRALS: False,
+}
+
+# Baseline configuration.
+# Here put the LDAP URL of your server
+AUTH_LDAP_SERVER_URI = "ldap://172.17.0.2"
+# Let the bind DN and bind password blankuc for anonymous binding
+AUTH_LDAP_BIND_DN = "cn=Manager, dc=educa,dc=madrid,dc=org"
+AUTH_LDAP_BIND_PASSWORD = ""
+AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(&(mail=%(user)s)(objectClass=emTeacher))")
+
+AUTH_LDAP_GROUP_TYPE = GroupsByBranchType(base_group_cn='dc=educa,dc=madrid,dc=org')
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=educa,dc=madrid,dc=org",
+                                    ldap.SCOPE_SUBTREE, "(objectClass=emTeacher)")
+
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {}
+
+AUTH_LDAP_GLOBAL_OPTIONS = {
+    ldap.OPT_X_TLS_REQUIRE_CERT: False,
+    ldap.OPT_REFERRALS: False,
+}
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "cn",
+    "last_name": "sn",
+    "email": "mail",
+    "username": "uid",
+    "is_active": "accountStatus"
+}
+
+
+AUTH_LDAP_MIRROR_GROUPS = False
+# This is the default, but I like to be explicit.
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+
+# Use LDAP group membership to calculate group permissions.
+AUTH_LDAP_FIND_GROUP_PERMS = True
+
+# # Cache group memberships for an hour to minimize LDAP traffic
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 1
+
+if DEBUG:
+    import logging
+
+    logger = logging.getLogger('django_auth_ldap')
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)
+

@@ -381,17 +381,26 @@ def account_settings_context(request):
             }, 'level_of_education': {
                 'options': [(choice[0], _(choice[1])) for choice in UserProfile.LEVEL_OF_EDUCATION_CHOICES],  # pylint: disable=translation-of-non-string
             }, 'password': {
-                'url': reverse('password_reset'),
-            }, 'year_of_birth': {
+               'url': reverse('password_reset'),
+	    }, 'year_of_birth': {
                 'options': year_of_birth_options,
             }, 'preferred_language': {
                 'options': settings.ALL_LANGUAGES,
+            }, 'teaching_profession': {
+    	       'options': [(choice[0], _(choice[1])) for choice in UserProfile.TEACHING_PROFESSION_KINDS],  # pylint: disable=translation-of-non-string
+            }, 'specialty': {
+                'options': [(choice[0], _(choice[1])) for choice in UserProfile.SPECIALTY_KINDS],  # pylint: disable=translation-of-non-string
             }
+
         },
         'platform_name': settings.PLATFORM_NAME,
         'user_accounts_api_url': reverse("accounts_api", kwargs={'username': user.username}),
         'user_preferences_api_url': reverse('preferences_api', kwargs={'username': user.username}),
         'disable_courseware_js': True,
+    }
+
+    context['password'] = {
+        'url': reverse('password_reset'),
     }
 
     if third_party_auth.is_enabled():
