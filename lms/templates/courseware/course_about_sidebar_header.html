@@ -3,6 +3,7 @@
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 from django.conf import settings
+import urllib
 %>
 
 <header>
@@ -27,7 +28,7 @@ from django.conf import settings
                 path=reverse('about_course', args=[course.id.to_deprecated_string()])
             )
         ).replace(u" ", u"+")
-        tweet_action = u"http://twitter.com/intent/tweet?text={tweet_text}".format(tweet_text=tweet_text)
+        tweet_action = u"http://twitter.com/intent/tweet?text={tweet_text}".format(tweet_text=urllib.quote(tweet_text.encode('utf-8')))
 
         facebook_link = static.get_value('course_about_facebook_link', settings.PLATFORM_FACEBOOK_ACCOUNT)
 
@@ -44,11 +45,15 @@ from django.conf import settings
             )
         ).replace(u" ", u"%20")
       %>
-      <a href="${tweet_action}" class="share">
+      <a href="${tweet_action}" target="_blank" class="share">
         <span class="icon fa fa-twitter" aria-hidden="true"></span><span class="sr">${_("Tweet that you've enrolled in this course")}</span>
       </a>
-      <a href="${facebook_link}" class="share">
-        <span class="icon fa fa-thumbs-up" aria-hidden="true"></span><span class="sr">${_("Post a Facebook message to say you've enrolled in this course")}</span>
+      % if course.facebook_course_page is not None and '.facebook.com/' in course.facebook_course_page:
+        <a href="${course.facebook_course_page}" target="_blank" class="share">
+      % else:
+        <a href="${facebook_link}" target="_blank" class="share">
+      % endif
+        <i class="icon fa fa-thumbs-up"></i><span class="sr">${_("Post a Facebook message to say you've enrolled in this course")}</span>
       </a>
       <a href="${email_subject}" class="share">
         <span class="icon fa fa-envelope" aria-hidden="true"></span><span class="sr">${_("Email someone to say you've enrolled in this course")}</span>

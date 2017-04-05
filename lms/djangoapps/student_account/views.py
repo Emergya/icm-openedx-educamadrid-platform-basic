@@ -449,6 +449,10 @@ def account_settings_context(request):
                 'options': year_of_birth_options,
             }, 'preferred_language': {
                 'options': all_languages(),
+            }, 'teaching_profession': {
+                'options': [(choice[0], _(choice[1])) for choice in UserProfile.TEACHING_PROFESSION_KINDS],  # pylint: disable=translation-of-non-string
+            }, 'specialty': {
+                'options': [(choice[0], _(choice[1])) for choice in UserProfile.SPECIALTY_KINDS],  # pylint: disable=translation-of-non-string
             }, 'time_zone': {
                 'options': TIME_ZONE_CHOICES,
                 'enabled': settings.FEATURES.get('ENABLE_TIME_ZONE_PREFERENCE'),
@@ -460,6 +464,10 @@ def account_settings_context(request):
         'disable_courseware_js': True,
         'show_program_listing': ProgramsApiConfig.current().show_program_listing,
         'order_history': user_orders
+    }
+
+    context['password'] = {
+        'url': reverse('password_reset'),
     }
 
     if third_party_auth.is_enabled():

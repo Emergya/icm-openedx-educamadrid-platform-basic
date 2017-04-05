@@ -2,10 +2,14 @@
 Middleware that checks user standing for the purpose of keeping users with
 disabled accounts from accessing the site.
 """
+from edxmako.shortcuts import marketing_link
+from student.models import UserStanding, UserProfile
+
+from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseForbidden
 from django.utils.translation import ugettext as _
-from django.conf import settings
-from student.models import UserStanding
+from django.shortcuts import redirect
 
 
 class UserStandingMiddleware(object):
@@ -34,3 +38,31 @@ class UserStandingMiddleware(object):
                     ),
                 )
                 return HttpResponseForbidden(msg)
+
+
+class MandatoryFieldsMiddleware(object):
+    """
+    Middleware: If a user hasn't got the mandatory fields (in this case: gender), it will be redirected to the user form.
+    """
+
+    def process_view(self, request, view_func, view_args, view_kwargs):  # pylint: disable=unused-argument
+        user = request.user
+        # Only obey to the user if it exists
+        try:
+            profile = UserProfile.objects.get(user_id=user.id)
+            form_to_update_profile = reverse('student.views.register_user')
+            not_redirect = (form_to_update_profile, reverse('student.views.logout_user'),
+                            reverse('student.views.signin_user'),
+                            reverse('student.views.fill_fields_new_ldap_login'),
+                            marketing_link('HONOR'),
+                            marketing_link('HONOR') + '#honor',
+                            marketing_link('TOS'))
+
+            # It's not the form (avoid inifinite redirect) and hasn't got gender or age
+            if not any([(request.path == url) for url in not_redirect]):
+                return redirect(form_to_update_profile)
+        except UserProfile.DoesNotExist:
+            pass
+
+        return None
+
