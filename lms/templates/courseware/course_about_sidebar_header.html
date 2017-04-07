@@ -26,9 +26,9 @@ import urllib
             url=u"http://{domain}{path}".format(
                 domain=site_domain,
                 path=reverse('about_course', args=[course.id.to_deprecated_string()])
-            )
-        ).replace(u" ", u"+")
-        tweet_action = u"http://twitter.com/intent/tweet?text={tweet_text}".format(tweet_text=urllib.quote(tweet_text.encode('utf-8')))
+            ).replace(u" ", u"%2B")
+        )
+        tweet_action = u"http://twitter.com/intent/tweet?text={tweet_text_urllib}".format(tweet_text_urllib=urllib.quote(tweet_text.encode('utf-8')))
 
         facebook_link = static.get_value('course_about_facebook_link', settings.PLATFORM_FACEBOOK_ACCOUNT)
 
