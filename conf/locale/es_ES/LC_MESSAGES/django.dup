@@ -1,0 +1,54 @@
+Multiple translations found for single string.
+	String "Student"
+	Present in files [u'common/djangoapps/django_comment_common/models.py', u'lms/djangoapps/instructor/paidcourse_enrollment_report.py', u'lms/templates/courseware/course_navigation.html']
+Translations found were:
+	#-#-#-#-#  django-partial.po (edx-platform)  #-#-#-#-#
+Alumno
+#-#-#-#-#  mako.po (edx-platform)  #-#-#-#-#
+Alumnos
+
+Multiple translations found for single string.
+	String "Notes"
+	Present in files [u'lms/djangoapps/edxnotes/plugins.py', u'lms/templates/edxnotes/edxnotes.html']
+Translations found were:
+	#-#-#-#-#  django-partial.po (edx-platform)  #-#-#-#-#
+Notas
+#-#-#-#-#  mako.po (edx-platform)  #-#-#-#-#
+Mis notas
+
+Multiple translations found for single string.
+	String "Staff"
+	Present in files [u'lms/djangoapps/instructor/paidcourse_enrollment_report.py', u'lms/templates/courseware/course_navigation.html', u'lms/templates/instructor/instructor_dashboard_2/membership.html']
+Translations found were:
+	#-#-#-#-#  django-partial.po (edx-platform)  #-#-#-#-#
+Personal
+#-#-#-#-#  mako.po (edx-platform)  #-#-#-#-#
+Equipo
+
+Multiple translations found for single string.
+	String "Delete"
+	Present in files [u'lms/templates/wiki/delete.html', u'lms/templates/wiki/plugins/attachments/index.html', u'cms/templates/component.html', u'cms/templates/studio_xblock_wrapper.html']
+Translations found were:
+	#-#-#-#-#  django-partial.po (edx-platform)  #-#-#-#-#
+Eliminar
+#-#-#-#-#  mako-studio.po (edx-platform)  #-#-#-#-#
+Borrar
+
+Multiple translations found for single string.
+	String "Preview"
+	Present in files [u'lms/templates/wiki/edit.html', u'cms/templates/container.html']
+Translations found were:
+	#-#-#-#-#  django-partial.po (edx-platform)  #-#-#-#-#
+Previsualizar
+#-#-#-#-#  mako-studio.po (edx-platform)  #-#-#-#-#
+Vista previa
+
+Multiple translations found for single string.
+	String "Congratulations!  You are now enrolled in {course_name}"
+	Present in files [u'lms/templates/course_modes/choose.html', u'themes/edx.org/lms/templates/course_modes/choose.html']
+Translations found were:
+	#-#-#-#-#  django-partial.po (edx-platform)  #-#-#-#-#
+¡Enhorabuena! Te has inscrito en {course_name}
+#-#-#-#-#  mako.po (edx-platform)  #-#-#-#-#
+Te has apuntado al curso {course_name}
+
