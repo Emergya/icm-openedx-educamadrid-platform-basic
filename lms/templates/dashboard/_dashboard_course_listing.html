@@ -107,7 +107,7 @@ from student.helpers import (
           <span class="info-date-block" data-tooltip="Hi">
           <% time_zone = get_user_time_zone(user) %>
           % if course_overview.has_ended():
-            ${_("Ended - {end_date}").format(end_date=course_overview.end_datetime_text("SHORT_DATE", time_zone))}
+            ${_("Ended - {enddate}").format(enddate=course_overview.end_datetime_text("SHORT_DATE", time_zone))}
           % elif course_overview.has_started():
             ${_("Started - {start_date}").format(start_date=course_overview.start_datetime_text("SHORT_DATE", time_zone))}
           % elif course_overview.start_date_is_still_default: # Course start date TBD
