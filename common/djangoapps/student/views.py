@@ -1334,10 +1334,7 @@ def login_user(request, error=""):  # pylint: disable=too-many-statements,unused
         return set_logged_in_cookies(request, response, user)
 
     if user is not None and user.is_active is False:
-        not_activated_msg = _("You may not have activated your account yet. When you signed up you received " +
-                              "an email asking you to click on a link to activate it. Maybe you deleted it or " +
-                              "went to the spam folder of your email. Try to retrieve it. If you do not get it, " +
-                              "you should re-enroll.")
+        not_activated_msg = _("You may not have activated your account yet. When you signed up you received an email asking you to click on a link to activate it. Maybe you deleted it or went to the spam folder of your email. Try to retrieve it. If you do not get it, you should re-enroll.")
         return JsonResponse({
             "success": False,
             "value": not_activated_msg,
@@ -1653,11 +1650,11 @@ def create_account_with_params(request, params):
     # TODO Add If ENABLE...
     form = AccountCreationForm(
         data=params,
-        extra_fields={},
+        extra_fields=extra_fields,
         extended_profile_fields=extended_profile_fields,
         enforce_username_neq_password=True,
         enforce_password_policy=enforce_password_policy,
-        tos_required=False,
+        tos_required=tos_required,
     )
     custom_form = get_registration_extension_form(data=params)
 
