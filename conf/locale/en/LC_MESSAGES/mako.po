@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1a\n"
 "Report-Msgid-Bugs-To: openedx-translation@googlegroups.com\n"
-"POT-Creation-Date: 2017-04-19 07:57+0000\n"
-"PO-Revision-Date: 2017-04-19 07:58:34.582604\n"
+"POT-Creation-Date: 2017-06-13 11:01+0200\n"
+"PO-Revision-Date: 2017-06-13 09:04:29.158373\n"
 "Last-Translator: \n"
 "Language-Team: openedx-translation <openedx-translation@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -3923,7 +3923,7 @@ msgid "Enrolled as: "
 msgstr ""
 
 #: lms/templates/dashboard/_dashboard_course_listing.html
-msgid "Ended - {end_date}"
+msgid "Ended - {enddate}"
 msgstr ""
 
 #: lms/templates/dashboard/_dashboard_course_listing.html
@@ -7849,8 +7849,8 @@ msgstr ""
 
 #: themes/edx.org/lms/templates/footer.html
 msgid ""
-"© edX Inc.  All rights reserved except where noted.  EdX, Open edX and the "
-"edX and Open EdX logos are registered trademarks or trademarks of edX Inc."
+"edX Inc.  All rights reserved except where noted.  EdX, Open edX and the edX"
+" and Open EdX logos are registered trademarks or trademarks of edX Inc."
 msgstr ""
 
 #: themes/edx.org/lms/templates/header.html

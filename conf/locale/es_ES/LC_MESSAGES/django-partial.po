@@ -7737,7 +7737,7 @@ msgstr "Administradores del curso"
 
 #: lms/djangoapps/instructor/paidcourse_enrollment_report.py
 msgid "Staff"
-msgstr "Personal"
+msgstr "Equipo"
 
 #: lms/djangoapps/instructor/paidcourse_enrollment_report.py
 msgid "Used Registration Code"
@@ -10425,7 +10425,7 @@ msgstr "Guardar cambios"
 
 #: lms/templates/wiki/edit.html
 msgid "Preview"
-msgstr "Previsualizar"
+msgstr "Vista previa"
 
 #: lms/templates/wiki/edit.html lms/templates/wiki/history.html
 #: lms/templates/wiki/history.html lms/templates/wiki/includes/cheatsheet.html

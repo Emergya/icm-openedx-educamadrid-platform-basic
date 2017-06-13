@@ -3269,7 +3269,7 @@ msgstr "Lo sentimos, hubo un error en el proceso de inscripción"
 #: lms/templates/course_modes/choose.html
 #: themes/edx.org/lms/templates/course_modes/choose.html
 msgid "Congratulations!  You are now enrolled in {course_name}"
-msgstr "Te has apuntado al curso {course_name}"
+msgstr "¡Enhorabuena! Te has inscrito en {course_name}"
 
 #: lms/templates/course_modes/choose.html
 #: themes/edx.org/lms/templates/course_modes/choose.html
@@ -3549,7 +3549,7 @@ msgstr "Equipo"
 
 #: lms/templates/courseware/course_navigation.html
 msgid "Student"
-msgstr "Alumnos"
+msgstr "Alumno"
 
 #: lms/templates/courseware/course_navigation.html
 msgid "Specific student"
@@ -4573,7 +4573,7 @@ msgstr "Notas de los alumnos"
 
 #: lms/templates/edxnotes/edxnotes.html
 msgid "Notes"
-msgstr "Mis notas"
+msgstr "Notas"
 
 #: lms/templates/edxnotes/edxnotes.html
 msgid "Highlights and notes you've made in course content"
