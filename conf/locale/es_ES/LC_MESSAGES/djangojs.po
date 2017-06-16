@@ -2377,7 +2377,7 @@ msgstr "Mis Notas"
 
 #: common/static/js/vendor/ova/catch/js/catch.js
 msgid "Instructor"
-msgstr "Profesor"
+msgstr ""
 
 #: common/static/js/vendor/ova/catch/js/catch.js
 msgid "Public"
@@ -4260,6 +4260,10 @@ msgid ""
 "exactly as it appears on your government-issued photo ID, including any non-"
 "Roman characters."
 msgstr ""
+"El nombre que es usado para la verificación de identidad y el que aparecerá "
+"en tus certificados. Otros estudiantes nunca verán tu nombre completo. "
+"Asegúrate de introducir tu nombre exactamente como aparece en tu documento "
+"de identifiación oficial, incluyendo también cualquier carácter no latino."
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "Email Address"
@@ -4281,7 +4285,7 @@ msgstr "Contraseña"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "Reset Your Password"
-msgstr ""
+msgstr "Restablece tu contraseña"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid ""
@@ -4289,6 +4293,9 @@ msgid ""
 " address for your {platform_name} account. Click the link in the message to "
 "reset your password."
 msgstr ""
+"Cuando seleccionas \"Restablece tu contraseña\", un correo será enviado a tu"
+" dirección de correo electrónico de tu cuenta de {platform_name}. Haz click "
+"en el enlace de ese correo para restablecer tu contraseña."
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid ""
@@ -4313,7 +4320,7 @@ msgstr ""
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "Additional Information"
-msgstr ""
+msgstr "Información adicional"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "Education Completed"
@@ -4335,21 +4342,23 @@ msgstr "Idioma preferido"
 #: lms/static/js/student_account/views/account_settings_factory.js
 #: lms/static/js/student_account/views/account_settings_view.js
 msgid "Linked Accounts"
-msgstr ""
+msgstr "Cuentas asociadas"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid ""
 "You can link your social media accounts to simplify signing in to "
 "{platform_name}."
 msgstr ""
+"Puedes enlazar tus cuentas de redes sociales para simplificar el inicio de "
+"sesión en {platform_name}."
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "ORDER NAME"
-msgstr ""
+msgstr "NOMBRE DEL PEDIDO"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "ORDER PLACED"
-msgstr ""
+msgstr "PEDIDOS REALIZADOS"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "TOTAL"
@@ -4357,17 +4366,19 @@ msgstr ""
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "ORDER NUMBER"
-msgstr ""
+msgstr "NÚMERO DE PEDIDO"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid "My Orders"
-msgstr ""
+msgstr "Mis pedidos"
 
 #: lms/static/js/student_account/views/account_settings_factory.js
 msgid ""
 "This page contains information about orders that you have placed with "
 "{platform_name}."
 msgstr ""
+"Esta página contiene información sobre pedidos que has realizado en "
+"{platform_name}."
 
 #: lms/static/js/student_account/views/account_settings_fields.js
 msgid ""
@@ -6553,11 +6564,11 @@ msgstr ""
 
 #: lms/templates/bookmarks/bookmarks-list.underscore
 msgid "My Bookmarks"
-msgstr ""
+msgstr "Mis favoritos"
 
 #: lms/templates/bookmarks/bookmarks-list.underscore
 msgid "Bookmarked on"
-msgstr ""
+msgstr "Agregado el"
 
 #: lms/templates/bookmarks/bookmarks-list.underscore
 msgid "You have not bookmarked any courseware pages yet."

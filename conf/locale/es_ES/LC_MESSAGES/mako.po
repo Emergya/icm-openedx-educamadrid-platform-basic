@@ -997,7 +997,7 @@ msgstr "¿Necesitas ayuda?"
 
 #: lms/templates/login-sidebar.html
 msgid "Looking for help signing in or with your {platform_name} account?"
-msgstr ""
+msgstr "¿Buscas ayuda para iniciar sesión con tu cuenta de {platform_name}?"
 
 #: lms/templates/login-sidebar.html
 msgid "View our help section for answers to commonly asked questions."
@@ -1586,10 +1586,15 @@ msgid ""
 "spam folder and mark {platform_name} emails as 'not spam'. At "
 "{platform_name}, we communicate mostly through email."
 msgstr ""
+"Como parte del proceso de unirte a {platform_name}, recibirás un correo "
+"electrónico con instrucciones para activar tu cuenta. ¿No ves el correo "
+"electrónico? Comprueba tu carpeta de correo no deseado y marca los correos "
+"de {platform_name} como \"no es spam\". En {platform_name} nos comunicamos "
+"contigo principalmente a través de mensajes de correo electrónico."
 
 #: lms/templates/register-sidebar.html
 msgid "Need help registering with {platform_name}?"
-msgstr ""
+msgstr "¿Necesitas ayuda para registrarte en {platform_name}?"
 
 #: lms/templates/register-sidebar.html
 #: themes/stanford-style/lms/templates/register-sidebar.html
@@ -1604,6 +1609,9 @@ msgid ""
 "After you enroll in a course, you can also find answers in the course "
 "discussions."
 msgstr ""
+"Puedes encontrar las respuestas a la mayoría de preguntas en nuestro FAQ. "
+"Después de que te inscribas a un curso, también puedes encontrar respuestas "
+"en el foro del mismo."
 
 #: lms/templates/register.html lms/templates/register_ldap.html
 #: lms/templates/register_no_ldap.html
@@ -1821,7 +1829,7 @@ msgstr "Notas de los alumnos"
 #: lms/templates/staff_problem_info.html
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Rescore Student Submission"
-msgstr ""
+msgstr "Re-puntuar el envío del alumno"
 
 #: lms/templates/staff_problem_info.html lms/templates/staff_problem_info.html
 msgid "Module Fields"
@@ -3699,7 +3707,7 @@ msgstr "Ver actualizaciones en Studio"
 
 #: lms/templates/courseware/info.html lms/templates/courseware/info.html
 msgid "Course Updates and News"
-msgstr ""
+msgstr "Actualizaciones y noticias del curso"
 
 #: lms/templates/courseware/info.html lms/templates/courseware/info.html
 msgid "Handout Navigation"
@@ -3739,29 +3747,35 @@ msgstr "Progreso en el curso para el alumno '{username}' ({email})"
 
 #: lms/templates/courseware/progress.html
 msgid "Your enrollment: Audit track"
-msgstr ""
+msgstr "Tu inscripción: oyente"
 
 #: lms/templates/courseware/progress.html
 msgid ""
 "You are enrolled in the audit track for this course. The audit track does "
 "not include a certificate."
 msgstr ""
+"Estás inscrito en modo oyente para este curso. El modo oyente no inclyue un "
+"certificado."
 
 #: lms/templates/courseware/progress.html
 msgid ""
 "Your certificate has been invalidated. Please contact your course team if "
 "you have any questions."
 msgstr ""
+"Tu certificado ha sido deshabilitado. Por favor, contacta con el equipo del "
+"curso si tienes alguna pregunta"
 
 #: lms/templates/courseware/progress.html
 msgid "Your certificate is available"
-msgstr ""
+msgstr "Tu certificado está disponible"
 
 #: lms/templates/courseware/progress.html
 #: lms/templates/courseware/progress.html
 msgid ""
 "You can keep working for a higher grade, or request your certificate now."
 msgstr ""
+"Puedes seguir trabajando para obtener una puntuación mejor, o solicitar tu "
+"certificado ahora."
 
 #: lms/templates/courseware/progress.html
 msgid "View certificate in a new browser window or tab."
@@ -6877,6 +6891,10 @@ msgid ""
 "yourself first, so that you can preview the formatting and make sure "
 "embedded images and links work correctly."
 msgstr ""
+"Recomendamos no enviar más de un email a la semana a los alumnos. Antes de "
+"enviar tu email, revísalo cuidadosamente y envíalo a ti mismo/a primero, así"
+" puedes comprobar el formato y asegurarte que las imágenes y enlaces "
+"incluidos funcionan correctamente."
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "CAUTION!"
@@ -6887,6 +6905,8 @@ msgid ""
 "When you select Send Email, your email message is added to the queue for "
 "sending, and cannot be cancelled."
 msgstr ""
+" Cuando seleccionas \"Enviar e-mail\", tu email es añadido a la cola de "
+"envío, y no puede ser cancelado."
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "Send Email"
@@ -6908,20 +6928,24 @@ msgstr "Historial de la tarea de envío de e-mails"
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "To see the content of previously sent emails, click this button:"
 msgstr ""
+"Para ver el contenido de mensajes enviados anteriormente, haz click en este "
+"botón:"
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "Show Sent Email History"
-msgstr ""
+msgstr "Mostrar histórico de emails enviados"
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "To read a sent email message, click its subject."
-msgstr ""
+msgstr "Para leer un email enviado, haz click en su asunto."
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid ""
 "To see the status for all email tasks submitted for this course, click this "
 "button:"
 msgstr ""
+"Para ver el estado de todas las tareas de envío masivo de e-mails para este "
+"curso, pulsa este botón:"
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html
 msgid "Show Email Task History"
@@ -6968,11 +6992,11 @@ msgstr "Ver Libro de calificaciones"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Student-specific grade inspection"
-msgstr ""
+msgstr "Inspección de las calificaciones específicas del alumno"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Click this link to view the student's progress page:"
-msgstr ""
+msgstr "Haz clic en este enlace para ver la página de progreso del alumno:"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Student Progress Page"
@@ -6980,12 +7004,12 @@ msgstr "Respuesta del alumno"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Student-specific grade adjustment"
-msgstr ""
+msgstr "Ajustes de calificaciones específicas del alumno"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Specify a problem in the course here with its complete location:"
-msgstr ""
+msgstr "Indica aquí un ejercicio del curso con su ruta completa:"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
@@ -6999,19 +7023,24 @@ msgid ""
 "You must provide the complete location of the problem. In the Staff Debug "
 "viewer, the location looks like this:"
 msgstr ""
+"Debes proporcionar la ruta completa del ejercicio. En el panel de depuración"
+" de los administradores, la ruta tiene este aspecto:"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Next, select an action to perform for the given user and problem:"
 msgstr ""
+"A continuación, selecciona una acción para el usuario y ejercicio elegido:"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid ""
 "You may also delete the entire state of a student for the specified problem:"
 msgstr ""
+"También puedes borrar todo el estado de un alumno para el ejercicio "
+"específicado:"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Delete Student State for Problem"
-msgstr ""
+msgstr "Borrar el estado del alumno para el problema"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
@@ -7020,10 +7049,13 @@ msgid ""
 " the 'Pending Tasks' table. To see status for all tasks submitted for this "
 "problem and student, click on this button:"
 msgstr ""
+"'Recalificando' se ejecuta en segundo plano, el estado de las tareas activas"
+" aparecerán en la tabla de 'Tareas pendientes', para ver el estado de las "
+"tareas enviadas del problema por el estudiante, pulsa este botón:"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Show Background Task History for Student"
-msgstr "Mostrar histórico de tareas de envío de e-mails"
+msgstr "Mostrar histórico de tareas para el alumno"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Entrance Exam Adjustment"
@@ -7069,7 +7101,7 @@ msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Course-specific grade adjustment"
-msgstr ""
+msgstr "Ajuste de calificaciones específicas al curso"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Then select an action"
@@ -7077,11 +7109,11 @@ msgstr "Elige una acción:"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Reset ALL students' attempts"
-msgstr ""
+msgstr "Reiniciar TODOS los intentos de los alumnos"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Rescore ALL students' problem submissions"
-msgstr ""
+msgstr "Repuntuar TODOS los envíos de ejercicios de los alumnos"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid ""
@@ -7089,10 +7121,14 @@ msgid ""
 "appear in a table on the Course Info tab. To see status for all tasks "
 "submitted for this problem, click on this button"
 msgstr ""
+"Estas acciones corren en segundo plano y el estado de las tareas activas "
+"aparecerá en una tabla en la pestaña de información del curso. Para ver el "
+"estado de todas las tareas enviadas para este ejercicio, haz clic en este "
+"botón"
 
 #: lms/templates/instructor/instructor_dashboard_2/student_admin.html
 msgid "Show Background Task History for Problem"
-msgstr "Mostrar histórico de tareas de envío de e-mails"
+msgstr "Mostrar histórico de tareas en segundo plano para el problema"
 
 #: lms/templates/learner_dashboard/program_details.html
 msgid "Program Details"
@@ -7350,7 +7386,7 @@ msgstr ""
 
 #: lms/templates/registration/activate_account_notice.html
 msgid "You're almost there!"
-msgstr ""
+msgstr "¡Casi lo tienes!"
 
 #: lms/templates/registration/activate_account_notice.html
 msgid ""
@@ -7359,14 +7395,18 @@ msgid ""
 "{email_start}{email}{email_end} with instructions for activating your "
 "account. If you don't receive this message, check your spam folder."
 msgstr ""
+"Hay sólo un paso más: Antes de que te inscribas en algún curso, necesitas "
+"activar tu cuenta. Hemos enviado un correo a {email_start}{email}{email_end}"
+" con las instrucciones para activar tu cuenta. Si no recibes este mensaje, "
+"comprueba tu carpeta de spam."
 
 #: lms/templates/registration/activation_complete.html
 msgid "Account Activated"
-msgstr ""
+msgstr "Cuenta activada"
 
 #: lms/templates/registration/activation_complete.html
 msgid "Account already active"
-msgstr ""
+msgstr "Cuenta ya activada"
 
 #: lms/templates/registration/activation_invalid.html
 msgid "Activation Invalid"
@@ -7381,7 +7421,7 @@ msgstr ""
 
 #: lms/templates/registration/activation_invalid.html
 msgid "Return to the {link_start}home page{link_end}."
-msgstr ""
+msgstr "Vuelve a la {link_start}página de inicio{link_end}."
 
 #: lms/templates/registration/password_reset_complete.html
 msgid "Your Password Reset is Complete"
@@ -7389,16 +7429,18 @@ msgstr "Su reinicio de contraseña se ha completado"
 
 #: lms/templates/registration/password_reset_complete.html
 msgid "Password Reset Complete"
-msgstr ""
+msgstr "Restablecimiento de contraseña completo"
 
 #: lms/templates/registration/password_reset_complete.html
 msgid ""
 "Your password has been reset. {start_link}Sign-in to your account.{end_link}"
 msgstr ""
+"Tu contraseña ha sido restablecida. {start_link}Inicia sesión con tu "
+"cuenta.{end_link}"
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "Reset Your {platform_name} Password"
-msgstr ""
+msgstr "Restablece tu contraseña de {platform_name}"
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "Error Resetting Password"
@@ -7406,31 +7448,31 @@ msgstr ""
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "You must enter and confirm your new password."
-msgstr ""
+msgstr "Debes introducir y confirmar tu nueva contraseña."
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "The text in both password fields must match."
-msgstr ""
+msgstr "El texto en ambos campos debe coincidir."
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "Reset Your Password"
-msgstr ""
+msgstr "Restablece tu contraseña"
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "Enter and confirm your new password."
-msgstr ""
+msgstr "Introduce y confirma tu nueva contraseña."
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "New Password"
-msgstr ""
+msgstr "Nueva contraseña"
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirma tu contraseña"
 
 #: lms/templates/registration/password_reset_confirm.html
 msgid "Invalid Password Reset Link"
-msgstr ""
+msgstr "Enlace de restablecimiento de contraseña erróneo"
 
 #: lms/templates/registration/password_reset_done.html
 msgid "Password reset successful"
@@ -8470,6 +8512,18 @@ msgstr "Introduce tu Código de Honor aquí"
 #: themes/stanford-style/lms/templates/static_templates/tos.html
 msgid "Put your Copyright Text here!"
 msgstr "Introduce tu texto de Copyright aquí"
+
+#: index theme
+msgid "COURSES AVAILABLES"
+msgstr "CURSOS DISPONIBLES"
+
+#: footer theme
+msgid ""
+"License Creative Commons. This work is under a license of Attribution-"
+"ShareAlike 4.0 International"
+msgstr ""
+"Licencia Creative Commons. Esta obra está bajo una licencia de "
+"Reconocimiento-CompartirIgual 4.0 Internacional"
 
 #~ msgid "Learn More"
 #~ msgstr "Aprender más"

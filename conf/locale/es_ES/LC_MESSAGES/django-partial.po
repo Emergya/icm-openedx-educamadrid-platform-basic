@@ -466,6 +466,8 @@ msgid ""
 "Usernames must contain only letters, numbers, underscores (_), and hyphens "
 "(-)."
 msgstr ""
+"Los nombres de usuario deben tener sólo letras, números, subrayado (_) y "
+"guiones (-)."
 
 #: common/djangoapps/student/forms.py
 #, python-format
@@ -698,12 +700,12 @@ msgstr "Educación primaria"
 #. Translators: 'None' refers to the student's level of education
 #: common/djangoapps/student/models.py
 msgid "No Formal Education"
-msgstr "Nivel de estudios"
+msgstr "Sin estudios formalizados"
 
 #. Translators: 'Other' refers to the student's level of education
 #: common/djangoapps/student/models.py
 msgid "Other Education"
-msgstr "Nivel de estudios"
+msgstr "Otros estudios"
 
 #: common/djangoapps/student/models.py
 msgid "Lecturers of Visual arts and Design"
@@ -711,7 +713,7 @@ msgstr ""
 
 #: common/djangoapps/student/models.py
 msgid "Lecturers of Secondary Education"
-msgstr "Nivel de estudios"
+msgstr ""
 
 #: common/djangoapps/student/models.py
 msgid "Lecturers of Official Language Schools"
@@ -739,7 +741,7 @@ msgstr ""
 
 #: common/djangoapps/student/models.py
 msgid "Teachers of Secondary Education"
-msgstr "Nivel de estudios"
+msgstr ""
 
 #: common/djangoapps/student/models.py
 msgid "Teachers of Official Language Schools"
@@ -2926,8 +2928,14 @@ msgstr "Correo electrónico o contraseña incorrectos."
 #: common/djangoapps/student/views.py
 msgid ""
 "You may not have activated your account yet. When you signed up you received"
-" "
+" an email asking you to click on a link to activate it. Maybe you deleted it"
+" or went to the spam folder of your email. Try to retrieve it. If you do not"
+" get it, you should re-enroll."
 msgstr ""
+"Puede que no hayas activado tu cuenta aún. Cuando te registraste recibiste "
+"un email pidiendo que hicieses click en el enlace para activarlo. Quizás lo "
+"hayas eliminado o llegó a la carpeta de spam. Intenta recuperarlo. Si no lo "
+"consigues, deberías registrarte de nuevo."
 
 #: common/djangoapps/student/views.py
 msgid "Please enter a username"
@@ -4154,7 +4162,7 @@ msgstr ""
 
 #: common/lib/xmodule/xmodule/capa_base.py
 msgid "Check"
-msgstr "Casillas de verificación"
+msgstr "Comprobar"
 
 #: common/lib/xmodule/xmodule/capa_base.py
 msgid "Final Check"
@@ -4162,7 +4170,7 @@ msgstr ""
 
 #: common/lib/xmodule/xmodule/capa_base.py
 msgid "Checking..."
-msgstr ""
+msgstr "Comprobando..."
 
 #: common/lib/xmodule/xmodule/capa_base.py
 msgid "Warning: The problem has been reset to its initial state!"
@@ -8375,7 +8383,7 @@ msgstr ""
 
 #: lms/djangoapps/instructor/views/instructor_dashboard.py
 msgid "Instructor"
-msgstr "Profesor"
+msgstr ""
 
 #: lms/djangoapps/instructor/views/instructor_dashboard.py
 msgid ""

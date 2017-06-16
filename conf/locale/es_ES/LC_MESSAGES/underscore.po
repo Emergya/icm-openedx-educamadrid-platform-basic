@@ -903,11 +903,11 @@ msgstr ""
 
 #: lms/templates/bookmarks/bookmarks-list.underscore
 msgid "My Bookmarks"
-msgstr ""
+msgstr "Mis favoritos"
 
 #: lms/templates/bookmarks/bookmarks-list.underscore
 msgid "Bookmarked on"
-msgstr ""
+msgstr "Agregado el"
 
 #: lms/templates/bookmarks/bookmarks-list.underscore
 #: lms/templates/search/course_search_item.underscore
