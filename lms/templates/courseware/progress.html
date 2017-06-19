@@ -204,7 +204,9 @@ from django.utils.http import urlquote_plus
                     %endif
                   </h3>
                   <p>
-                    ${section['format'] | h}
+                    %if section.get('format') is not None:
+                      ${section['format'] | h}
+                    %endif
 
                     %if section.get('due') is not None:
                       <%
