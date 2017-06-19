@@ -233,8 +233,8 @@ msgstr[1] "%(earned)s/%(possible) de puntos (calificados)"
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "(%(num_points)s point possible)"
 msgid_plural "(%(num_points)s points possible)"
-msgstr[0] "%(num_points) puntos posibles (calificado)"
-msgstr[1] "%(num_points)de puntos posibles (calificado)"
+msgstr[0] "(%(num_points)s punto posible)"
+msgstr[1] "(%(num_points)s puntos posibles)"
 
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "The grading process is still running. Refresh the page to see updates."
@@ -1870,14 +1870,14 @@ msgstr "..."
 #: common/static/common/js/discussion/views/discussion_content_view.js
 msgid "there is currently %(numVotes)s vote"
 msgid_plural "there are currently %(numVotes)s votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hay actualmente %(numVotes)s voto"
+msgstr[1] "Hay actualmente %(numVotes)s votos"
 
 #: common/static/common/js/discussion/views/discussion_content_view.js
 msgid "%(numVotes)s Vote"
 msgid_plural "%(numVotes)s Votes"
-msgstr[0] "{numVotes} voto"
-msgstr[1] "{numVotes} votos"
+msgstr[0] "%(numVotes)s voto"
+msgstr[1] "%(numVotes)s votos"
 
 #: common/static/common/js/discussion/views/discussion_content_view.js
 msgid "We had some trouble subscribing you to this thread. Please try again."
@@ -1988,7 +1988,7 @@ msgstr ""
 
 #: common/static/common/js/discussion/views/discussion_thread_list_view.js
 msgid "Show posts by %(username)s."
-msgstr "Mostrar publicaciones de {username}."
+msgstr "Mostrar publicaciones de %(username)s."
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid ""
@@ -2009,14 +2009,14 @@ msgstr ""
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "%(numResponses)s other response"
 msgid_plural "%(numResponses)s other responses"
-msgstr[0] "{numResponses} respuesta adicional"
-msgstr[1] "{numResponses} respuestas adicionales"
+msgstr[0] "%(numResponses)s respuesta adicional"
+msgstr[1] "%(numResponses)s respuestas adicionales"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "%(numResponses)s response"
 msgid_plural "%(numResponses)s responses"
-msgstr[0] "{numResponses} respuesta"
-msgstr[1] "{numResponses} respuestas"
+msgstr[0] "%(numResponses)s respuesta"
+msgstr[1] "%(numResponses)s respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Showing all responses"
@@ -2025,8 +2025,8 @@ msgstr "Mostrando todas las respuestas"
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Showing first response"
 msgid_plural "Showing first %(numResponses)s responses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mostrando la primera respuesta"
+msgstr[1] "Mostrando las primeras %(numResponses)s respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Load all responses"
@@ -2034,7 +2034,7 @@ msgstr "Cargar todas las respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Load next %(numResponses)s responses"
-msgstr "Carga las siguientes {numResponses}  respuestas"
+msgstr "Carga las siguientes %(numResponses)s  respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Are you sure you want to delete this post?"

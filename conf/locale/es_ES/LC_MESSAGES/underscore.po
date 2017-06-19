@@ -263,6 +263,8 @@ msgstr "Buscar conversaciones"
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Use the Discussion Topics menu to find specific topics."
 msgstr ""
+"Usa el menú de discusiones del debate para encontrar una conversación "
+"específica."
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Search all posts"
@@ -270,7 +272,7 @@ msgstr "Buscar todas las entradas"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Filter and sort topics"
-msgstr ""
+msgstr "Filtra y ordena discusiones"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Engage with posts"
@@ -278,15 +280,15 @@ msgstr "Implícate en las conversaciones"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Vote for good posts and responses"
-msgstr ""
+msgstr "Valora positivamente comentarios y respuestas"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Report abuse, topics, and responses"
-msgstr ""
+msgstr "Denuncia conversaciones y respuestas negativas"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Follow or unfollow posts"
-msgstr ""
+msgstr "Sigue o deja de seguir conversaciones"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Receive updates"
@@ -358,7 +360,7 @@ msgstr "No informar"
 
 #: common/static/common/templates/discussion/forum-action-vote.underscore
 msgid "Vote for this post,"
-msgstr ""
+msgstr "Vota esta conversación,"
 
 #: common/static/common/templates/discussion/forum-actions.underscore
 #: lms/templates/discovery/facet.underscore
@@ -368,7 +370,7 @@ msgstr "Más"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Visible To:"
-msgstr ""
+msgstr "Visible para:"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "All Groups"
@@ -386,11 +388,11 @@ msgstr "Título"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Add a clear and descriptive title to encourage participation."
-msgstr ""
+msgstr "Añade un claro y descriptivo título para animar la participación."
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Enter your question or comment"
-msgstr ""
+msgstr "Escribe tu pregunta o comentario"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "follow this post"
@@ -406,7 +408,7 @@ msgstr "publicar anónimamente para mis compañeros de curso"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Add Post"
-msgstr "Añadir grupo"
+msgstr "Añadir comentario"
 
 #: common/static/common/templates/discussion/pagination.underscore
 #: common/static/common/templates/discussion/pagination.underscore
@@ -591,7 +593,7 @@ msgstr "Esta publicación es visible para todos."
 #: common/static/common/templates/discussion/thread-type.underscore
 #: common/static/common/templates/discussion/thread-type.underscore
 msgid "Post type:"
-msgstr ""
+msgstr "Tipo de conversación:"
 
 #: common/static/common/templates/discussion/thread-type.underscore
 msgid "Question"
@@ -606,6 +608,8 @@ msgid ""
 "Questions raise issues that need answers. Discussions share ideas and start "
 "conversations."
 msgstr ""
+"Las preguntas suscitan cuestiones que necesitan respuestas. Los debates "
+"permiten compartir ideas e iniciar conversaciones."
 
 #: common/static/common/templates/discussion/thread.underscore
 msgid "Add a Response"
@@ -613,7 +617,7 @@ msgstr "Añadir una respuesta"
 
 #: common/static/common/templates/discussion/thread.underscore
 msgid "Add a response:"
-msgstr ""
+msgstr "Añadir respuesta:"
 
 #: common/static/common/templates/discussion/thread.underscore
 msgid "Expand discussion"
@@ -625,11 +629,11 @@ msgstr "Ver debate"
 
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Topic Area:"
-msgstr ""
+msgstr "Temática:"
 
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Discussion topics; currently listing: "
-msgstr ""
+msgstr "Temáticas; actualmente listando: "
 
 #: common/static/common/templates/discussion/topic.underscore
 #: common/static/common/templates/discussion/topic.underscore
@@ -639,10 +643,11 @@ msgstr "Todos los temas"
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Add your post to a relevant topic to help others find it."
 msgstr ""
+"Añadir tu post a una discusión relevante ayuda a otros a enocontrarlo."
 
 #: common/static/common/templates/discussion/user-profile.underscore
 msgid "Active Threads"
-msgstr ""
+msgstr "Hilos activos"
 
 #: lms/djangoapps/support/static/support/templates/certificates.underscore
 msgid "username or email"
@@ -845,7 +850,7 @@ msgstr "Editar equipo"
 
 #: lms/djangoapps/teams/static/teams/templates/team-profile.underscore
 msgid "Add a Post"
-msgstr ""
+msgstr "Iniciar discusión"
 
 #: lms/djangoapps/teams/static/teams/templates/team-profile.underscore
 msgid "Team Details"

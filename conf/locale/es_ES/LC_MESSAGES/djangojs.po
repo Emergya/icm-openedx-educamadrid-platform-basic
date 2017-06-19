@@ -379,8 +379,8 @@ msgstr[1] "%(earned)s/%(possible) de puntos (calificados)"
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "(%(num_points)s point possible)"
 msgid_plural "(%(num_points)s points possible)"
-msgstr[0] "%(num_points) puntos posibles (calificado)"
-msgstr[1] "%(num_points)de puntos posibles (calificado)"
+msgstr[0] "(%(num_points)s punto posible)"
+msgstr[1] "(%(num_points)s puntos posibles)"
 
 #: common/lib/xmodule/xmodule/js/src/capa/display.js
 msgid "The grading process is still running. Refresh the page to see updates."
@@ -2032,14 +2032,14 @@ msgstr "..."
 #: common/static/common/js/discussion/views/discussion_content_view.js
 msgid "there is currently %(numVotes)s vote"
 msgid_plural "there are currently %(numVotes)s votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hay actualmente %(numVotes)s voto"
+msgstr[1] "Hay actualmente %(numVotes)s votos"
 
 #: common/static/common/js/discussion/views/discussion_content_view.js
 msgid "%(numVotes)s Vote"
 msgid_plural "%(numVotes)s Votes"
-msgstr[0] "{numVotes} voto"
-msgstr[1] "{numVotes} votos"
+msgstr[0] "%(numVotes)s voto"
+msgstr[1] "%(numVotes)s votos"
 
 #: common/static/common/js/discussion/views/discussion_content_view.js
 msgid "We had some trouble subscribing you to this thread. Please try again."
@@ -2152,7 +2152,7 @@ msgstr ""
 
 #: common/static/common/js/discussion/views/discussion_thread_list_view.js
 msgid "Show posts by %(username)s."
-msgstr "Mostrar publicaciones de {username}."
+msgstr "Mostrar publicaciones de %(username)s."
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid ""
@@ -2173,14 +2173,14 @@ msgstr ""
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "%(numResponses)s other response"
 msgid_plural "%(numResponses)s other responses"
-msgstr[0] "{numResponses} respuesta adicional"
-msgstr[1] "{numResponses} respuestas adicionales"
+msgstr[0] "%(numResponses)s respuesta adicional"
+msgstr[1] "%(numResponses)s respuestas adicionales"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "%(numResponses)s response"
 msgid_plural "%(numResponses)s responses"
-msgstr[0] "{numResponses} respuesta"
-msgstr[1] "{numResponses} respuestas"
+msgstr[0] "%(numResponses)s respuesta"
+msgstr[1] "%(numResponses)s respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Showing all responses"
@@ -2189,8 +2189,8 @@ msgstr "Mostrando todas las respuestas"
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Showing first response"
 msgid_plural "Showing first %(numResponses)s responses"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mostrando la primera respuesta"
+msgstr[1] "Mostrando las primeras %(numResponses)s respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Load all responses"
@@ -2198,7 +2198,7 @@ msgstr "Cargar todas las respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Load next %(numResponses)s responses"
-msgstr "Carga las siguientes {numResponses}  respuestas"
+msgstr "Carga las siguientes %(numResponses)s  respuestas"
 
 #: common/static/common/js/discussion/views/discussion_thread_view.js
 msgid "Are you sure you want to delete this post?"
@@ -5969,6 +5969,8 @@ msgstr "Buscar conversaciones"
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Use the Discussion Topics menu to find specific topics."
 msgstr ""
+"Usa el menú de discusiones del debate para encontrar una conversación "
+"específica."
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Search all posts"
@@ -5976,7 +5978,7 @@ msgstr "Buscar todas las entradas"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Filter and sort topics"
-msgstr ""
+msgstr "Filtra y ordena discusiones"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Engage with posts"
@@ -5984,15 +5986,15 @@ msgstr "Implícate en las conversaciones"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Vote for good posts and responses"
-msgstr ""
+msgstr "Valora positivamente comentarios y respuestas"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Report abuse, topics, and responses"
-msgstr ""
+msgstr "Denuncia conversaciones y respuestas negativas"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Follow or unfollow posts"
-msgstr ""
+msgstr "Sigue o deja de seguir conversaciones"
 
 #: common/static/common/templates/discussion/discussion-home.underscore
 msgid "Receive updates"
@@ -6060,11 +6062,11 @@ msgstr "No informar"
 
 #: common/static/common/templates/discussion/forum-action-vote.underscore
 msgid "Vote for this post,"
-msgstr ""
+msgstr "Vota esta conversación,"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Visible To:"
-msgstr ""
+msgstr "Visible para:"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "All Groups"
@@ -6082,11 +6084,11 @@ msgstr "Título"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Add a clear and descriptive title to encourage participation."
-msgstr ""
+msgstr "Añade un claro y descriptivo título para animar la participación."
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Enter your question or comment"
-msgstr ""
+msgstr "Escribe tu pregunta o comentario"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "follow this post"
@@ -6102,7 +6104,7 @@ msgstr "publicar anónimamente para mis compañeros de curso"
 
 #: common/static/common/templates/discussion/new-post.underscore
 msgid "Add Post"
-msgstr "Añadir grupo"
+msgstr "Añadir comentario"
 
 #: common/static/common/templates/discussion/post-user-display.underscore
 msgid "Community TA"
@@ -6270,7 +6272,7 @@ msgstr "Esta publicación es visible para todos."
 
 #: common/static/common/templates/discussion/thread-type.underscore
 msgid "Post type:"
-msgstr ""
+msgstr "Tipo de conversación:"
 
 #: common/static/common/templates/discussion/thread-type.underscore
 msgid "Question"
@@ -6285,6 +6287,8 @@ msgid ""
 "Questions raise issues that need answers. Discussions share ideas and start "
 "conversations."
 msgstr ""
+"Las preguntas suscitan cuestiones que necesitan respuestas. Los debates "
+"permiten compartir ideas e iniciar conversaciones."
 
 #: common/static/common/templates/discussion/thread.underscore
 msgid "Add a Response"
@@ -6292,7 +6296,7 @@ msgstr "Añadir una respuesta"
 
 #: common/static/common/templates/discussion/thread.underscore
 msgid "Add a response:"
-msgstr ""
+msgstr "Añadir respuesta:"
 
 #: common/static/common/templates/discussion/thread.underscore
 msgid "Expand discussion"
@@ -6304,11 +6308,11 @@ msgstr "Ver debate"
 
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Topic Area:"
-msgstr ""
+msgstr "Temática:"
 
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Discussion topics; currently listing: "
-msgstr ""
+msgstr "Temáticas; actualmente listando: "
 
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Filter topics"
@@ -6317,10 +6321,11 @@ msgstr "Todos los temas"
 #: common/static/common/templates/discussion/topic.underscore
 msgid "Add your post to a relevant topic to help others find it."
 msgstr ""
+"Añadir tu post a una discusión relevante ayuda a otros a enocontrarlo."
 
 #: common/static/common/templates/discussion/user-profile.underscore
 msgid "Active Threads"
-msgstr ""
+msgstr "Hilos activos"
 
 #: lms/djangoapps/support/static/support/templates/certificates.underscore
 msgid "username or email"
@@ -6517,7 +6522,7 @@ msgstr ""
 
 #: lms/djangoapps/teams/static/teams/templates/team-profile.underscore
 msgid "Add a Post"
-msgstr ""
+msgstr "Iniciar discusión"
 
 #: lms/djangoapps/teams/static/teams/templates/team-profile.underscore
 msgid "Team Details"

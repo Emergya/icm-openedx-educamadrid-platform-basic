@@ -537,6 +537,8 @@ msgid ""
 "It looks like {email} belongs to an existing account. Try again with a "
 "different email address."
 msgstr ""
+"Parece que ya existe una cuenta cuya dirección es {email}. Inténtalo con una"
+" dirección de correo distinta."
 
 #: common/djangoapps/student/forms.py
 msgid "Your educational center code is required and only numbers"

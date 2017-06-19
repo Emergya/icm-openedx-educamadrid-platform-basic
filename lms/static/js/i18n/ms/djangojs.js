@@ -39,16 +39,16 @@
     ], 
     "%(new_item_message)s": "%(new_item_message)s", 
     "%(numResponses)s other response": [
-      "{numResponses} respuesta adicional", 
-      "{numResponses} respuestas adicionales"
+      "%(numResponses)s respuesta adicional", 
+      "%(numResponses)s respuestas adicionales"
     ], 
     "%(numResponses)s response": [
-      "{numResponses} respuesta", 
-      "{numResponses} respuestas"
+      "%(numResponses)s respuesta", 
+      "%(numResponses)s respuestas"
     ], 
     "%(numVotes)s Vote": [
-      "{numVotes} voto", 
-      "{numVotes} votos"
+      "%(numVotes)s voto", 
+      "%(numVotes)s votos"
     ], 
     "%(num_questions)s question": [
       "%(num_questions)s pregunta", 
@@ -111,8 +111,8 @@
       "%(earned)s/%(possible) de puntos (calificados)"
     ], 
     "(%(num_points)s point possible)": [
-      "%(num_points) puntos posibles (calificado)", 
-      "%(num_points)de puntos posibles (calificado)"
+      "(%(num_points)s punto posible)", 
+      "(%(num_points)s puntos posibles)"
     ], 
     "(Add signatories for a certificate)": "(A\u00f1adir firmantes a un certificado)", 
     "(Caption will be displayed when you start playing the video.)": "(Los subt\u00edtulos se mostrar\u00e1n cuando empieces a reproducir el v\u00eddeo)", 
@@ -143,6 +143,7 @@
     "Activate": "Activado", 
     "Activate Your Account": "Activar tu cuenta", 
     "Activating a link in this group will skip to the corresponding point in the video.": "Activar un enlace en este grupo saltar\u00e1 al punto correspondiente en el video.", 
+    "Active Threads": "Hilos activos", 
     "Active Uploads": "Activar subidas:", 
     "Add": "A\u00f1adir", 
     "Add Additional Signatory": "A\u00f1adir firmante adicional", 
@@ -150,14 +151,17 @@
     "Add Component:": "A\u00f1adir componente", 
     "Add Country": "A\u00f1adir pa\u00eds", 
     "Add New Component": "A\u00f1adir nuevo componente", 
-    "Add Post": "A\u00f1adir grupo", 
+    "Add Post": "A\u00f1adir comentario", 
     "Add Students": "A\u00f1ade alumnos", 
     "Add URLs for additional versions": "A\u00f1adir URLs para versiones adicionales", 
     "Add a Chapter": "A\u00f1adir un cap\u00edtulo", 
     "Add a New Cohort": "A\u00f1adir un Nuevo Grupo", 
+    "Add a Post": "Iniciar discusi\u00f3n", 
     "Add a Response": "A\u00f1adir una respuesta", 
+    "Add a clear and descriptive title to encourage participation.": "A\u00f1ade un claro y descriptivo t\u00edtulo para animar la participaci\u00f3n.", 
     "Add a comment": "A\u00f1adir un comentario", 
     "Add a learning outcome here": "A\u00f1ada resultados de apredizaje aqu\u00ed", 
+    "Add a response:": "A\u00f1adir respuesta:", 
     "Add another group": "A\u00f1ade otro grupo", 
     "Add language": "A\u00f1adir idioma", 
     "Add students to this cohort": "A\u00f1adir alumnos a este grupo", 
@@ -166,6 +170,7 @@
     "Add your first content group": "Agrega tu primer grupo de contenidos", 
     "Add your first group configuration": "Agrega tu primera configuraci\u00f3n de grupo", 
     "Add your first textbook": "A\u00f1ade tu primer libro de texto", 
+    "Add your post to a relevant topic to help others find it.": "A\u00f1adir tu post a una discusi\u00f3n relevante ayuda a otros a enocontrarlo.", 
     "Add {role} Access": "A\u00f1adir acceso de {role}", 
     "Adding": "A\u00f1adiendo", 
     "Adding the selected course to your cart": "A\u00f1adiendo el curso seleccionado a tu carrito", 
@@ -445,6 +450,7 @@
     "Discarding Changes": "Descartando cambios", 
     "Discussion": "Foro", 
     "Discussion Home": "Inicio de la discusi\u00f3n", 
+    "Discussion topics; currently listing: ": "Tem\u00e1ticas; actualmente listando: ", 
     "Display Name": "Nombre para mostrar", 
     "Div": "Div", 
     "Do not show again": "No volver a mostrar", 
@@ -521,6 +527,7 @@
     "Enter the page number you'd like to quickly navigate to.": "Introduce el n\u00famero de p\u00e1gina a la que quieres ir", 
     "Enter the username or email address of each learner that you want to add as an exception.": "Introduce el nombre de usuario o correo electr\u00f3nico de cada alumno que quieras a\u00f1adir como excepci\u00f3n.", 
     "Enter username or email": "Introduce nombre de usuario o correo electr\u00f3nico", 
+    "Enter your question or comment": "Escribe tu pregunta o comentario", 
     "Entrance exam attempts is being reset for student '{student_id}'.": "El n\u00famero de intentos de examen ha sido reseteado para el alumno '{student_id}' .", 
     "Entrance exam state is being deleted for student '{student_id}'.": "El estado del examen inicial est\u00e1 siendo borrado para el alumno '{student_id}'.", 
     "Error": "Error", 
@@ -578,6 +585,7 @@
     "File {filename} exceeds maximum size of {maxFileSizeInMBs} MB": "El fichero {filename} supera el tama\u00f1o m\u00e1ximo de {maxFileSizeInMBs} MB", 
     "Files must be in JPEG or PNG format.": "Los ficheros deben tener un formato JPEG o PNG.", 
     "Fill browser": "Llenar navegador", 
+    "Filter and sort topics": "Filtra y ordena discusiones", 
     "Filter topics": "Todos los temas", 
     "Financial Assistance": "Asistencia finaciera", 
     "Find": "Buscar", 
@@ -587,6 +595,7 @@
     "Find previous": "Buscar anterior", 
     "Finish": "Finalizar", 
     "Follow": "Seguir", 
+    "Follow or unfollow posts": "Sigue o deja de seguir conversaciones", 
     "Following": "Siguiendo", 
     "Font Family": "Familia de fuentes", 
     "Font Sizes": "Tama\u00f1os de fuente", 
@@ -743,7 +752,7 @@
     "Live view of webcam": "Vista en directo de la c\u00e1mara web", 
     "Load Another File": "Cargar otro fichero", 
     "Load all responses": "Cargar todas las respuestas", 
-    "Load next %(numResponses)s responses": "Carga las siguientes {numResponses}  respuestas", 
+    "Load next %(numResponses)s responses": "Carga las siguientes %(numResponses)s  respuestas", 
     "Loading": "Cargando", 
     "Loading content": "Cargando contenido", 
     "Loading data...": "Cargando datos...", 
@@ -923,6 +932,7 @@
     "Please verify that your webcam is connected and that you have allowed your browser to access it.": "Por favor, verifica que tu c\u00e1mara est\u00e1 conectada y que tiene acceso al navegador ", 
     "Post": "Publicar", 
     "Post body": "Cuerpo del mensaje", 
+    "Post type:": "Tipo de conversaci\u00f3n:", 
     "Poster": "Car\u00e1tula", 
     "Practice Proctored": "Pr\u00e1ctica supervisada", 
     "Practice proctored Exam": "Examen Supervisado de Prueba", 
@@ -959,6 +969,7 @@
     "Publishing": "Publicando", 
     "Publishing Status": "Estado de publicaci\u00f3n", 
     "Question": "Pregunta", 
+    "Questions raise issues that need answers. Discussions share ideas and start conversations.": "Las preguntas suscitan cuestiones que necesitan respuestas. Los debates permiten compartir ideas e iniciar conversaciones.", 
     "Queued": "Solicitado", 
     "Reason field should not be left blank.": "El campo del motivo no puede estar en blanco.", 
     "Receive updates": "Recibir actualizaciones", 
@@ -987,6 +998,7 @@
     "Reply to Annotation": "Responder a anotaci\u00f3n", 
     "Report": "Informar", 
     "Report abuse": "Informar de mal uso", 
+    "Report abuse, topics, and responses": "Denuncia conversaciones y respuestas negativas", 
     "Report annotation as inappropriate or offensive.": "Denunciar comentario como inapropiado u ofensivo.", 
     "Reported": "Informado", 
     "Requester": "Solicitante", 
@@ -1059,8 +1071,12 @@
     "Show blocks": "Mostrar bloques", 
     "Show invisible characters": "Mostrar caracteres invisibles", 
     "Show notes": "Mostrar notas", 
-    "Show posts by %(username)s.": "Mostrar publicaciones de {username}.", 
+    "Show posts by %(username)s.": "Mostrar publicaciones de %(username)s.", 
     "Showing all responses": "Mostrando todas las respuestas", 
+    "Showing first response": [
+      "Mostrando la primera respuesta", 
+      "Mostrando las primeras %(numResponses)s respuestas"
+    ], 
     "Showing results for \"{searchString}\"": "Mostrando resultados de \"{searchString}\"", 
     "Showing {currentItemRange} out of {totalItemsCount}, filtered by {assetType}, sorted by {sortName} ascending": "Mostrando {currentItemRange} de un total de {totalItemsCound}, filtrado por {assetType} en orden ascendente de {sortName}", 
     "Showing {currentItemRange} out of {totalItemsCount}, filtered by {assetType}, sorted by {sortName} descending": "Mostrando {currentItemRange} de un total de {totalItemsCount}, filtrado por {assetType} en orden descendente de {sortName}", 
@@ -1275,6 +1291,7 @@
     "Tools": "Herramientas", 
     "Top": "Arriba", 
     "Topic": "Tema", 
+    "Topic Area:": "Tem\u00e1tica:", 
     "Topics": "Temas", 
     "Total": "Total", 
     "Total Number": "N\u00famero total", 
@@ -1340,6 +1357,7 @@
     "Url": "Url", 
     "Use Current Transcript": "Usar transcripci\u00f3n actual", 
     "Use as a Prerequisite": "Usar como Prerequisito:", 
+    "Use the Discussion Topics menu to find specific topics.": "Usa el men\u00fa de discusiones del debate para encontrar una conversaci\u00f3n espec\u00edfica.", 
     "Use the retake photo button if you are not pleased with your photo": "Usa el bot\u00f3n de retomar foto si no est\u00e1s a gusto con tu fotograf\u00eda", 
     "Use your webcam to take a photo of your ID. We will match this photo with the photo of your face and the name on your account.": "Emplea tu webcam para sacar una foto de tu documento de identidad. Compararemos esta foto con tu propia foto y con el nombre de tu cuenta.", 
     "Use your webcam to take a photo of your face. We will match this photo with the photo on your ID.": "Utiliza tu webcam para sacarte una foto tipo carnet. Compararemos esta foto con la  que est\u00e1 en tu documento de identidad.", 
@@ -1388,9 +1406,12 @@
       "Viendo %s curso", 
       "Viendo %s cursos"
     ], 
+    "Visible To:": "Visible para:", 
     "Visible to Staff Only": "S\u00f3lo visible para empleados", 
     "Visual aids": "Ayudas visuales", 
     "Volume": "Volumen", 
+    "Vote for good posts and responses": "Valora positivamente comentarios y respuestas", 
+    "Vote for this post,": "Vota esta conversaci\u00f3n,", 
     "Want to confirm your identity later?": "\u00bfDeseas confirmar tu identidad m\u00e1s tarde?", 
     "Warning": "Aviso", 
     "Warnings": "Avisos", 
@@ -1569,6 +1590,10 @@
     "strong text": "texto con \u00e9nfasis", 
     "subsection": "subdivisi\u00f3n", 
     "team count": "recuento de equipo", 
+    "there is currently %(numVotes)s vote": [
+      "Hay actualmente %(numVotes)s voto", 
+      "Hay actualmente %(numVotes)s votos"
+    ], 
     "title": "T\u00edtulo", 
     "unanswered question": "pregunta no respondida", 
     "unit": "unidad", 
