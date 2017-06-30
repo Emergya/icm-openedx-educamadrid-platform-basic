@@ -50,11 +50,10 @@ import urllib
       </a>
       % if course.facebook_course_page is not None and '.facebook.com/' in course.facebook_course_page:
         <a href="${course.facebook_course_page}" target="_blank" class="share">
-      % else:
-        <a href="${facebook_link}" target="_blank" class="share">
+          <i class="icon fa fa-thumbs-up"></i>
+          <span class="sr">${_("Post a Facebook message to say you've enrolled in this course")}</span>
+        </a>
       % endif
-        <i class="icon fa fa-thumbs-up"></i><span class="sr">${_("Post a Facebook message to say you've enrolled in this course")}</span>
-      </a>
       <a href="${email_subject}" class="share">
         <span class="icon fa fa-envelope" aria-hidden="true"></span><span class="sr">${_("Email someone to say you've enrolled in this course")}</span>
       </a>
