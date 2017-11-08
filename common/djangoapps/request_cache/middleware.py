@@ -35,7 +35,13 @@ class RequestCache(object):
         """
         This method is deprecated. Please use :func:`request_cache.get_request`.
         """
-        return crum.get_current_request()
+        request = crum.get_current_request()
+        if not request:
+            try:
+                request = REQUEST_CACHE.__dict__['data']['edxmako']['request_context']['request']
+            except Exception:
+                pass
+        return request
 
     @classmethod
     def clear_request_cache(cls):
