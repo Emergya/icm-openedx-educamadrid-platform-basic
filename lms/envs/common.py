@@ -1097,6 +1097,7 @@ MIDDLEWARE_CLASSES = (
     'header_control.middleware.HeaderControlMiddleware',
     'microsite_configuration.middleware.MicrositeMiddleware',
     'django_comment_client.middleware.AjaxExceptionMiddleware',
+    'django_comment_client.middleware.HaveCourseDiscussionTab',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
 
