@@ -38,6 +38,8 @@ class HaveCourseDiscussionTab(object):
                 if course.tabs:
                     for tab in course.tabs:
                         if tab.type == 'discussion':
+                            if tab.is_hidden:
+                                raise Http404
                             discussion_in_course = True
                             break
                 if not discussion_in_course:
