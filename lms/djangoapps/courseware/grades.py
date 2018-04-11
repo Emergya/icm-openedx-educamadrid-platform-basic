@@ -456,12 +456,16 @@ def grade_for_percentage(grade_cutoffs, percentage):
     return letter_grade
 
 
-def progress_summary(student, course, course_structure=None):
+def progress_summary(student, course, course_structure=None,  outer_atomic_value=False):
     """
     Returns progress summary for all chapters in the course.
     """
 
-    progress = _progress_summary(student, course, course_structure)
+    if outer_atomic_value:
+        progress = _progress_summary_without_outer_atomic(student, course, course_structure)
+    else:
+        progress = _progress_summary(student, course, course_structure)
+
     if progress:
         return progress.chapters
     else:
@@ -512,6 +516,94 @@ def _progress_summary(student, course, course_structure=None):
         submissions_scores = sub_api.get_scores(
             unicode(course.id), anonymous_id_for_user(student, course.id)
         )
+
+    # Check for gated content
+    gated_content = gating_api.get_gated_content(course, student)
+
+    chapters = []
+    locations_to_weighted_scores = {}
+
+    for chapter_key in course_structure.get_children(course_structure.root_block_usage_key):
+        chapter = course_structure[chapter_key]
+        sections = []
+        for section_key in course_structure.get_children(chapter_key):
+            if unicode(section_key) in gated_content:
+                continue
+
+            section = course_structure[section_key]
+
+            graded = getattr(section, 'graded', False)
+            scores = []
+
+            for descendant_key in course_structure.post_order_traversal(
+                    filter_func=possibly_scored,
+                    start_node=section_key,
+            ):
+                descendant = course_structure[descendant_key]
+
+                (correct, total) = get_score(
+                    student,
+                    descendant,
+                    scores_client,
+                    submissions_scores,
+                )
+                if correct is None and total is None:
+                    continue
+
+                weighted_location_score = Score(
+                    correct,
+                    total,
+                    graded,
+                    block_metadata_utils.display_name_with_default_escaped(descendant),
+                    descendant.location
+                )
+
+                scores.append(weighted_location_score)
+                locations_to_weighted_scores[descendant.location] = weighted_location_score
+
+            escaped_section_name = block_metadata_utils.display_name_with_default_escaped(section)
+            section_total, _ = graders.aggregate_scores(scores, escaped_section_name)
+
+            sections.append({
+                'display_name': escaped_section_name,
+                'url_name': block_metadata_utils.url_name_for_block(section),
+                'scores': scores,
+                'section_total': section_total,
+                'format': getattr(section, 'format', ''),
+                'due': getattr(section, 'due', None),
+                'graded': graded,
+            })
+
+        chapters.append({
+            'course': course.display_name_with_default_escaped,
+            'display_name': block_metadata_utils.display_name_with_default_escaped(chapter),
+            'url_name': block_metadata_utils.url_name_for_block(chapter),
+            'sections': sections
+        })
+
+    return ProgressSummary(chapters, locations_to_weighted_scores, course_structure.get_children)
+
+
+def _progress_summary_without_outer_atomic(student, course, course_structure=None):
+    """
+    Modification of the '_progress_summary' function, for requests without the use of outer_atomic_transactions
+    """
+    if course_structure is None:
+        course_structure = get_course_blocks(student, course.location)
+    if not len(course_structure):
+        return None
+    scorable_locations = [block_key for block_key in course_structure if possibly_scored(block_key)]
+
+    scores_client = ScoresClient.create_for_locations(course.id, student.id, scorable_locations)
+
+    # We need to import this here to avoid a circular dependency of the form:
+    # XBlock --> submissions --> Django Rest Framework error strings -->
+    # Django translation --> ... --> courseware --> submissions
+    from submissions import api as sub_api  # installed from the edx-submissions repository
+
+    submissions_scores = sub_api.get_scores(
+        unicode(course.id), anonymous_id_for_user(student, course.id)
+    )
 
     # Check for gated content
     gated_content = gating_api.get_gated_content(course, student)

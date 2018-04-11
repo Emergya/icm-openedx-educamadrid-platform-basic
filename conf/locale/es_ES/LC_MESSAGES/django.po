@@ -24145,6 +24145,138 @@ msgstr ""
 "Se creó una nueva revisión: Fusión entre la Revisión #%(r1)d y la Revisión "
 "#%(r2)d"
 
+#: badggesconnector-xblock
+msgid "Check the wrong form fields"
+msgstr "Compruebe los campos incorrectos del formulario"
+
+#: badggesconnector-xblock
+msgid "You must enter a correct badge id"
+msgstr "Debes introducir un identificador de insignia correcto"
+
+#: badggesconnector-xblock
+msgid "You must enter a number between 0 and 100"
+msgstr "Debes introducir un número entre 0 y 100"
+
+#: badggesconnector-xblock
+msgid "You must enter a message"
+msgstr "Debes introducir un mensaje"
+
+#: badggesconnector-xblock
+msgid "TOTAL GRADE"
+msgstr "PUNTUACIÓN TOTAL"
+
+#: badggesconnector-xblock
+msgid "Keep working"
+msgstr "Sigue trabajando"
+
+#: badggesconnector-xblock
+msgid "So far you have not reached the grade needed to claim the badge for this course."
+msgstr "De momento no has obtenido la puntuación necesaria para conseguir la insignia de este curso."
+
+#: badggesconnector-xblock
+msgid "Keep working. You will need at least a grade of"
+msgstr "Sigue trabajando. Necesitas al menos un"
+
+#: badggesconnector-xblock
+msgid "to claim the badge for this course."
+msgstr "de puntuación para conseguir la insignia de este curso."
+
+#: badggesconnector-xblock
+msgid "See course progress"
+msgstr "Ver progreso del curso"
+
+#: badggesconnector-xblock
+msgid "Congratulations"
+msgstr "Enhorabuena"
+
+#: badggesconnector-xblock
+msgid "You have earned a badge for the course"
+msgstr "Has conseguido la insignia del curso"
+
+#: badggesconnector-xblock
+msgid "Click on the button \"Claim your badge\" to add it to your backpack in Educa Madrid Insignias."
+msgstr "Pulsa el botón \"Consigue tu insignia\" para añadirla a tu mochila de Educa Madrid Insignias."
+
+#: badggesconnector-xblock
+msgid "Your badge is now available in your backpack in Educa Madrid Insignias."
+msgstr "Tu insignia ya está disponible en tu mochila de Educa Madrid Insignias."
+
+#: badggesconnector-xblock
+msgid "See badge."
+msgstr "Ver insignia."
+
+#: badggesconnector-xblock
+msgid "Badge earned"
+msgstr "Insignia conseguida"
+
+#: badggesconnector-xblock
+msgid "You have earned a badge of this block for the course"
+msgstr "Has conseguido la insignia de este bloque del curso"
+
+#: badggesconnector-xblock
+msgid "You have earned a badge for the subsection"
+msgstr "Has conseguido la insignia de la subsección"
+
+#: badggesconnector-xblock
+msgid "of the course"
+msgstr "del curso"
+
+#: badggesconnector-xblock
+msgid "You have earned a badge for the section"
+msgstr "Has conseguido la insignia de la sección"
+
+#: badggesconnector-xblock
+msgid "Deadline finished"
+msgstr "Plazo finalizado"
+
+#: badggesconnector-xblock
+msgid "The deadline to claim the badge for this course has finished."
+msgstr "El plazo para conseguir la insignia de este curso ha finalizado."
+
+#: badggesconnector-xblock
+msgid "The deadline to claim this badge has finished so it is no longer possible to issue this badge."
+msgstr "El plazo para conseguir la insignia ha terminado por lo que ya no es posible emitirla."
+
+#: badggesconnector-xblock
+msgid "Deadline to claim badge finished"
+msgstr "Plazo para conseguir insignia finalizado"
+
+#: badggesconnector-xblock
+msgid "We have detected a connection error with Educa Madrid Insignias."
+msgstr "Hemos detectado un error de conexión con Educa Madrid Insignias."
+
+#: badggesconnector-xblock
+msgid "Something is wrong"
+msgstr "Algo va mal"
+
+#: badggesconnector-xblock
+msgid "Please, wait for a few seconds and refresh your browser window or click to"
+msgstr "Por favor, espera unos segundos y actualiza la ventana del explorador o pulsa"
+
+#: badggesconnector-xblock
+msgid "try again"
+msgstr "volver a intentar"
+
+#: badggesconnector-xblock
+msgid "We have detected that you do not have a user account in Educa Madrid Insignias. Please,"
+msgstr "Hemos detectado que no estás registrado en Educa Madrid Insignias. Por favor,"
+
+#: badggesconnector-xblock
+msgid "in Educa Madrid Insignias with the same name and email address you used to register on this platform so that we can issue and store your badge."
+msgstr "en Educa Madrid Insignias con el mismo nombre y dirección de correo electrónico con los que estás registrado en esta plataforma para que podamos emitir y almacenar tu insignia."
+
+#: badggesconnector-xblock
+msgid "create a user account"
+msgstr "regístrate"
+
+#: badggesconnector-xblock
+msgid "Processing request"
+msgstr "Procesando petición"
+
+#: badggesconnector-xblock
+msgid "Get your badge"
+msgstr "Consigue tu insignia"
+
 #~ msgid "Empty"
 #~ msgstr "Vacío"
 

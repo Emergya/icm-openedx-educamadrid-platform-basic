@@ -3026,3 +3026,9 @@ if DEBUG:
     logger.addHandler(logging.StreamHandler())
     logger.setLevel(logging.DEBUG)
 
+# INSIGNIAS
+DOMAIN_API = "http://ci-desarrollo-productos-insignias.emergyalabs.com"
+BADGES_INSTITUTION_ID = "4"
+EVIDENCE_BADGES = "http://innovamooc.educa.madrid.org/"
+BADGES_API_AUTH_USER = "gestor2@emergya.com"
+
