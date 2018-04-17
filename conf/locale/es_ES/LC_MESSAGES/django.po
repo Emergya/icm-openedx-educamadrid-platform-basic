@@ -24145,6 +24145,20 @@ msgstr ""
 "Se creó una nueva revisión: Fusión entre la Revisión #%(r1)d y la Revisión "
 "#%(r2)d"
 
+#: lms/templates/dashboard/_dashboard_course_listing.html
+msgid "Ended"
+msgstr "Finalizados"
+
+#: lms/templates/dashboard/_dashboard_course_listing.html
+msgctxt "singular"
+msgid "Ended"
+msgstr "Finalizado"
+
+#: lms/templates/courseware/courses.html
+msgctxt "Male"
+msgid "See all"
+msgstr "Ver todos"
+
 #~ msgid "Empty"
 #~ msgstr "Vacío"
 

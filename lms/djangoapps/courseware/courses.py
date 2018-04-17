@@ -2,7 +2,7 @@
 Functions for accessing and displaying courses within the
 courseware.
 """
-from datetime import datetime
+from datetime import datetime, timedelta
 from collections import defaultdict
 from fs.errors import ResourceNotFoundError
 import logging
@@ -11,6 +11,7 @@ from path import Path as path
 import pytz
 from django.http import Http404
 from django.conf import settings
+from django.utils.timezone import UTC
 
 from edxmako.shortcuts import render_to_string
 from xmodule.modulestore import ModuleStoreEnum
@@ -296,6 +297,25 @@ def get_course_info_section(request, user, course, section_key):
     return html
 
 
+def get_course_class(course):
+    """
+    Returns a class, in text, for the template to render
+    different border colors if the course is started or ended.
+    """
+    now = datetime.now(UTC())
+    if course.end:
+        if course.start < now and course.end > now:
+            return "in-progress"
+        elif now > course.start and now > course.end:
+            return "ended"
+        else:
+            return "coming-soon"
+    elif course.start < now:
+        return "in-progress"
+    else:
+        return "coming-soon"
+
+
 def get_course_date_summary(course, user):
     """
     Return the snippet of HTML to be included on the course info page
@@ -390,6 +410,21 @@ def get_courses(user, org=None, filter_=None):
     return courses
 
 
+def filter_courses_starting_soon(courses):
+    """
+    From a list of courses it gets the four next courses starting
+    in a week and order them by the date.
+    """
+    filtered_courses = []
+    now = datetime.now(UTC())
+    announcement_date = now + timedelta(days=settings.FEATURES.get('DAYS_BEFORE_START_ANNOUNCEMENT', 7))
+    for course in courses:
+        if now < course.start < announcement_date:
+            filtered_courses.append(course)
+
+    return filtered_courses
+
+
 def get_permission_for_course_about():
     """
     Returns the CourseOverview object for the course after checking for access.
@@ -411,6 +446,10 @@ def sort_by_announcement(courses):
     courses = sorted(courses, key=key)
 
     return courses
+
+
+def filter_courses_status(status, courses_list):
+    return [cour for cour in courses_list if get_course_class(cour) == status]
 
 
 def sort_by_start_date(courses):

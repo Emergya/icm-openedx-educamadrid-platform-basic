@@ -52,6 +52,7 @@ from courseware.access_utils import in_preview_mode
 from courseware.courses import (
     get_courses,
     get_course,
+    filter_courses_status,
     get_course_by_id,
     get_permission_for_course_about,
     get_studio_url,
@@ -59,6 +60,7 @@ from courseware.courses import (
     get_course_with_access,
     sort_by_announcement,
     sort_by_start_date,
+    filter_courses_starting_soon,
     UserNotEnrolled
 )
 from courseware.masquerade import setup_masquerade
@@ -128,7 +130,6 @@ def user_groups(user):
 
 
 @ensure_csrf_cookie
-@cache_if_anonymous()
 def courses(request):
     """
     Render "find courses" page.  The course selection work is done in courseware.courses.
@@ -137,18 +138,28 @@ def courses(request):
     course_discovery_meanings = getattr(settings, 'COURSE_DISCOVERY_MEANINGS', {})
     if not settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
         courses_list = get_courses(request.user)
+        courses_starting_soon = filter_courses_starting_soon(courses_list)
+        courses_list = set(courses_list) - set(courses_starting_soon)
+        courses_list = list(courses_list)
+
+        if 'status' in request.GET:
+            courses_list = filter_courses_status(request.GET.get("status"), courses_list)
 
         if configuration_helpers.get_value(
                 "ENABLE_COURSE_SORTING_BY_START_DATE",
                 settings.FEATURES["ENABLE_COURSE_SORTING_BY_START_DATE"]
         ):
             courses_list = sort_by_start_date(courses_list)
+            courses_starting_soon = sort_by_start_date(courses_starting_soon)
         else:
             courses_list = sort_by_announcement(courses_list)
+            courses_starting_soon = sort_by_announcement(courses_starting_soon)
 
     return render_to_response(
         "courseware/courses.html",
-        {'courses': courses_list, 'course_discovery_meanings': course_discovery_meanings}
+        {'courses': courses_list,
+         'course_discovery_meanings': course_discovery_meanings,
+         'courses_starting_soon': courses_starting_soon}
     )
 
 
@@ -340,7 +351,7 @@ def course_info(request, course_id):
 
         now = datetime.now(UTC())
         effective_start = _adjust_start_date_for_beta_testers(user, course, course_key)
-        if not in_preview_mode() and staff_access and now < effective_start:
+        if staff_access and now < effective_start:
             # Disable student view button if user is staff and
             # course is not yet visible to students.
             context['disable_student_access'] = True

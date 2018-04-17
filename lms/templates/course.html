@@ -3,9 +3,10 @@
 <%!
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
+from courseware.courses import get_course_class
 %>
 <%page args="course" expression_filter="h"/>
-<article class="course" id="${course.id}" role="region" aria-label="${course.display_name_with_default}">
+<article class="course ${get_course_class(course)}" id="${course.id}" role="region" aria-label="${course.display_name_with_default}">
   <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
     <header class="course-image">
       <div class="cover-image">

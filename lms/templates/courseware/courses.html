@@ -1,7 +1,9 @@
 <%!
   import json
-  from django.utils.translation import ugettext as _
+  from django.utils.translation import pgettext, ugettext as _
   from openedx.core.djangolib.js_utils import dump_js_escaped_json
+  from courseware.courses import get_course_class
+  from django.core.urlresolvers import reverse_lazy
 %>
 <%inherit file="../main.html" />
 <%
@@ -53,16 +55,40 @@
         </div>
         % endif
 
+    <div class="cfilters">
+      <a class="filter-all"  href="${reverse_lazy('courses')}">${pgettext("Male", "See all")}</a>
+      <a class="filter-coming
+      %if 'status' in request.GET:
+       %if 'coming-soon' in request.GET['status']:
+          active
+        %endif
+      %endif
+	" href="${'%s?status=coming-soon' % reverse_lazy('courses')}">${_("Coming Soon")}</a>
+      <a class="filter-inprogress
+       %if 'status' in request.GET:
+        %if 'in-progress' in request.GET['status']:
+          active
+        %endif
+       %endif
+        " href="${'%s?status=in-progress' % reverse_lazy('courses')}">${_("In Progress")}</a>
+      <a class="filter-ended
+      %if 'status' in request.GET:
+       %if 'ended' in request.GET['status']:
+          active
+        %endif
+       %endif
+        " href="${'%s?status=ended' % reverse_lazy('courses')}">${_("Ended")}</a>
+    </div>
+
         <div class="courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
           <ul class="courses-listing">
             %for course in courses:
-            <li class="courses-listing-item">
-              <%include file="../course.html" args="course=course" />
-            </li>
+              <li class="courses-listing-item">
+                <%include file="../course.html" args="course=course" />
+              </li>
             %endfor
           </ul>
         </div>
-
 
         % if course_discovery_enabled:
         <aside aria-label="${_('Refine Your Search')}" class="search-facets phone-menu">
