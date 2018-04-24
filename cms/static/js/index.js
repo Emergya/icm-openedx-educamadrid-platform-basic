@@ -95,6 +95,29 @@ define(["domReady", "jquery", "underscore", "js/utils/cancel_on_escape", "js/vie
             CreateCourseUtils.configureHandlers();
         };
 
+        var removeCourse = function (e) {
+            e.preventDefault();
+            $(this).attr('delete', true);
+            
+            ViewUtils.confirmThenRunOperation(
+                interpolate(
+                    gettext('Delete this course?'),
+                    true
+                ),
+                gettext('Delete this course is permanent and can not be undone.'),
+                interpolate(
+                    gettext('Yes, delete this course'),
+                    true
+                ),
+                function () {
+                    var element = $('.remove-course-button[delete=true]');
+                    if (element) {
+                        window.location.href = $(element).attr('data');
+                    }
+                }
+            );
+        };
+
         var saveNewLibrary = function (e) {
             e.preventDefault();
 
@@ -151,6 +174,8 @@ define(["domReady", "jquery", "underscore", "js/utils/cancel_on_escape", "js/vie
         var onReady = function () {
             $('.new-course-button').bind('click', addNewCourse);
             $('.new-library-button').bind('click', addNewLibrary);
+            // Remove course
+            $('.remove-course-button').bind('click', removeCourse);
 
             $('.dismiss-button').bind('click', ViewUtils.deleteNotificationHandler(function () {
                 ViewUtils.reload();

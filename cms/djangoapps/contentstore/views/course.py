@@ -11,7 +11,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound, Http404, HttpResponseRedirect
 from django.shortcuts import redirect
 import django.utils
 from django.utils.translation import ugettext as _
@@ -95,10 +95,17 @@ from xmodule.contentstore.content import StaticContent
 from xmodule.course_module import CourseFields
 from xmodule.course_module import DEFAULT_START_DATE
 from xmodule.error_module import ErrorDescriptor
-from xmodule.modulestore import EdxJSONEncoder
+from xmodule.modulestore import EdxJSONEncoder, ModuleStoreEnum
 from xmodule.modulestore.django import modulestore
 from xmodule.modulestore.exceptions import ItemNotFoundError, DuplicateCourseError
 from xmodule.tabs import CourseTab, CourseTabList, InvalidTabsException
+
+from cms.djangoapps.contentstore.management.commands import delete_orphans
+from django.core.management import call_command
+from django.core.management.base import CommandError
+from contentstore.utils import delete_course_and_groups
+from django.contrib import messages
+from django.contrib.messages import get_messages
 
 
 log = logging.getLogger(__name__)
@@ -111,7 +118,8 @@ __all__ = ['course_info_handler', 'course_handler', 'course_listing',
            'advanced_settings_handler',
            'course_notifications_handler',
            'textbooks_list_handler', 'textbooks_detail_handler',
-           'group_configurations_list_handler', 'group_configurations_detail_handler']
+           'group_configurations_list_handler', 'group_configurations_detail_handler',
+           'remove_course']
 
 
 class AccessListFallback(Exception):
@@ -277,6 +285,32 @@ def course_handler(request, course_key_string=None):
             return HttpResponseNotFound()
     except InvalidKeyError:
         raise Http404
+
+
+@login_required
+@ensure_csrf_cookie
+@require_http_methods(["GET"])
+def remove_course(request, course_key_string):
+    if not GlobalStaff().has_user(request.user):
+        raise PermissionDenied()
+
+    try:
+        # Delete orphans
+        call_command('delete_orphans', course_key_string, '--commit')
+
+        # Get CourseKey
+        course_key = CourseKey.from_string(course_key_string)
+
+        # Delete course
+        if modulestore().get_course(course_key):
+            delete_course_and_groups(course_key, ModuleStoreEnum.UserID.mgmt_command)
+    except (CommandError, InvalidKeyError, Exception) as e:
+        log.exception(e)
+        messages.add_message(request, messages.ERROR, _('An error occurred while deleting the course.'))
+        return HttpResponseRedirect(reverse('home'))
+    
+    messages.add_message(request, messages.SUCCESS, _('The course has been deleted correctly.'))
+    return HttpResponseRedirect(reverse('home'))
 
 
 @login_required
@@ -512,6 +546,8 @@ def course_listing(request):
     courses = _remove_in_process_courses(courses, in_process_course_actions)
     in_process_course_actions = [format_in_process_course_view(uca) for uca in in_process_course_actions]
 
+    after_remove_course = get_messages(request)
+
     return render_to_response('index.html', {
         'courses': courses,
         'in_process_course_actions': in_process_course_actions,
@@ -527,6 +563,7 @@ def course_listing(request):
         'is_programs_enabled': programs_config.is_studio_tab_enabled and request.user.is_staff,
         'programs': programs,
         'program_authoring_url': reverse('programs'),
+        'after_remove_course': after_remove_course
     })
 
 
@@ -657,7 +694,8 @@ def _remove_in_process_courses(courses, in_process_course_actions):
             'rerun_link': _get_rerun_link_for_item(course.id),
             'org': course.display_org_with_default,
             'number': course.display_number_with_default,
-            'run': course.location.run
+            'run': course.location.run,
+            'remove_course': reverse_course_url('remove_course', course.id),
         }
 
     in_process_action_course_keys = [uca.course_key for uca in in_process_course_actions]

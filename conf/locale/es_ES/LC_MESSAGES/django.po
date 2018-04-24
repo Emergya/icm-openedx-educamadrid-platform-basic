@@ -24145,6 +24145,18 @@ msgstr ""
 "Se creó una nueva revisión: Fusión entre la Revisión #%(r1)d y la Revisión "
 "#%(r2)d"
 
+#: remove-course-button
+msgid "An error occurred while deleting the course."
+msgstr "Se produjo un error al eliminar el curso."
+
+#: remove-course-button
+msgid "The course has been deleted correctly."
+msgstr "El curso ha sido eliminado correctamente."
+
+#: remove-course-button
+msgid "Remove Course"
+msgstr "Eliminar curso"
+
 #~ msgid "Empty"
 #~ msgstr "Vacío"
 
