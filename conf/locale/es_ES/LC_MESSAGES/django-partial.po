@@ -11402,6 +11402,18 @@ msgstr ""
 msgid "%s option does not take a value"
 msgstr ""
 
+#: remove-course-button
+msgid "Delete this course?"
+msgstr "¿Eliminar este curso?"
+
+#: remove-course-button
+msgid "Delete this course is permanent and can not be undone."
+msgstr "Eliminar este curso es permanente y no se puede deshacer."
+
+#: remove-course-button
+msgid "Yes, delete this course"
+msgstr "Sí, borrar este curso"
+
 #~ msgid "Congratulations!  You are now enrolled in {course_name}"
 #~ msgstr "¡Enhorabuena! Te has inscrito en {course_name}"
 

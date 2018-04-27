@@ -4760,6 +4760,37 @@ msgstr[1] "%(num_questions)s preguntas"
 msgid "Number of Students"
 msgstr "Número de alumnos"
 
+#: remove-course-button
+msgid "Delete this course?"
+msgstr "¿Eliminar este curso?"
+
+#: remove-course-button
+msgid "Delete this course is permanent and can not be undone."
+msgstr "Eliminar este curso es permanente y no se puede deshacer."
+
+#: remove-course-button
+msgid "Yes, delete this course"
+msgstr "Sí, borrar este curso"
+
+#: openassessment/xblock/static/js/openassessment-lms.min.js
+#: openassessment/xblock/static/js/src/lms/oa_response.js
+msgid "This response has not been saved."
+msgstr "Esta respuesta no se ha guardado."
+
+#: openassessment/xblock/static/js/openassessment-lms.min.js
+#: openassessment/xblock/static/js/src/lms/oa_response.js
+msgid "This response has been saved but not submitted."
+msgstr "Esta respuesta se ha guardado pero no se ha enviado."
+
+#: openassessment/xblock/static/js/openassessment-lms.min.js
+#: openassessment/xblock/static/js/src/lms/oa_response.js
+msgid ""
+"You're about to submit your response for this assignment. After you submit "
+"this response, you can't change it or submit a new response."
+msgstr ""
+"Estás a punto de enviar tu respuesta para este ejercicio. Después de enviar "
+"esta respuesta, no podrás cambiarla o enviar una nueva."
+
 #: cms/static/cms/js/xblock/cms.runtime.v1.js
 msgid "OpenAssessment Save Error"
 msgstr "Error al guardar OpenAssessment"
