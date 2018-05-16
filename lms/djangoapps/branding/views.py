@@ -44,7 +44,6 @@ def get_course_enrollments(user):
 
 
 @ensure_csrf_cookie
-@cache_if_anonymous()
 def index(request):
     '''
     Redirects to main page -- info page if user authenticated, or marketing if not
@@ -91,7 +90,6 @@ def index(request):
 
 
 @ensure_csrf_cookie
-@cache_if_anonymous()
 def courses(request):
     """
     Render the "find courses" page. If the marketing site is enabled, redirect

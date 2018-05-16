@@ -24157,6 +24157,20 @@ msgstr "El curso ha sido eliminado correctamente."
 msgid "Remove Course"
 msgstr "Eliminar curso"
 
+#: lms/templates/dashboard/_dashboard_course_listing.html
+msgid "Ended"
+msgstr "Finalizados"
+
+#: lms/templates/dashboard/_dashboard_course_listing.html
+msgctxt "singular"
+msgid "Ended"
+msgstr "Finalizado"
+
+#: lms/templates/courseware/courses.html
+msgctxt "Male"
+msgid "See all"
+msgstr "Ver todos"
+
 #~ msgid "Empty"
 #~ msgstr "Vacío"
 
