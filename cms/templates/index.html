@@ -18,6 +18,38 @@ from openedx.core.djangolib.markup import HTML, Text
 </%block>
 
 <%block name="content">
+
+% if after_remove_course:
+  <div id="page-alert" style="display: block;">
+    % for message in messages:
+    <div class="wrapper
+    % if message.tags == 'success':
+      wrapper-alert wrapper-alert-announcement
+    % elif message.tags == 'error':
+      wrapper-notification wrapper-notification-error
+    % endif
+    is-shown" id="alert-announcement" aria-hidden="false" aria-labelledby="alert-announcement-title" tabindex="-1" aria-describedby="alert-announcement-description">
+      <div class="alert announcement ">
+        <span class="feedback-symbol fa
+        % if message.tags == 'success':
+          fa-bullhorn
+        % elif message.tags == 'error':
+          fa-warning
+        % endif 
+        " aria-hidden="true"></span>
+        <div class="copy">
+          <p class="message" id="alert-announcement-description">${message}</p>
+        </div>
+        <a href="#" rel="view" class="action action-close action-alert-close">
+          <span class="icon fa fa-times-circle" aria-hidden="true"></span>
+          <span class="label">close alert</span>
+        </a>
+      </div>
+    </div>
+    % endfor
+  </div>
+% endif
+
 <div class="wrapper-mast wrapper">
   <header class="mast has-actions">
     <h1 class="page-header">${_("{studio_name} Home").format(studio_name=settings.STUDIO_SHORT_NAME)}</h1>
@@ -332,6 +364,9 @@ from openedx.core.djangolib.markup import HTML, Text
             </a>
 
             <ul  class="item-actions course-actions">
+              <li class="action action-rerun">
+                <a href="#" data="${course_info['remove_course']}" class="button remove-course-button">${_("Remove Course")}</a>
+              </li>
               % if allow_course_reruns and rerun_creator_status and course_creator_status=='granted':
               <li class="action action-rerun">
                 <a href="${course_info['rerun_link']}" class="button rerun-button">${_("Re-run Course")}</a>
