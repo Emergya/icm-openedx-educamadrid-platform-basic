@@ -11414,6 +11414,32 @@ msgstr "Eliminar este curso es permanente y no se puede deshacer."
 msgid "Yes, delete this course"
 msgstr "Sí, borrar este curso"
 
+#: remove-course-button
+msgid "An error occurred while deleting the course."
+msgstr "Se produjo un error al eliminar el curso."
+
+#: remove-course-button
+msgid "The course has been deleted correctly."
+msgstr "El curso ha sido eliminado correctamente."
+
+#: remove-course-button
+msgid "Remove Course"
+msgstr "Eliminar curso"
+
+#: lms/templates/dashboard/_dashboard_course_listing.html
+msgid "Ended"
+msgstr "Finalizados"
+
+#: lms/templates/dashboard/_dashboard_course_listing.html
+msgctxt "singular"
+msgid "Ended"
+msgstr "Finalizado"
+
+#: lms/templates/courseware/courses.html
+msgctxt "Male"
+msgid "See all"
+msgstr "Ver todos"
+
 #~ msgid "Congratulations!  You are now enrolled in {course_name}"
 #~ msgstr "¡Enhorabuena! Te has inscrito en {course_name}"
 

@@ -9466,18 +9466,6 @@ msgstr ""
 msgid "Use Current Transcript"
 msgstr "Usar transcripción actual"
 
-#: remove-course-button
-msgid "Delete this course?"
-msgstr "¿Eliminar este curso?"
-
-#: remove-course-button
-msgid "Delete this course is permanent and can not be undone."
-msgstr "Eliminar este curso es permanente y no se puede deshacer."
-
-#: remove-course-button
-msgid "Yes, delete this course"
-msgstr "Sí, borrar este curso"
-
 #~ msgid "Outline"
 #~ msgstr "Estructura"
 
