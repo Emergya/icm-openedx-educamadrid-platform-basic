@@ -75,7 +75,9 @@ from opaque_keys.edx.locator import CourseLocator
 
 from collections import namedtuple
 
-from courseware.courses import get_courses, sort_by_announcement, sort_by_start_date  # pylint: disable=import-error
+from courseware.courses import (get_courses, get_course_class, sort_by_announcement,
+                                sort_by_start_date, filter_courses_starting_soon,
+                                filter_courses_status)  # pylint: disable=import-error
 from courseware.access import has_access
 
 from django_comment_common.models import Role
@@ -165,16 +167,25 @@ def index(request, extra_context=None, user=AnonymousUser()):
         extra_context = {}
 
     courses = get_courses(user)
+    courses_starting_soon = filter_courses_starting_soon(courses)
+    courses = set(courses) - set(courses_starting_soon)
+    courses = list(courses)
+
+    if 'status' in request.GET:
+        courses = filter_courses_status(request.GET.get("status"), courses)
 
     if configuration_helpers.get_value(
             "ENABLE_COURSE_SORTING_BY_START_DATE",
             settings.FEATURES["ENABLE_COURSE_SORTING_BY_START_DATE"],
     ):
         courses = sort_by_start_date(courses)
+        courses_starting_soon = sort_by_start_date(courses_starting_soon)
     else:
         courses = sort_by_announcement(courses)
+        courses_starting_soon = sort_by_announcement(courses_starting_soon)
 
-    context = {'courses': courses}
+    context = {'courses': courses,
+               'courses_starting_soon': courses_starting_soon}
 
     context['homepage_overlay_html'] = configuration_helpers.get_value('homepage_overlay_html')
 
@@ -260,6 +271,10 @@ def reverification_info(statuses):
         if reverifications[status]:
             reverifications[status].sort(key=lambda x: x.date)
     return reverifications
+
+
+def filter_course_enrollments_status(status, enrollments_list):
+    return [cour for cour in enrollments_list if get_course_class(cour.course_overview) == status]
 
 
 def get_course_enrollments(user, org_to_include, orgs_to_exclude):
@@ -574,6 +589,9 @@ def dashboard(request):
     # longer exist (because the course IDs have changed). Still, we don't delete those
     # enrollments, because it could have been a data push snafu.
     course_enrollments = list(get_course_enrollments(user, course_org_filter, org_filter_out_set))
+
+    if 'status' in request.GET:
+        course_enrollments = filter_course_enrollments_status(request.GET.get("status"), course_enrollments)
 
     # sort the enrollment pairs by the enrollment date
     course_enrollments.sort(key=lambda x: x.created, reverse=True)

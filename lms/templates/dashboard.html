@@ -3,8 +3,8 @@
 <%def name="online_help_token()"><% return "learnerdashboard" %></%def>
 <%namespace name='static' file='static_content.html'/>
 <%!
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.utils.translation import pgettext, ugettext as _
 from django.template import RequestContext
 import third_party_auth
 from third_party_auth import pipeline
@@ -80,6 +80,30 @@ from openedx.core.djangolib.markup import HTML, Text
       <div class="my-courses" id="my-courses">
         <header class="wrapper-header-courses">
           <h2 class="header-courses">${_("My Courses")}</h2>
+          <div class="cfilters dashboard">
+           <a class="filter-all"  href="${reverse_lazy('dashboard')}">${pgettext("Male", "See all")}</a>
+           <a class="filter-coming
+             %if 'status' in request.GET:
+              %if 'coming-soon' in request.GET['status']:
+                 active
+               %endif
+             %endif
+           " href="${'%s?status=coming-soon' % reverse_lazy('dashboard')}">${_("Coming Soon")}</a>
+           <a class="filter-inprogress
+              %if 'status' in request.GET:
+               %if 'in-progress' in request.GET['status']:
+                 active
+               %endif
+              %endif
+               " href="${'%s?status=in-progress' % reverse_lazy('dashboard')}">${_("In Progress")}</a>
+           <a class="filter-ended
+             %if 'status' in request.GET:
+              %if 'ended' in request.GET['status']:
+                 active
+               %endif
+              %endif
+               " href="${'%s?status=ended' % reverse_lazy('dashboard')}">${_("Ended")}</a>
+         </div>
         </header>
 
 
